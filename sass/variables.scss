@@ -1,0 +1,97 @@
+$font-montserrat:'Montserrat',sans-serif; 
+$font-open-sans: 'Open Sans', sans-serif;
+
+$size-title-h1: 2.8rem;
+
+
+
+
+//colores
+$blue-second: #171731;
+
+//url-imagenes
+
+
+
+//letras
+@mixin titles{
+    font-family: $font-montserrat;
+    font-weight: 700;
+}
+@mixin parrafos{
+    font-family: $font-open-sans;
+}
+@mixin h1{
+    @include titles;
+    font-size: 4rem;
+}
+@mixin h2 {
+    @include titles;
+    font-weight: 2.8rem;    
+}
+@mixin h3{
+    @include titles;
+    font-size: 1.8rem;
+
+}
+@mixin h4 {
+    @include titles;
+    font-weight: 1.6rem;
+}
+
+@mixin text-regular-28{
+    @include parrafos;
+    font-size: 2.8rem;
+    font-weight: 400;
+}
+
+@mixin text-bold-16 {
+    @include parrafos;
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+@mixin text-semi-bold-16 {
+    @include parrafos;
+    font-size: 1.6rem;
+    font-weight:600;
+    
+}
+@mixin text-regular-16 {
+    @include parrafos;
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+@mixin text-light-16 {
+    @include parrafos;
+    font-size: 1.6rem;
+    font-weight:300;
+    
+}
+
+@mixin text-regular-14 {
+    @include parrafos;
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+@mixin text-light-14 {
+    @include parrafos;
+    font-size: 1.4rem;
+    font-weight: 300;
+}
+
+@mixin text-regular-12 {
+    @include parrafos;
+    font-size: 1.2rem;
+    font-weight: 400;    
+}
+@mixin parrafo-light-12 {
+    @include parrafos;
+    font-size: 1.2rem;
+    font-weight: 300;  
+}
+
+@mixin parrafo-light-10{
+    @include parrafos;
+    font-size: 1.0rem;
+    font-weight: 300;
+}

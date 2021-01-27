@@ -1,0 +1,48 @@
+@import './variables.scss';
+
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    height: 54px;
+    background-color: #18122D ;
+    padding: 0px 25px 0 20px;
+
+    &__logo{
+        background: url("../assets/logo.png") center/cover no-repeat;
+        width:120px ;
+        height:47px;
+    }
+
+    &__icon{
+        font-size: 2.5rem;
+        color: white;
+    }
+
+    &__menu{
+        position: absolute;
+        top: 54px;
+        left: 0;
+        width: 100%;
+        padding: 20px 50px;
+        background-color: $blue-second;
+        // visibility: hidden;
+        opacity: 0.5;
+    }
+
+}
+
+
+.menu-container{
+
+    li{
+        @include h3;
+        padding: 10px 0;
+    }
+
+    li>a{
+        color: white;
+    }
+}

@@ -1,0 +1,19 @@
+@import './config-generales.scss';
+@import './variables.scss';
+
+
+.shop{
+
+
+    .product{
+        
+        &__header-container{
+
+        }
+
+        &__title{
+            @include h2;    
+        }
+    }
+
+}

@@ -63,18 +63,32 @@ ul {
   width: 100%;
   padding: 10px 15px;
 }
+.shop .product__representation-container :first-child {
+  width: 100%;
+  max-width: 460px;
+}
 .shop .product__representation-container .product__img {
+  position: relative;
   width: 100%;
   border-radius: 10px;
   overflow: hidden;
-  object-fit: contain;
+  padding-bottom: 100%;
 }
 .shop .product__representation-container .product__img img {
+  position: absolute;
   width: 100%;
   height: 100%;
 }
 .shop .product__representation-container .product__price {
   display: none;
+}
+
+.button-flat {
+  display: inline-block;
+  padding: 10px 5px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
 }
 
 /*# sourceMappingURL=shop.css.map */

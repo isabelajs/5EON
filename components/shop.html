@@ -8,25 +8,79 @@
 </head>
 <body>
         <div class="shop">
-            <div class="product">
-                <div class="product__header-container">
-                    <div class="product__title">${Set portavasos colorfull}</div>
-                    <div class="product__id">${codigo: 0001}</div>
-                    <div class="product__feedback-container">
-                        <div>test</div>
-                        <div class="product__feedbacks">${feedback} <span>(3)</span> </div>
-                        <div class="product__qualification"></div>
+
+            <div class="c-product">
+
+                <div class="l-product__header">
+
+                    <div class="c-product__title">${Set portavasos colorfull}</div>
+                    <div class="c-product__id">${codigo: 0001}</div>
+
+                    <div class="l-product__feedback">
+                        <div class="c-feedback__text">${feedback} <span>(3)</span> </div>
+                        <div class="c-feedback__qualification"></div>
                     </div>
                 </div>
 
-                <div class="product__representation-container">
-                    <div class="product__img">
-                        <img src="../assets/producto_1.png" alt="${producto xxx}" width="520" height="520">
+                <div class="l-product__representation">
+                    <div class="c-product__img">
+                        <div>
+                            <img src="../assets/producto_1.png" alt="${producto xxx}" width="520" height="520">
+                        </div>
+    
+                        <div class="c-product__price">
+                            <p>${13k} <span>${15k}</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="l-product__information">
+
+                    <div class="l-product__descriptions">
+                        <div class="c-description-item c-description-item--right">250 Gramos</div>
+                        <div class="c-description-item c-description-item--right">+3 Semillas</div>
+                        <div class="c-description-item">+3 colores</div>
                     </div>
 
-                    <div class="product__price">
-                        <p>${13k} <span>${15k}</span></p>
+                    <div class="l-product__units">
+                        <div class="c-button-small c-button--flat">4 Und.</div>
+                        <div class="c-button-small c-button--flat">6 Und.</div>
+                        <div class="c-button-small c-button--flat">12 Und.</div>
                     </div>
+
+                    <div class="l-product__colors">
+                        <div class="c-text">color:${blue}</div>
+
+                        <div class="l-product__colors-items">
+                            <div class="c-color c-color--blue">blue</div>
+                            <div class="c-color c-color--blue">blue</div>
+                            <div class="c-color c-color--blue">blue</div>
+                        </div>
+                    </div>
+
+
+                    <div class="l-product__quantity-total">
+
+                        <div class="l-product__quantity-increment">
+                            <div class="c-text"></div>
+                            <div class="c-increment">
+                                <div class="c-increment__button c-increment__button-plus"><i></i></div>
+                                <div class="c-increment__text"></div>
+                                <div class="c-increment__button c-increment__button-plus"><i></i></div>
+                            </div>
+                        </div>
+
+                        <div class="l-product__value-total">
+                            <div class="c-text"></div>
+                            <div class="c-text c-text--box"></div>
+                        </div>
+                        
+
+                    </div>
+
+
+                    <div class="c-button"></div>
+
                 </div>
             </div>
         </div>

@@ -19,7 +19,17 @@ ul {
 .shop .product__title {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
-  font-weight: 2.8rem;
+  font-size: 2.8rem;
+}
+.shop .product__id {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+.shop .product__feedback-container {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
 }
 
 /*# sourceMappingURL=shop.css.map */

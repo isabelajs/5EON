@@ -18,9 +18,11 @@ $blue-second: #171731;
 @mixin titles{
     font-family: $font-montserrat;
     font-weight: 700;
+    text-align: center
 }
 @mixin text{
     font-family: $font-open-sans;
+    text-align: center
 }
 @mixin h1{
     @include titles;

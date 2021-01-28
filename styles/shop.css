@@ -29,21 +29,25 @@ ul {
 .shop .product__title {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
+  text-align: center;
   font-size: 2.8rem;
 }
 .shop .product__id {
   font-family: "Open Sans", sans-serif;
+  text-align: center;
   font-size: 1.4rem;
   font-weight: 400;
 }
 .shop .product__feedback-container {
   font-family: "Open Sans", sans-serif;
+  text-align: center;
   font-size: 1.6rem;
   font-weight: 400;
   display: flex;
 }
 .shop .product__feedback-container span {
   font-family: "Open Sans", sans-serif;
+  text-align: center;
   font-size: 1.4rem;
   font-weight: 300;
 }
@@ -87,6 +91,7 @@ ul {
   display: inline-block;
   padding: 10px 5px;
   font-family: "Open Sans", sans-serif;
+  text-align: center;
   font-size: 1.6rem;
   font-weight: 400;
 }

@@ -4,6 +4,7 @@ $font-open-sans: 'Open Sans', sans-serif;
 $size-title-h1: 2.8rem;
 
 
+$border-radius-generic:10px;
 
 
 //colores
@@ -73,17 +74,19 @@ $blue-second: #171731;
     font-size: 1.4rem;
     font-weight: 400;
 }
-@mixin text-light-14 {
-    @include text;
-    font-size: 1.4rem;
-    font-weight: 300;
-}
 
 @mixin text-regular-12 {
     @include text;
     font-size: 1.2rem;
     font-weight: 400;    
 }
+
+@mixin text-light-14 {
+    @include text;
+    font-size: 1.4rem;
+    font-weight: 300;
+}
+
 @mixin text-light-12 {
     @include text;
     font-size: 1.2rem;
@@ -94,4 +97,10 @@ $blue-second: #171731;
     @include text;
     font-size: 1.0rem;
     font-weight: 300;
+}
+
+
+@mixin flex-colum{
+    display: flex;
+    flex-direction: column;
 }

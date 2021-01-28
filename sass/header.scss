@@ -16,19 +16,26 @@
         height:47px;
     }
 
-    
+    &__icons{
+        color: white;
+        font-size: 2.5rem;
+    }
 
     &__menu{
         position: absolute;
         top: 54px;
-        left: 0;
-        width: 100%;
+        left: 0px;
         padding: 20px 50px;
-        background-color: $blue-second;
-        // visibility: hidden;
-        opacity: 0.5;
+        width: 100%;
+        background:$blue-second;
+        visibility: hidden
     }
 
+}
+
+
+.visibility{
+    visibility: visible;
 }
 
 

@@ -1,0 +1,30 @@
+@import "./variables.scss";
+
+.productos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: burlywood;
+
+    &__contenedor{
+        
+        .productos-carrusel{
+            display: flex;
+            
+
+            .producto{
+                width: 150px;
+                height: 200px;
+                background: blueviolet;
+                margin: 0 5px;
+                border-radius: 10px;
+            }
+        }
+    }
+
+    &__descripcion{
+        @include text-regular-16;
+        padding-top: 46px;
+        width: 90%;
+    }
+}

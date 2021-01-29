@@ -1,0 +1,26 @@
+.productos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: burlywood;
+}
+.productos__contenedor .productos-carrusel {
+  display: flex;
+}
+.productos__contenedor .productos-carrusel .producto {
+  width: 150px;
+  height: 200px;
+  background: blueviolet;
+  margin: 0 5px;
+  border-radius: 10px;
+}
+.productos__descripcion {
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 400;
+  padding-top: 46px;
+  width: 90%;
+}
+
+/*# sourceMappingURL=productos.css.map */

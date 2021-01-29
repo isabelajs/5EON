@@ -5,84 +5,94 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../styles/shop.css">
+    <script src="https://kit.fontawesome.com/a67bf967aa.js" crossorigin="anonymous"></script>
 </head>
 <body>
-        <div class="shop">
+        <div class="l-shop">
 
             <div class="c-product">
 
                 <div class="l-product__header">
-
-                    <div class="c-product__title">${Set portavasos colorfull}</div>
+                    
+                    <h2 class="c-product__title">${Set portavasos colorfull}</h2>
                     <div class="c-product__id">${codigo: 0001}</div>
 
-                    <div class="l-product__feedback">
-                        <div class="c-feedback__text">${feedback} <span>(3)</span> </div>
-                        <div class="c-feedback__qualification"></div>
+                    <div class="c-product__feedback">
+                        <div class="c-feedback__txt">${feedback}<span class="c-txt-l-14">(3)</span> </div>
+                        <div class="c-feedback__qualification-img"></div>
                     </div>
                 </div>
+
 
                 <div class="l-product__representation">
                     <div class="c-product__img">
                         <div>
                             <img src="../assets/producto_1.png" alt="${producto xxx}" width="520" height="520">
+                            <div class="c-product__price">
+                                <h3>${13k}</h3>
+                                <p>${15k}</p>
+                            </div>
                         </div>
     
-                        <div class="c-product__price">
-                            <p>${13k} <span>${15k}</span></p>
-                        </div>
+
                     </div>
                 </div>
 
                 <div class="l-product__information">
 
                     <div class="l-product__descriptions">
-                        <div class="c-description-item c-description-item--right">250 Gramos</div>
-                        <div class="c-description-item c-description-item--right">+3 Semillas</div>
-                        <div class="c-description-item">+3 colores</div>
+                        <div class="c-description-item c-description-item--right">250 <br> Gramos</div>
+                        <div class="c-description-item c-description-item--right">+3 <br>  Semillas</div>
+                        <div class="c-description-item">+3 <br> colores</div>
                     </div>
 
                     <div class="l-product__units">
-                        <div class="c-button-small c-button--flat">4 Und.</div>
-                        <div class="c-button-small c-button--flat">6 Und.</div>
-                        <div class="c-button-small c-button--flat">12 Und.</div>
+                        <div class="c-button c-button--small c-button--flat">4 Und.</div>
+                        <div class="c-button c-button--small c-button--flat">6 Und.</div>
+                        <div class="c-button c-button--small c-button--flat">12 Und.</div>
                     </div>
 
                     <div class="l-product__colors">
-                        <div class="c-text">color:${blue}</div>
+                        <div class="c-txt-16">color:${blue}</div>
 
                         <div class="l-product__colors-items">
-                            <div class="c-color c-color--blue">blue</div>
-                            <div class="c-color c-color--blue">blue</div>
-                            <div class="c-color c-color--blue">blue</div>
+                            <div class="c-color c-color--blue"></div>
+                            <div class="c-color c-color--gold"></div>
+                            <div class="c-color c-color--red"></div>
                         </div>
                     </div>
-
 
                     <div class="l-product__quantity-total">
 
                         <div class="l-product__quantity-increment">
-                            <div class="c-text"></div>
+                            <div class="c-txt-16">cantidad</div>
                             <div class="c-increment">
-                                <div class="c-increment__button c-increment__button-plus"><i></i></div>
-                                <div class="c-increment__text"></div>
-                                <div class="c-increment__button c-increment__button-plus"><i></i></div>
+                                <div class="c-increment__button c-button c-button--flat"><i class="fas fa-plus"></i></div>
+                                <div class="c-increment__text">3</div>
+                                <div class="c-increment__button c-button c-button--flat"><i class="fas fa-minus"></i></div>
                             </div>
                         </div>
 
                         <div class="l-product__value-total">
-                            <div class="c-text"></div>
-                            <div class="c-text c-text--box"></div>
+                            <div class="c-txt-16">valor</div>
+                            <div class="c-button c-button--flat">$ 13000</div>
                         </div>
-                        
-
                     </div>
 
-
-                    <div class="c-button"></div>
+                    <div class="c-button c-button--green">Agregar al carrito</div>
 
                 </div>
+
+                <div class="c-separation"></div>
+
+                <p class="c-product__condition">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas pariatur beatae pedit quasi. Alias, nam repudiandae! Harum.</p>
+
+                
+                <div class="c-product__volver c-button c-button--green">Volver</div>
+
             </div>
+
+
         </div>
 </body>
 </html>

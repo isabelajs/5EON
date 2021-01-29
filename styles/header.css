@@ -27,12 +27,14 @@
   background: #171731;
   visibility: hidden;
   transition: all 1s;
+  opacity: 0;
 }
 
 .visibility {
   visibility: visible;
   max-height: 208px;
   transition: all 1s;
+  opacity: 1;
 }
 
 .menu-container li {

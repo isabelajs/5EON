@@ -31,6 +31,7 @@
         background:$blue-second;
         visibility: hidden;
         transition: all 1s;
+        opacity: 0;
 
     }
 
@@ -41,6 +42,7 @@
     visibility: visible;
     max-height: 208px;
     transition: all 1s;
+    opacity: 1;
 }
 
 

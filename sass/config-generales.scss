@@ -1,3 +1,5 @@
+@import './variables.scss';
+
 *{
     margin:0;
     padding: 0;
@@ -14,4 +16,26 @@ a{
 
 ul{
     list-style: none;
+}
+
+
+//////////////////////////////////////////// TEXTOS ///////////////////////////////
+h1{
+    @include h1;
+}
+
+h2{
+    @include h2;
+}
+
+h3{
+    @include h3;
+}
+
+h4{
+    @include h4;
+}
+
+p{
+    @include text-regular-16;
 }

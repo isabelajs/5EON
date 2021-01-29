@@ -16,6 +16,36 @@ ul {
   list-style: none;
 }
 
+h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 4rem;
+}
+
+h2 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 2.8rem;
+}
+
+h3 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+
+h4 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+
+p {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
 .header {
   display: flex;
   flex-direction: row;
@@ -58,7 +88,6 @@ ul {
 .menu-container li {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
-  text-align: center;
   font-size: 1.8rem;
   padding: 10px 0;
 }
@@ -87,14 +116,12 @@ ul {
   color: white;
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
-  text-align: center;
   font-size: 4rem;
   width: 90%;
 }
 .home__text {
   color: black;
   font-family: "Open Sans", sans-serif;
-  text-align: center;
   font-size: 1.6rem;
   font-weight: 400;
   width: 90%;
@@ -108,14 +135,12 @@ ul {
 .intro__title {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
-  text-align: center;
   font-size: 2.8rem;
   padding-top: 40px;
   width: 90%;
 }
 .intro__text {
   font-family: "Open Sans", sans-serif;
-  text-align: center;
   font-size: 1.6rem;
   font-weight: 400;
   padding-top: 50px;
@@ -136,7 +161,6 @@ ul {
 .proceso__title {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
-  text-align: center;
   font-size: 2.8rem;
   padding: 20px 0px 40px 0;
   width: 90%;
@@ -168,14 +192,12 @@ ul {
 .proceso__container .proceso-text .text-title {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
-  text-align: center;
   font-size: 1.8rem;
   text-align: start;
   letter-spacing: -0.01em;
 }
 .proceso__container .proceso-text .text-text {
   font-family: "Open Sans", sans-serif;
-  text-align: center;
   font-size: 1.4rem;
   font-weight: 300;
   text-align: start;
@@ -212,7 +234,6 @@ ul {
 }
 .productos__descripcion {
   font-family: "Open Sans", sans-serif;
-  text-align: center;
   font-size: 1.6rem;
   font-weight: 400;
   padding-top: 46px;

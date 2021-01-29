@@ -1,77 +1,90 @@
 h1 {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
+  text-align: center;
   font-size: 4rem;
 }
 
 h2 {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
+  text-align: center;
   font-size: 2.8rem;
 }
 
 h3 {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
+  text-align: center;
   font-size: 1.8rem;
 }
 
 h4 {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
+  text-align: center;
   font-size: 1.6rem;
 }
 
 p {
   font-family: "Open Sans", sans-serif;
+  text-align: center;
   font-size: 1.6rem;
   font-weight: 400;
 }
 
 .c-txt-16 {
   font-family: "Open Sans", sans-serif;
+  text-align: center;
   font-size: 1.6rem;
   font-weight: 400;
 }
 
 .c-txt-14 {
   font-family: "Open Sans", sans-serif;
+  text-align: center;
   font-size: 1.4rem;
   font-weight: 400;
 }
 
 .c-txt-12 {
   font-family: "Open Sans", sans-serif;
+  text-align: center;
   font-size: 1.2rem;
   font-weight: 400;
 }
 
 .c-txt-l-16 {
   font-family: "Open Sans", sans-serif;
+  text-align: center;
   font-size: 1.6rem;
   font-weight: 300;
 }
 
 .c-txt-l-14 {
   font-family: "Open Sans", sans-serif;
+  text-align: center;
   font-size: 1.4rem;
   font-weight: 300;
 }
 
 .c-txt-l-12 {
   font-family: "Open Sans", sans-serif;
+  text-align: center;
   font-size: 1.2rem;
   font-weight: 300;
 }
 
 .c-txt-l-10 {
   font-family: "Open Sans", sans-serif;
+  text-align: center;
   font-size: 1rem;
   font-weight: 300;
 }
 
 .c-button {
   font-family: "Open Sans", sans-serif;
+  text-align: center;
   font-size: 1.6rem;
   font-weight: 400;
   display: inline-block;
@@ -99,6 +112,7 @@ p {
 
 .c-description-item {
   font-family: "Open Sans", sans-serif;
+  text-align: center;
   font-size: 1.6rem;
   font-weight: 400;
   text-align: center;
@@ -142,6 +156,7 @@ p {
 }
 .c-increment__text {
   font-family: "Open Sans", sans-serif;
+  text-align: center;
   font-size: 1.4rem;
   font-weight: 300;
   margin: 0px 10px;

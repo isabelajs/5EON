@@ -19,9 +19,11 @@ $gray-second:rgb(214, 214, 214);
 @mixin titles{
     font-family: $font-montserrat;
     font-weight: 700;
+    text-align: center
 }
 @mixin text{
     font-family: $font-open-sans;
+    text-align: center
 }
 @mixin h1{
     @include titles;

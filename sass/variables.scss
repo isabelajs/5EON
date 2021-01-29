@@ -9,10 +9,11 @@ $border-radius-generic:10px;
 
 //colores
 $blue-second: #171731;
+$green-main: #25BF92;
+$gray-main:rgb(192, 192, 192);
+$gray-second:rgb(214, 214, 214);
 
 //url-imagenes
-
-
 
 //letras
 @mixin titles{
@@ -104,3 +105,4 @@ $blue-second: #171731;
     display: flex;
     flex-direction: column;
 }
+

@@ -1,0 +1,140 @@
+@import './variables.scss';
+
+h1{
+    @include h1;
+}
+
+h2{
+    @include h2;
+}
+
+h3{
+    @include h3;
+}
+
+h4{
+    @include h4;
+}
+
+p{
+    @include text-regular-16;
+}
+
+.c-txt-16{
+    @include text-regular-16;
+}
+.c-txt-14{
+    @include text-regular-14;
+}
+.c-txt-12{
+    @include text-regular-12;
+}
+
+
+
+.c-txt-l-16{
+    @include text-light-16;
+}
+.c-txt-l-14{
+    @include text-light-14;
+}
+.c-txt-l-12{
+    @include text-light-12;
+}
+.c-txt-l-10{
+    @include text-light-10;
+}
+
+
+.c-button{
+    @include text-regular-16;
+    display: inline-block;
+    border-radius: 5px;
+    padding: 10px 25px;
+    cursor: pointer;
+    box-shadow: 0px 3px 5px rgba($color: $gray-second, $alpha: 0.4);
+
+    &--small{
+        padding: 5px 10px;
+    }
+
+    &--green{
+        background: $green-main;
+        color: white;
+        border: 2px solid $green-main;
+
+        &:hover{
+            background: white;
+            color: $green-main;
+        }
+    }
+
+    &--flat{
+        background: white;
+        border: 1px solid $gray-second;
+    }
+
+}
+
+.c-description-item{
+    @include text-regular-16;
+    text-align: center;
+    width: 30%;
+
+    &--right{
+
+        border-right: 1px solid $gray-main;
+    }
+}
+
+.c-color{
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: inline-block;
+
+
+    &--blue{
+        background-color: $blue-second;
+    }
+
+    &--gold{
+        background-color: goldenrod;
+    }
+
+    &--red{
+        background-color: palevioletred;
+    }
+
+    &:hover{
+        box-sizing: initial;
+        transform: scale(1.2);
+    }
+}
+
+.c-increment{
+    display: flex;
+    align-items: center;
+    
+    &__button{
+        i{
+            font-size: 14px;
+            color: $blue-second;
+        }
+        padding-left: 4px;
+        padding-right: 4px;
+    }
+
+    &__text{
+        @include text-light-14;
+        margin: 0px 10px;
+    }
+
+}
+
+.c-separation{
+    width: 100%;
+    height: 1px;
+    background:$blue-second ;
+}
+

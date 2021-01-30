@@ -16,6 +16,11 @@ ul {
   list-style: none;
 }
 
+i {
+  font-size: 14px;
+  color: #171731;
+}
+
 h1 {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;

@@ -71,6 +71,9 @@
   color: white;
   border-color: white;
 }
+.c-button--flat:hover i {
+  color: white;
+}
 
 .c-description-item {
   font-family: "Open Sans", sans-serif;
@@ -108,15 +111,11 @@
   align-items: center;
 }
 .c-increment__button {
-  padding-left: 4px;
-  padding-right: 4px;
+  padding: 8px 4px;
 }
 .c-increment__button i {
   font-size: 14px;
   color: #171731;
-}
-.c-increment__button:hover i {
-  color: white;
 }
 .c-increment__text {
   font-family: "Open Sans", sans-serif;

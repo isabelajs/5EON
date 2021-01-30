@@ -30,7 +30,10 @@
 
 
 
+//////////////////////////////////////////// COMPONENTS AND MODIFYQUES //////////////////////////////////////////// 
 
+
+//////////// Button ///////////
 
 .c-button{
     @include text-regular-16;
@@ -73,6 +76,7 @@
 
 }
 
+//////////// description ///////////
 .c-description-item{
     @include text-regular-16;
     text-align: center;
@@ -84,31 +88,7 @@
     }
 }
 
-.c-color{
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    display: inline-block;
-
-
-    &--blue{
-        background-color: $blue-second;
-    }
-
-    &--gold{
-        background-color: goldenrod;
-    }
-
-    &--red{
-        background-color: palevioletred;
-    }
-
-    &:hover{
-        box-sizing: initial;
-        transform: scale(1.2);
-    }
-}
-
+//////////// increment units ///////////
 .c-increment{
     display: flex;
     align-items: center;
@@ -130,14 +110,6 @@
     }
 
 }
-
-.c-separation-line{
-    margin: 20px 0px;
-    width: 100%;
-    height: 1px;
-    background:$blue-second ;
-}
-
 
 //////////// CheckBox ///////////
 input[type=checkbox] {
@@ -191,19 +163,17 @@ input[type=checkbox] {
 }
 
 //////////// Scroll ///////////
-div{
+.c-scroll{
 
     &::-webkit-scrollbar {
         opacity: 0;
         width: 8px;
         height: 8px;
-
     }
 
     &:hover{
         &::-webkit-scrollbar {
             opacity: 1;
-
         }
         
         &::-webkit-scrollbar-track {
@@ -214,9 +184,79 @@ div{
         &::-webkit-scrollbar-thumb {
             background-color: $blue-second;
             border-radius: 5px;
-    
         }
 
     }
 
+}
+
+//////////// modal ///////////
+
+
+
+
+////////////////////////////////////////////        BASICS              //////////////////////////////////////////// 
+
+
+//////////// separation line ///////////
+.c-separation-line{
+    margin: 20px 0px;
+    width: 100%;
+    height: 1px;
+    background:$blue-second ;
+}
+//////////// separation line ///////////
+.c-color{
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: inline-block;
+
+
+    &--blue{
+        background-color: $blue-second;
+    }
+
+    &--gold{
+        background-color: goldenrod;
+    }
+
+    &--red{
+        background-color: palevioletred;
+    }
+
+    &:hover{
+        box-sizing: initial;
+        transform: scale(1.2);
+    }
+}
+
+
+.c-container{
+    display: flex;
+
+    .c-two-thirds{
+        width: 66.66666666%;
+    }
+
+    .c-one-third{
+        width: 33.33333333%;
+    }
+
+    .c-one-half{
+        width: 50%;
+    }
+
+    .c-one-half{
+        width: 50%;
+    }
+
+}
+
+.c-txt-right{
+    text-align: right;
+}
+
+.c-txt-left{
+    text-align: left;
 }

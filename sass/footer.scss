@@ -1,0 +1,25 @@
+@import "./variables.scss";
+
+.footer{
+    padding: 30px 40px;
+    display: flex;
+    flex-direction: column;
+    background: $blue-second;
+
+    &__icons{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        color: white;
+        font-size: 2.2rem ;
+        margin-bottom: 23px;
+    }
+    &__links {
+        @include text-light-14;
+        text-align: left;
+        a{  
+            padding-bottom: 10px;
+            color: white;
+        }
+    }
+}

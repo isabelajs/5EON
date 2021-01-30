@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -294,7 +295,7 @@ p {
   font-weight: 400;
   display: inline-block;
   border-radius: 5px;
-  padding: 10px 25px;
+  padding: 10px 24px;
   cursor: pointer;
   box-shadow: 0px 3px 5px rgba(214, 214, 214, 0.4);
 }
@@ -379,9 +380,66 @@ p {
   background: #171731;
 }
 
+input[type=checkbox] {
+  display: none;
+}
+input[type=checkbox] + label {
+  display: flex;
+  align-items: center;
+}
+input[type=checkbox] + label:hover {
+  cursor: pointer;
+}
+input[type=checkbox] + label::before {
+  font-weight: bolder;
+  content: "";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  border-radius: 5px;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #171731;
+  transition: all 0.1s;
+  margin-right: 5px;
+}
+input[type=checkbox]:not(:checked) + label::before {
+  color: #171731;
+  -webkit-transform: scale(1) rotate(0);
+  transform: scale(1) rotate(0);
+}
+input[type=checkbox]:checked + label::before {
+  content: "✕";
+  color: #171731;
+  -webkit-transform: scale(1) rotate(180deg);
+  transform: scale(1) rotate(180deg);
+}
+
+div::-webkit-scrollbar {
+  opacity: 0;
+  width: 8px;
+  height: 8px;
+}
+div:hover::-webkit-scrollbar {
+  opacity: 1;
+}
+div:hover::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 10px;
+}
+div:hover::-webkit-scrollbar-thumb {
+  background-color: #171731;
+  border-radius: 5px;
+}
+
 .l-shooping-cart {
   padding: 20px 15px;
   height: 100vh;
+  display: grid;
+  grid-template-rows: 50px minmax(35%, 50%) auto;
+  min-width: 300px;
+  max-width: 400px;
 }
 .l-shooping-cart .c-shooping__header {
   padding-bottom: 20px;
@@ -390,23 +448,21 @@ p {
   align-items: center;
 }
 .l-shooping-cart .c-shooping__header h3 {
-  font-size: 2.2rem;
+  font-size: 2.5rem;
 }
 .l-shooping-cart .l-shooping__products {
   border-top: 1px solid #171731;
   border-bottom: 1px solid #171731;
   overflow-y: scroll;
-  max-height: 50%;
-}
-.l-shooping-cart .l-shooping__products:-webkit-scrollbar {
-  visibility: hidden;
+  max-height: 100%;
 }
 .l-shooping-cart .l-shooping__products .c-product-cart {
   display: grid;
-  gap: 15px;
-  grid-template-columns: 80px 1fr;
+  gap: 10px;
+  grid-template-columns: 80px auto;
   height: 80px;
-  margin: 15px 0px;
+  margin: 20px 0px;
+  padding: 0px 10px;
 }
 .l-shooping-cart .l-shooping__products .c-product-cart__img {
   width: 100%;
@@ -429,7 +485,29 @@ p {
   grid-column: 1/2;
 }
 .l-shooping-cart .l-shooping__products .c-product-cart .l-product-cart__information > div:last-child {
+  justify-self: flex-end;
   grid-column: 2/3;
+}
+.l-shooping-cart .l-shooping__sell {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
+}
+.l-shooping-cart .l-shooping__sell > div {
+  margin-bottom: 12px;
+}
+.l-shooping-cart .l-shooping__sell .c-shooping__values > div {
+  position: relative;
+}
+.l-shooping-cart .l-shooping__sell .c-shooping__values > div span {
+  position: absolute;
+  right: 0;
+}
+.l-shooping-cart .l-shooping__sell .c-shooping__text-condition {
+  text-align: justify;
+}
+.l-shooping-cart .l-shooping__sell .c-button {
+  margin: 0 auto;
 }
 
 /*# sourceMappingURL=shop.css.map */

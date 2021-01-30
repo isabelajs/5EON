@@ -6,7 +6,6 @@
 .productos__title {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
-  text-align: center;
   font-size: 2.8rem;
 }
 .productos__contenedor {
@@ -54,7 +53,6 @@
   color: white;
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
-  text-align: center;
   font-size: 1.8rem;
   padding: 4px;
   border-radius: 0 4px 4px 0;
@@ -82,7 +80,6 @@
 }
 .productos__descripcion {
   font-family: "Open Sans", sans-serif;
-  text-align: center;
   font-size: 1.6rem;
   font-weight: 400;
   padding-top: 46px;

@@ -8,6 +8,7 @@ $border-radius-generic:10px;
 
 
 //colores
+$blue-first: #18122D;
 $blue-second: #171731;
 $green-main: #25BF92;
 $gray-main:rgb(192, 192, 192);
@@ -15,19 +16,27 @@ $gray-second:rgb(214, 214, 214);
 
 //url-imagenes
 
+//icons
+@mixin icons {
+    color: white;
+    font-size: 2.5rem;
+}
+
+
+
 //letras
 @mixin titles{
     font-family: $font-montserrat;
     font-weight: 700;
-    text-align: center
+    
 }
 @mixin text{
     font-family: $font-open-sans;
-    text-align: center
+   
 }
 @mixin h1{
     @include titles;
-    font-size: 4rem;
+    font-size: 4.5rem;
 }
 @mixin h2 {
     @include titles;

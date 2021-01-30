@@ -7,7 +7,7 @@
     align-items: center;
     position: relative;
     height: 54px;
-    background-color: #18122D ;
+    background-color: $blue-first ;
     padding: 0px 25px 0 20px;
 
     &__logo{
@@ -17,8 +17,7 @@
     }
 
     &__icons{
-        color: white;
-        font-size: 2.5rem;
+       @include icons;
     }
 
     &__menu{

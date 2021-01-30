@@ -58,7 +58,6 @@ ul {
 .menu-container li {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
-  text-align: center;
   font-size: 1.8rem;
   padding: 10px 0;
 }
@@ -77,9 +76,9 @@ ul {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  height: 420px;
+  height: 450px;
   padding: 76px 0 70px 0;
-  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)), url("../assets/home-img.jpg") center center no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8)), url("../assets/home-img.jpg") center center no-repeat;
   background-attachment: fixed;
   background-size: cover;
 }
@@ -87,19 +86,35 @@ ul {
   color: white;
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
-  text-align: center;
-  font-size: 4rem;
+  font-size: 4.5rem;
   width: 90%;
+  text-align: center;
+  text-shadow: black 0.1em 0.1em 0.2em;
+  text-transform: uppercase;
 }
 .home__text {
-  color: black;
+  color: white;
   font-family: "Open Sans", sans-serif;
-  text-align: center;
   font-size: 1.6rem;
   font-weight: 400;
+  text-align: center;
   width: 90%;
 }
 
+@media (min-width: 768px) {
+  .home {
+    height: 600px;
+    justify-content: center;
+  }
+  .home__title {
+    font-size: 5.8rem;
+    margin-bottom: 20px;
+  }
+  .home__text {
+    width: 700px;
+    font-size: 2.2rem;
+  }
+}
 .intro {
   display: flex;
   flex-direction: column;
@@ -108,14 +123,12 @@ ul {
 .intro__title {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
-  text-align: center;
   font-size: 2.8rem;
   padding-top: 40px;
   width: 90%;
 }
 .intro__text {
   font-family: "Open Sans", sans-serif;
-  text-align: center;
   font-size: 1.6rem;
   font-weight: 400;
   padding-top: 50px;
@@ -137,7 +150,6 @@ ul {
 .proceso__title {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
-  text-align: center;
   font-size: 2.8rem;
   padding: 20px 0px 40px 0;
   width: 90%;
@@ -169,14 +181,12 @@ ul {
 .proceso__container .proceso-text .text-title {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
-  text-align: center;
   font-size: 1.8rem;
   text-align: start;
   letter-spacing: -0.01em;
 }
 .proceso__container .proceso-text .text-text {
   font-family: "Open Sans", sans-serif;
-  text-align: center;
   font-size: 1.4rem;
   font-weight: 300;
   text-align: start;
@@ -203,7 +213,6 @@ ul {
 .productos__title {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
-  text-align: center;
   font-size: 2.8rem;
 }
 .productos__contenedor {
@@ -251,7 +260,6 @@ ul {
   color: white;
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
-  text-align: center;
   font-size: 1.8rem;
   padding: 4px;
   border-radius: 0 4px 4px 0;
@@ -279,7 +287,6 @@ ul {
 }
 .productos__descripcion {
   font-family: "Open Sans", sans-serif;
-  text-align: center;
   font-size: 1.6rem;
   font-weight: 400;
   padding-top: 46px;
@@ -297,7 +304,6 @@ ul {
   width: 100%;
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
-  text-align: center;
   font-size: 1.6rem;
   color: white;
   padding: 14px 0;
@@ -326,30 +332,70 @@ ul {
   object-fit: fill;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
 .footer {
-  padding: 30px 40px;
+  height: 200px;
   display: flex;
   flex-direction: column;
-  background: #171731;
+  justify-content: space-evenly;
+  align-items: center;
+  background: #18122D;
 }
 .footer__icons {
+  width: 75%;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   color: white;
-  font-size: 2.2rem;
-  margin-bottom: 23px;
+  font-size: 2.5rem;
 }
 .footer__links {
+  width: 75%;
   font-family: "Open Sans", sans-serif;
-  text-align: center;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 300;
   text-align: left;
 }
-.footer__links a {
-  padding-bottom: 10px;
+.footer__links .container__links .link {
   color: white;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 425px) {
+  .footer__links .container__links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+  }
+}
+@media (min-width: 768px) {
+  .footer {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+}
+@media (min-width: 1024px) {
+  .footer__icons {
+    font-size: 3rem;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

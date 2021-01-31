@@ -153,9 +153,17 @@
 
 .l-shooping-cart {
   height: 100vh;
-  position: relative;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  overflow: hidden;
+  width: 0;
+  transition: all 0.3s;
   background: #d6d6d6;
-  max-width: 300px;
+}
+.l-shooping-cart > div {
+  opacity: 0;
 }
 .l-shooping-cart .c-shooping__header {
   padding: 20px 0px;
@@ -170,7 +178,7 @@
 .l-shooping-cart .l-shooping__products {
   position: absolute;
   top: 71px;
-  bottom: 224px;
+  bottom: 250px;
   left: 0;
   right: 0;
   overflow-y: scroll;
@@ -233,6 +241,28 @@
 }
 .l-shooping-cart .l-shooping__sell .c-button {
   margin: 0 auto;
+}
+
+.show {
+  width: 400px;
+}
+.show > div {
+  transition: all 0.2s 0.2s;
+  opacity: 1;
+}
+
+.test {
+  overflow: hidden;
+}
+.test::before {
+  content: "x";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1;
 }
 
 /*# sourceMappingURL=shop-mobile.css.map */

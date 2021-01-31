@@ -22,6 +22,11 @@ h1 {
   font-weight: 700;
   font-size: 4.5rem;
 }
+@media (min-width: 768px) {
+  h1 {
+    font-size: 5.8rem;
+  }
+}
 
 h2 {
   font-family: "Montserrat", sans-serif;
@@ -397,8 +402,13 @@ input[type=checkbox].c-checkbox:checked + label::before {
   font-size: 4.5rem;
   width: 90%;
   text-align: center;
-  text-shadow: black 0.1em 0.1em 0.2em;
+  text-shadow: black 1px 1px 10px;
   text-transform: uppercase;
+}
+@media (min-width: 768px) {
+  .home__title {
+    font-size: 5.8rem;
+  }
 }
 .home__text {
   color: white;
@@ -415,7 +425,6 @@ input[type=checkbox].c-checkbox:checked + label::before {
     justify-content: center;
   }
   .home__title {
-    font-size: 5.8rem;
     margin-bottom: 20px;
   }
   .home__text {

@@ -33,6 +33,11 @@ $gray-second:rgb(214, 214, 214);
 @mixin h1{
     @include titles;
     font-size: 4.5rem;
+    
+    @media(min-width: 768px){
+        font-size: 5.8rem;
+    }
+
 }
 
 @mixin h2 {

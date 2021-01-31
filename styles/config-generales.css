@@ -21,6 +21,11 @@ h1 {
   font-weight: 700;
   font-size: 4.5rem;
 }
+@media (min-width: 768px) {
+  h1 {
+    font-size: 5.8rem;
+  }
+}
 
 h2 {
   font-family: "Montserrat", sans-serif;

@@ -1,5 +1,5 @@
-// let icon = document.getElementById("icon");
-// icon.addEventListener("click", ()=>{desplegable(icon)});
+let icon = document.getElementById("icon");
+icon.addEventListener("click", ()=>{desplegable(icon)});
 
 function desplegable(icon){
     let menu = icon.nextSibling.nextSibling
@@ -11,25 +11,21 @@ function desplegable(icon){
 }
 
 
-
-let button = document.getElementById('button')
+let shoopButton = document.getElementById('product__button')
 
 let shoopingCartClose = document.getElementById('shooping-cart__close');
 
 shoopingCartClose.addEventListener('click', modal )
-
-
-
-button.addEventListener("click",modal)
+shoopButton.addEventListener("click",modal)
 
 
 function modal(){  
 
     const cart = document.getElementById('shooping-cart')
 
-    cart.classList.toggle('show')
+    cart.classList.toggle('show-modal')
 
-    document.body.classList.toggle('test')
+    document.body.classList.toggle('showing-modal')
 
 }
 

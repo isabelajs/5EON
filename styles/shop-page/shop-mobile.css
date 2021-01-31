@@ -157,9 +157,12 @@
   top: 0;
   right: 0;
   z-index: 2;
-  overflow: hidden;
   width: 0;
   transition: all 0.3s;
+  display: grid;
+  grid-template-rows: 75px 1fr 250px;
+  padding: 0px 10px;
+  transform: translateX(400px);
   background: #d6d6d6;
 }
 .l-shooping-cart > div {
@@ -176,14 +179,10 @@
   font-size: 2.5rem;
 }
 .l-shooping-cart .l-shooping__products {
-  position: absolute;
-  top: 71px;
-  bottom: 250px;
-  left: 0;
-  right: 0;
   overflow-y: scroll;
   padding-left: 10px;
   padding-right: 2px;
+  border-bottom: 1px solid silver;
 }
 .l-shooping-cart .l-shooping__products .c-product-cart {
   display: grid;
@@ -220,11 +219,8 @@
 .l-shooping-cart .l-shooping__sell {
   display: flex;
   flex-direction: column;
-  position: absolute;
-  bottom: 0;
-  margin: 0px 10px;
-  padding: 10px 0px;
-  border-top: 1px solid silver;
+  align-self: flex-end;
+  padding: 10px;
 }
 .l-shooping-cart .l-shooping__sell > div {
   margin-bottom: 12px;
@@ -243,18 +239,24 @@
   margin: 0 auto;
 }
 
-.show {
-  width: 400px;
+.show-modal {
+  transform: translateX(0px);
+  width: 300px;
 }
-.show > div {
+.show-modal > div {
   transition: all 0.2s 0.2s;
   opacity: 1;
 }
+@media (min-width: 768px) {
+  .show-modal {
+    width: 400px;
+  }
+}
 
-.test {
+.showing-modal {
   overflow: hidden;
 }
-.test::before {
+.showing-modal::before {
   content: "x";
   position: absolute;
   top: 0;

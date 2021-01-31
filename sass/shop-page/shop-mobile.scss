@@ -198,13 +198,16 @@
     top: 0;
     right: 0;
     z-index: 2;
-    overflow: hidden;
     width: 0;
     transition: all 0.3s;
+    display: grid;
+    grid-template-rows: 75px 1fr 250px;
+    padding: 0px 10px;
+    // display: none;
+    transform: translateX(400px);
 
 
     >div{
-
         opacity: 0;
     }
 
@@ -224,14 +227,10 @@
     }
 
     .l-shooping__products{
-        position: absolute;
-        top: 71px;
-        bottom: 250px;
-        left: 0;
-        right: 0;
         overflow-y: scroll;
         padding-left: 10px;
         padding-right: 2px;
+        border-bottom: 1px solid $gray-main;
         
 
         .c-product-cart{
@@ -279,14 +278,9 @@
 
     .l-shooping__sell{
         @include flex-column;
+        align-self: flex-end;
 
-        position: absolute;
-        bottom: 0;
-
-        margin: 0px 10px;
-        padding: 10px 0px;
-
-        border-top: 1px solid $gray-main;
+        padding: 10px;
 
         >div{
             margin-bottom: $margin-generic/2;
@@ -319,19 +313,24 @@
 
 }
 
-
-.show{
+.show-modal{
+    transform: translateX(0px);
+    // display: grid;
 
     >div{
         transition: all 0.2s 0.2s;
         opacity: 1;
     }
-    
 
-    width: 400px;
+    width: 300px;
+
+    @media (min-width:768px){
+        width: 400px;
+    }
+
 }
 
-.test{
+.showing-modal{
 
     overflow: hidden;
     

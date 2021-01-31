@@ -13,11 +13,13 @@
 
     &__contenedor{
         width: 90%;  
+        padding: 50px 0px 40px 0;
+        overflow-x: scroll;
         
         .productos-carrusel{
             display: flex;
-            overflow-x: scroll;
-            padding: 50px 0px 40px 0;  
+
+  
             scroll-behavior: smooth; 
         
 
@@ -31,29 +33,27 @@
                 overflow: hidden;
                 cursor: pointer;
                 transform-origin: center center;
-                transition: transform 450ms;
+                transition: transform 0.5s;
 
                 &__img{
                     width: 100%;
                     height: 100%;
 
                     img{
-                    //    width: 100%;
-                    //    height: 100%;
+                       width: 100%;
+                       height: 100%;
                     }
                 }
                 
                 &__details{
                     position: absolute;
-                    top: 0;
-                    bottom: 20px;
-                    right: 0;
-                    left: 0;
+                    inset: 0px 0px 0px 0px;
+                    padding-bottom: 20px;
                     display: flex;
                     flex-direction: column;
                     justify-content: flex-end;
                     align-items: start;
-
+                    
                     .cont-details{
                         color: white;
                         @include h3;
@@ -84,9 +84,11 @@
 
            &:hover {
                .producto{
-                   opacity: 0.5;
+                    transition: transform 0.5s;
+                    opacity: 0.5;
                }
                .producto:hover{
+                   transition: transform 0.5s;
                    transform: scale(1.2);
                    opacity: 1;
                    z-index: 1;
@@ -94,6 +96,8 @@
 
             
            }
+
+           
         }
     }
 

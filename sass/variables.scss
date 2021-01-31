@@ -1,10 +1,15 @@
 $font-montserrat:'Montserrat',sans-serif; 
 $font-open-sans: 'Open Sans', sans-serif;
 
+
+$tablet-width: 769px;
+$computer-width:1024px;
+
 $size-title-h1: 2.8rem;
 
 
 $border-radius-generic:10px;
+$margin-generic:24px;
 
 
 //colores
@@ -14,43 +19,56 @@ $green-main: #25BF92;
 $gray-main:rgb(192, 192, 192);
 $gray-second:rgb(214, 214, 214);
 
-//url-imagenes
-
-//icons
-@mixin icons {
-    color: white;
-    font-size: 2.5rem;
-}
-
-
 
 //letras
 @mixin titles{
     font-family: $font-montserrat;
     font-weight: 700;
-    
 }
+
 @mixin text{
     font-family: $font-open-sans;
-   
 }
+
 @mixin h1{
     @include titles;
     font-size: 4.5rem;
 }
+
 @mixin h2 {
     @include titles;
     font-size: 2.8rem;    
 }
+
 @mixin h3{
     @include titles;
     font-size: 1.8rem;
 
 }
+
 @mixin h4 {
     @include titles;
     font-size: 1.6rem;
 }
+
+
+
+@mixin text-bold-16 {
+    @include text;
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+@mixin text-semi-bold-16 {
+    @include text;
+    font-size: 1.6rem;
+    font-weight:600;
+    
+}
+
+
+
+///////////////////// TXT - REGULAR /////////////////////
 
 @mixin text-regular-28{
     @include text;
@@ -58,27 +76,10 @@ $gray-second:rgb(214, 214, 214);
     font-weight: 400;
 }
 
-@mixin text-bold-16 {
-    @include text;
-    font-size: 1.6rem;
-    font-weight: bold;
-}
-@mixin text-semi-bold-16 {
-    @include text;
-    font-size: 1.6rem;
-    font-weight:600;
-    
-}
 @mixin text-regular-16 {
     @include text;
     font-size: 1.6rem;
     font-weight: 400;
-}
-@mixin text-light-16 {
-    @include text;
-    font-size: 1.6rem;
-    font-weight:300;
-    
 }
 
 @mixin text-regular-14 {
@@ -91,6 +92,16 @@ $gray-second:rgb(214, 214, 214);
     @include text;
     font-size: 1.2rem;
     font-weight: 400;    
+}
+
+
+
+///////////////////// TXT - LIGHT /////////////////////
+@mixin text-light-16 {
+    @include text;
+    font-size: 1.6rem;
+    font-weight:300;
+    
 }
 
 @mixin text-light-14 {
@@ -112,7 +123,9 @@ $gray-second:rgb(214, 214, 214);
 }
 
 
-@mixin flex-colum{
+
+///////////////////// LAYOUTS /////////////////////
+@mixin flex-column{
     display: flex;
     flex-direction: column;
 }

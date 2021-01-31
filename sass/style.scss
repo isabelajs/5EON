@@ -1,11 +1,15 @@
 @import './config-generales.scss';
-@import "./header.scss";
-@import "./home.scss";
-@import "./intro.scss";
-@import "./proceso.scss";
-@import "./productos.scss";
-@import "./photos.scss";
-@import "./footer.scss";
 @import "./variables.scss";
+@import './components.scss';
 
 
+//pagina principal
+@import "./main-page/header.scss";
+@import "./main-page/footer.scss";
+
+//main page
+@import "./landing-page/landing-page.scss";
+
+
+//main shop
+@import "./shop-page/shop-page.scss";

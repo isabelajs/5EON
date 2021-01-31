@@ -661,27 +661,22 @@ input[type=checkbox].c-checkbox:checked + label::before {
 .productos__contenedor .productos-carrusel {
   display: flex;
   overflow-x: scroll;
-  padding: 40px 0px 30px 0;
+  padding: 50px 0px 40px 0;
   scroll-behavior: smooth;
 }
 .productos__contenedor .productos-carrusel .producto {
   position: relative;
   min-width: 200px;
-  max-width: 200px;
   height: 260px;
   background: blueviolet;
-  margin: 0 5px;
+  margin: 0 10px;
   border-radius: 10px;
   overflow: hidden;
   cursor: pointer;
   transform-origin: center center;
-  transition: 450ms all;
+  transition: transform 450ms;
 }
 .productos__contenedor .productos-carrusel .producto__img {
-  width: 100%;
-  height: 100%;
-}
-.productos__contenedor .productos-carrusel .producto__img img {
   width: 100%;
   height: 100%;
 }
@@ -729,11 +724,24 @@ input[type=checkbox].c-checkbox:checked + label::before {
   font-family: "Open Sans", sans-serif;
   font-size: 1.6rem;
   font-weight: 400;
-  padding-top: 46px;
   margin-bottom: 50px;
-  width: 90%;
+  width: 70%;
+  text-align: center;
 }
 
+@media (min-width: 768px) {
+  .productos__title {
+    font-size: 3.5rem;
+  }
+  .productos__contenedor .productos-carrusel .producto {
+    min-width: 250px;
+    height: 325px;
+  }
+  .productos__descripcion {
+    margin-top: 20px;
+    font-size: 1.8rem;
+  }
+}
 .l-shop {
   margin: 0 auto;
   width: 100%;

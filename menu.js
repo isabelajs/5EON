@@ -24,6 +24,7 @@ function modal(){
     const cart = document.getElementById('shooping-cart')
 
     cart.classList.toggle('show-modal')
+    
 
     document.body.classList.toggle('showing-modal')
 

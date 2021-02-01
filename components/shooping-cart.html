@@ -1,8 +1,8 @@
-<div class="l-shooping-cart">
+<div id="shooping-cart" class="l-shooping-cart">
 
     <div class="c-shooping__header">
         <h3 class="c-shooping__title">Carrito de compra</h3>
-        <div class=" c-shooping__close c-button c-button--flat c-button--small"><i class="fas fa-times"></i></div>
+        <div id="shooping-cart__close" class="c-shooping__close c-button c-button--flat c-button--small"><i class="fas fa-times"></i></div>
     </div>
 
     <div class="l-shooping__products c-scroll">
@@ -136,12 +136,10 @@
             Los códigos de descuento, los costes de envío y los impuestos se añaden durante el pago.
         </div>
 
-        <div class="c-shooping__acept-condition c-txt-l-14">
-
-            <input type="checkbox" class="c-checkbox" id="shopping-condition">
+        <div class="c-shooping__acept-condition c-checkbox-option">
+            <input type="checkbox" id="shopping-condition">
             <label for="shopping-condition"> Acepto los terminos y condiciones</label>
         </div>
-
 
         <div class="c-button c-button--green">Finalizar pedido</div>
 
@@ -153,3 +151,24 @@
 
 
 
+<div class="l-form-section__inputs l-form-section__inputs-credit-card">
+                    
+    <label class="c-form-input l-form-expiration-card" for="1">
+
+        <p class="c-form-input__title">fecha</p>
+
+        <div class="c-form-input__items">
+            <input type="text" name="username" id="1" placeholder="MM" size="5">
+            <input type="text" name="username" id="1" placeholder="YY">
+        </div>
+        
+
+    </label>
+
+
+    <label class="c-form-input" for="pepe">
+        <p class="c-form-input__title">CVV</p>
+        <input type="text" name="username" id="pepe" placeholder="000">
+    </label>
+
+</div>

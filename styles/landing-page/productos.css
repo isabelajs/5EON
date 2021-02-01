@@ -5,7 +5,7 @@
 }
 .productos__title {
   font-family: "Montserrat", sans-serif;
-  font-weight: 700;
+  font-weight: bold;
   font-size: 2.8rem;
 }
 .productos__contenedor {
@@ -52,7 +52,7 @@
 .productos__contenedor .productos-carrusel .producto__details .cont-details {
   color: white;
   font-family: "Montserrat", sans-serif;
-  font-weight: 700;
+  font-weight: bold;
   font-size: 1.8rem;
   padding: 4px;
   border-radius: 0 4px 4px 0;

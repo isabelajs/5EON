@@ -32,9 +32,7 @@
 
 //////////////////////////////////////////// COMPONENTS AND MODIFYQUES //////////////////////////////////////////// 
 
-
 //////////// Button ///////////
-
 .c-button{
     @include text-regular-16;
     display: inline-block;
@@ -99,7 +97,7 @@
             color: $blue-second;
         }
         
-        padding: 8px 4px;
+        padding: 5px 4px;
     }
 
     &__text{
@@ -110,53 +108,116 @@
 }
 
 //////////// CheckBox ///////////
-input[type=checkbox].c-checkbox {
-    display: none;
+.c-checkbox-option{
 
+    @include text-regular-14;
 
-    &+label{
-        display: flex;
-        align-items: center;
-
-        &:hover{
-            cursor: pointer;
-        }
-
-        &::before{
-
-            font-weight: bolder;
-            content: '';
+    input[type=checkbox]{
+        display: none;
+    
+    
+        &+label{
             display: flex;
             align-items: center;
-            justify-content: center;
-            line-height: 0;
-            border-radius: $border-radius-generic/2;
-            width: 20px;
-            height: 20px;
-
-            border: 2px solid $blue-second;
-            transition: all 0.1s;
-            margin-right: 5px;
-
+    
+            &:hover{
+                cursor: pointer;
+            }
+    
+            &::before{
+    
+                font-weight: bolder;
+                content: '';
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                line-height: 0;
+                border-radius: $border-radius-generic/2;
+                width: 20px;
+                height: 20px;
+    
+                border: 2px solid $blue-second;
+                transition: all 0.1s;
+                margin-right: 5px;
+    
+            }
         }
+    
+        &:not(:checked) + label::before{
+    
+            color: $blue-second;
+            -webkit-transform: scale(1) rotate(0);
+            transform: scale(1) rotate(0);
+    
+        }
+    
+        &:checked + label::before{
+            content: '✕';
+            // content: '\2688';
+            color: $blue-second;
+            -webkit-transform: scale(1) rotate(180deg);
+            transform: scale(1) rotate(180deg);
+    
+        }
+    
     }
 
-    &:not(:checked) + label::before{
 
-        color: $blue-second;
-        -webkit-transform: scale(1) rotate(0);
-        transform: scale(1) rotate(0);
+}
 
+.c-radio-option{
+
+    @include text-regular-14;
+
+    input[type=radio] {
+        display: none;
+    
+    
+        &+label{
+            display: flex;
+            align-items: center;
+    
+            &:hover{
+                cursor: pointer;
+            }
+    
+            &::before{
+                box-sizing: initial;
+                font-weight: bolder;
+                content: '';
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                line-height: 0;
+                border-radius: $border-radius-generic/2;
+                width: 20px;
+                height: 20px;
+    
+                border: 2px solid $blue-second;
+                transition: all 0.1s;
+                margin-right: 5px;
+    
+            }
+        }
+    
+        &:not(:checked) + label::before{
+    
+            color: $blue-second;
+            -webkit-transform: scale(1) rotate(0);
+            transform: scale(1) rotate(0);
+    
+        }
+    
+        &:checked + label::before{
+            content: '✕';
+            color: $blue-second;
+            -webkit-transform: scale(1) rotate(180deg);
+            transform: scale(1) rotate(180deg);
+    
+        }
+    
     }
 
-    &:checked + label::before{
-        content: '✕';
-        // content: '\2688';
-        color: $blue-second;
-        -webkit-transform: scale(1) rotate(180deg);
-        transform: scale(1) rotate(180deg);
-
-    }
 
 }
 
@@ -188,7 +249,25 @@ input[type=checkbox].c-checkbox {
 
 }
 
-//////////// modal ///////////
+//////////// show-modal -> se aplica al body////////////
+.showing-modal{
+
+    overflow: hidden;
+    
+    &::before{
+        content: 'x';
+        position: absolute;
+        top:0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba($color: #000000, $alpha: 0.3);
+        z-index: 1;
+    }
+
+}
+
+
 
 
 
@@ -198,12 +277,13 @@ input[type=checkbox].c-checkbox {
 
 //////////// separation line ///////////
 .c-separation-line{
-    margin: 20px 0px;
+    margin: $margin-generic 0px;
     width: 100%;
     height: 1px;
     background:$blue-second ;
 }
-//////////// separation line ///////////
+
+//////////// circle - color ///////////
 .c-color{
     width: 38px;
     height: 38px;
@@ -224,12 +304,13 @@ input[type=checkbox].c-checkbox {
     }
 
     &:hover{
+        cursor: pointer;
         box-sizing: initial;
         transform: scale(1.2);
     }
 }
 
-
+////////// display - flex ////////////
 .c-container{
     display: flex;
 
@@ -259,7 +340,7 @@ input[type=checkbox].c-checkbox {
     text-align: left;
 }
 
-
+// revisar no se si se esta utilizando  
 .c-icon{
     cursor: pointer;
     font-size: 1.6rem;
@@ -267,7 +348,6 @@ input[type=checkbox].c-checkbox {
     
     &--small{
         font-size: 1.4rem;
-
     }
 
     &--big{

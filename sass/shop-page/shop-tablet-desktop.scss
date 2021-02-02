@@ -33,32 +33,17 @@
         }
     }
 
-
-
-
 }
 
 @media screen and (min-width:768px){
     .l-shooping-cart{
-        max-width: 400px;
-
-        .l-shooping__products{
-            bottom: 206px;
-            padding-left: 30px;
-            padding-right: 22px;
-        }
-
-        .l-shooping__sell{
-            margin: 0px 30px;
-            // padding: 10px 30px;
-        }
+        padding: 0px 20px;
+        width: 400px;
     }
 
 }
 
-
 @media (min-width:920px){
-
 
     .c-product{
         display: grid;

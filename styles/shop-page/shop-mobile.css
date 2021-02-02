@@ -1,10 +1,10 @@
 .l-shop {
-  margin: 0 auto;
-  width: 100%;
-  max-width: 1024px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
   padding: 15px;
 }
 .l-shop .c-get-back {
@@ -47,7 +47,7 @@
   justify-content: center;
   margin-top: 10px;
   padding: 10px 10px;
-  border: 1px solid silver;
+  border: 1px solid #C0C0C0;
   border-radius: 10px;
   width: 100%;
 }
@@ -147,35 +147,41 @@
 }
 .c-product .l-product__information .l-product__quantity-total .l-product__value-total .c-button {
   cursor: auto;
-  padding-right: 10px;
-  padding-left: 10px;
+  padding: 7px 10px;
 }
 
 .l-shooping-cart {
+  position: fixed;
+  display: grid;
+  grid-template-rows: 75px auto 230px;
   height: 100vh;
-  position: relative;
-  background: #d6d6d6;
-  max-width: 300px;
+  width: 300px;
+  padding: 0px 10px;
+  top: 0;
+  right: 0;
+  background: white;
+  transform: translateX(100%);
+  transition: all 0.3s;
+  z-index: 2;
+}
+.l-shooping-cart > div {
+  opacity: 0;
 }
 .l-shooping-cart .c-shooping__header {
   padding: 20px 0px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid silver;
+  border-bottom: 1px solid #C0C0C0;
 }
 .l-shooping-cart .c-shooping__header h3 {
   font-size: 2.5rem;
 }
 .l-shooping-cart .l-shooping__products {
-  position: absolute;
-  top: 71px;
-  bottom: 224px;
-  left: 0;
-  right: 0;
   overflow-y: scroll;
   padding-left: 10px;
   padding-right: 2px;
+  border-bottom: 1px solid #C0C0C0;
 }
 .l-shooping-cart .l-shooping__products .c-product-cart {
   display: grid;
@@ -212,11 +218,8 @@
 .l-shooping-cart .l-shooping__sell {
   display: flex;
   flex-direction: column;
-  position: absolute;
-  bottom: 0;
-  margin: 0px 10px;
-  padding: 10px 0px;
-  border-top: 1px solid silver;
+  align-self: flex-end;
+  padding: 10px;
 }
 .l-shooping-cart .l-shooping__sell > div {
   margin-bottom: 12px;
@@ -233,6 +236,14 @@
 }
 .l-shooping-cart .l-shooping__sell .c-button {
   margin: 0 auto;
+}
+
+.l-show-modal {
+  transform: translateX(0px);
+}
+.l-show-modal > div {
+  opacity: 1;
+  transition: all 0.2s 0.2s;
 }
 
 /*# sourceMappingURL=shop-mobile.css.map */

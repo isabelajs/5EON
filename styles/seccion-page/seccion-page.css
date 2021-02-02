@@ -65,7 +65,7 @@
 }
 .c-button--flat {
   background: white;
-  border: 1px solid #d6d6d6;
+  border: 1px solid #D6D6D6;
 }
 .c-button--flat:hover {
   background: #171731;
@@ -84,7 +84,7 @@
   width: 30%;
 }
 .c-description-item--right {
-  border-right: 1px solid silver;
+  border-right: 1px solid #C0C0C0;
 }
 
 .c-increment {
@@ -92,7 +92,7 @@
   align-items: center;
 }
 .c-increment__button {
-  padding: 8px 4px;
+  padding: 5px 4px;
 }
 .c-increment__button i {
   font-size: 14px;
@@ -105,17 +105,22 @@
   margin: 0px 10px;
 }
 
-input[type=checkbox].c-checkbox {
+.c-checkbox-option {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+.c-checkbox-option input[type=checkbox] {
   display: none;
 }
-input[type=checkbox].c-checkbox + label {
+.c-checkbox-option input[type=checkbox] + label {
   display: flex;
   align-items: center;
 }
-input[type=checkbox].c-checkbox + label:hover {
+.c-checkbox-option input[type=checkbox] + label:hover {
   cursor: pointer;
 }
-input[type=checkbox].c-checkbox + label::before {
+.c-checkbox-option input[type=checkbox] + label::before {
   font-weight: bolder;
   content: "";
   display: flex;
@@ -129,12 +134,54 @@ input[type=checkbox].c-checkbox + label::before {
   transition: all 0.1s;
   margin-right: 5px;
 }
-input[type=checkbox].c-checkbox:not(:checked) + label::before {
+.c-checkbox-option input[type=checkbox]:not(:checked) + label::before {
   color: #171731;
   -webkit-transform: scale(1) rotate(0);
   transform: scale(1) rotate(0);
 }
-input[type=checkbox].c-checkbox:checked + label::before {
+.c-checkbox-option input[type=checkbox]:checked + label::before {
+  content: "✕";
+  color: #171731;
+  -webkit-transform: scale(1) rotate(180deg);
+  transform: scale(1) rotate(180deg);
+}
+
+.c-radio-option {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+.c-radio-option input[type=radio] {
+  display: none;
+}
+.c-radio-option input[type=radio] + label {
+  display: flex;
+  align-items: center;
+}
+.c-radio-option input[type=radio] + label:hover {
+  cursor: pointer;
+}
+.c-radio-option input[type=radio] + label::before {
+  box-sizing: initial;
+  font-weight: bolder;
+  content: "";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  border-radius: 5px;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #171731;
+  transition: all 0.1s;
+  margin-right: 5px;
+}
+.c-radio-option input[type=radio]:not(:checked) + label::before {
+  color: #171731;
+  -webkit-transform: scale(1) rotate(0);
+  transform: scale(1) rotate(0);
+}
+.c-radio-option input[type=radio]:checked + label::before {
   content: "✕";
   color: #171731;
   -webkit-transform: scale(1) rotate(180deg);
@@ -158,8 +205,22 @@ input[type=checkbox].c-checkbox:checked + label::before {
   border-radius: 5px;
 }
 
+.showing-modal {
+  overflow: hidden;
+}
+.showing-modal::before {
+  content: "x";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
 .c-separation-line {
-  margin: 20px 0px;
+  margin: 24px 0px;
   width: 100%;
   height: 1px;
   background: #171731;
@@ -181,6 +242,7 @@ input[type=checkbox].c-checkbox:checked + label::before {
   background-color: palevioletred;
 }
 .c-color:hover {
+  cursor: pointer;
   box-sizing: initial;
   transform: scale(1.2);
 }
@@ -221,10 +283,15 @@ input[type=checkbox].c-checkbox:checked + label::before {
   font-size: 2.5rem;
 }
 
+.l-summary-products {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+  margin-bottom: 24px;
+}
+
 .menu-desplegable__header {
   width: 100%;
-  background: #d6d6d6;
-  background: #d6d6d6;
+  background: #D6D6D6;
+  background: #D6D6D6;
   border-bottom: 1px solid #e6e6e6;
   border-top: 1px solid #e6e6e6;
 }
@@ -266,10 +333,11 @@ input[type=checkbox].c-checkbox:checked + label::before {
 }
 
 .menu-productos {
+  min-width: 290px;
   width: 90%;
   margin: 0 auto;
   display: grid;
-  grid-template-rows: 1fr 279px;
+  grid-template-rows: 1fr auto;
 }
 .menu-productos .main__productos {
   max-height: 330px;
@@ -319,7 +387,6 @@ input[type=checkbox].c-checkbox:checked + label::before {
 }
 .menu-productos__container {
   width: 100%;
-  max-height: 400px;
   display: flex;
   flex-direction: column;
 }
@@ -336,12 +403,30 @@ input[type=checkbox].c-checkbox:checked + label::before {
   width: 100%;
   margin-right: 5%;
   padding: 0 20px;
-  border: 1px solid #d6d6d6;
+  border: 1px solid #D6D6D6;
 }
 .menu-productos__container .container__description {
   width: 100%;
   display: flex;
   flex-direction: column;
+}
+.menu-productos__container .container__description > div {
+  display: flex;
+  justify-content: space-between;
+}
+.menu-productos__container .container__description > div .text {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+.menu-productos__container .container__description > div .value {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 300;
+}
+.menu-productos__container .container__description > div .value span {
+  font-size: 1.8rem;
+  font-weight: 600;
 }
 .menu-productos__container .container__description .subtotal {
   margin-top: 24px;
@@ -358,7 +443,7 @@ input[type=checkbox].c-checkbox:checked + label::before {
 
 .footer-seccion-page {
   width: 100%;
-  background: #d6d6d6;
+  background: #D6D6D6;
 }
 .footer-seccion-page__text {
   font-family: "Open Sans", sans-serif;
@@ -368,32 +453,13 @@ input[type=checkbox].c-checkbox:checked + label::before {
   padding: 20px 0;
 }
 
-.container {
-  display: flex;
-  justify-content: space-between;
-}
-.container .text {
-  font-family: "Open Sans", sans-serif;
-  font-size: 1.6rem;
-  font-weight: 400;
-}
-.container .value {
-  font-family: "Open Sans", sans-serif;
-  font-size: 1.6rem;
-  font-weight: 300;
-}
-.container .value span {
-  font-size: 1.8rem;
-  font-weight: 600;
-}
-
 @media (min-width: 768px) {
   .menu-desplegable__header .menu-header {
-    width: 70%;
+    max-width: 532px;
   }
 
   .menu-productos {
-    width: 70%;
+    max-width: 532px;
   }
 }
 @media (min-width: 1024px) {
@@ -403,7 +469,6 @@ input[type=checkbox].c-checkbox:checked + label::before {
 
   .menu-productos {
     width: 350px;
-    margin-top: 25px;
   }
 }
 

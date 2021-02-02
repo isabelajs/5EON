@@ -5,8 +5,6 @@ $font-open-sans: 'Open Sans', sans-serif;
 $tablet-width: 769px;
 $computer-width:1024px;
 
-$size-title-h1: 2.8rem;
-
 
 $border-radius-generic:10px;
 $margin-generic:24px;
@@ -16,14 +14,14 @@ $margin-generic:24px;
 $blue-first: #18122D;
 $blue-second: #171731;
 $green-main: #25BF92;
-$gray-main:rgb(192, 192, 192);
-$gray-second:rgb(214, 214, 214);
+$gray-main: #C0C0C0;
+$gray-second:#D6D6D6;
 
 
 //letras
 @mixin titles{
     font-family: $font-montserrat;
-    font-weight: 700;
+    font-weight:bold;
 }
 
 @mixin text{

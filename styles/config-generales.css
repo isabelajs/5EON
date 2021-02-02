@@ -12,13 +12,17 @@ a {
   text-decoration: none;
 }
 
+body {
+  position: relative;
+}
+
 ul {
   list-style: none;
 }
 
 h1 {
   font-family: "Montserrat", sans-serif;
-  font-weight: 700;
+  font-weight: bold;
   font-size: 4.5rem;
 }
 @media (min-width: 768px) {
@@ -29,19 +33,19 @@ h1 {
 
 h2 {
   font-family: "Montserrat", sans-serif;
-  font-weight: 700;
+  font-weight: bold;
   font-size: 2.8rem;
 }
 
 h3 {
   font-family: "Montserrat", sans-serif;
-  font-weight: 700;
+  font-weight: bold;
   font-size: 1.8rem;
 }
 
 h4 {
   font-family: "Montserrat", sans-serif;
-  font-weight: 700;
+  font-weight: bold;
   font-size: 1.6rem;
 }
 

@@ -1,11 +1,15 @@
 @import '../variables.scss';
 
+
+/////// L - shop-page (C-product, descripcion, boton-volverLanding) /////
 .l-shop{
-    margin: 0 auto;
-    width: 100%;
-    max-width: 1024px;
     @include flex-column;
     align-items: center;
+
+    width: 100%;
+    max-width: 1024px;
+
+    margin: 0 auto;
     padding: 15px;
 
     .c-get-back{
@@ -13,7 +17,7 @@
     }
 }
 
-
+//// C - product (nombre, imagen, informacion, seleccion de propiedades, boton-añadirCarrito)
 .c-product{
     @include flex-column;
     width: 100%;
@@ -180,8 +184,7 @@
                 
                 .c-button{
                     cursor:auto;
-                    padding-right: 10px;
-                    padding-left: 10px;
+                    padding: 7px 10px;
                 }
             }
         }
@@ -193,13 +196,32 @@
 }
 
 
+/////// L - carrito de compra (productos, valor total, condiciones de compra, boton-finalizarCompra) /////
 .l-shooping-cart{
+    position: fixed;
+    display: grid;
+
+    grid-template-rows: 75px auto 230px;
+
     height: 100vh;
-    position: relative;
+    width: 300px;
 
-    background: $gray-second;
+    padding: 0px 10px;
+    top: 0;
+    right: 0;
 
-    max-width: 300px;
+    background: white;
+    
+
+    transform: translateX(100%);
+    transition: all 0.3s;
+    z-index: 2;
+    
+
+    >div{
+        opacity: 0;
+    }
+
 
     .c-shooping__header{
         padding: 20px 0px;
@@ -208,21 +230,17 @@
         }
         
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
         border-bottom: 1px solid $gray-main;
         
     }
 
     .l-shooping__products{
-        position: absolute;
-        top: 71px;
-        bottom: 224px;
-        left: 0;
-        right: 0;
         overflow-y: scroll;
         padding-left: 10px;
         padding-right: 2px;
+        border-bottom: 1px solid $gray-main;
         
 
         .c-product-cart{
@@ -270,14 +288,9 @@
 
     .l-shooping__sell{
         @include flex-column;
+        align-self: flex-end;
 
-        position: absolute;
-        bottom: 0;
-
-        margin: 0px 10px;
-        padding: 10px 0px;
-
-        border-top: 1px solid $gray-main;
+        padding: 10px;
 
         >div{
             margin-bottom: $margin-generic/2;
@@ -305,6 +318,19 @@
             margin:0 auto;
         }
 
+    }
+    
+
+}
+
+
+////// modificacion layout carrito de compra "
+.l-show-modal{
+    transform: translateX(0px);
+
+    >div{
+        opacity: 1;
+        transition: all 0.2s 0.2s;
     }
 
 }

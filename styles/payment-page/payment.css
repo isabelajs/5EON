@@ -18,7 +18,11 @@
   margin-bottom: 24px;
 }
 
+.c-form {
+  width: 100%;
+}
 .c-form .l-form-section {
+  width: 100%;
   border: none;
   margin-bottom: 24px;
 }

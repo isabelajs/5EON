@@ -5,6 +5,8 @@
 
 .l-payment{
     width: 90%;
+
+    //donde ira empaqueatado no es flex entonces debo centrarme en auto
     margin: 0 auto;
     min-width: 290px;
     @include flex-column;
@@ -26,9 +28,10 @@
 }
 
 .c-form{
+    width: 100%;
 
     .l-form-section{
-
+        width: 100%;
         border: none;
         margin-bottom: $margin-generic;
 
@@ -84,12 +87,11 @@
                 @include text-semi-bold-16;
             }
 
-            //los input ya contienen un width por defecto 
+            //los input ya contienen un width por defecto, ademas ocuparan siempre el 100% de su padre
             input[type=text]{
                 width: 100%;
                 @include text-regular-16;
                 border-radius: $border-radius-generic/4;
-    
                 padding: 7px 0px 0px 0px;
                 outline: none;
                 border: none;   
@@ -128,9 +130,7 @@
 
         }
 
-
     }
-
     
 }
 

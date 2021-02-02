@@ -1,10 +1,10 @@
 .l-shop {
-  margin: 0 auto;
-  width: 100%;
-  max-width: 1024px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
   padding: 15px;
 }
 .l-shop .c-get-back {
@@ -152,15 +152,15 @@
 
 .l-shooping-cart {
   position: fixed;
-  transform: translateX(100%);
   display: grid;
-  grid-template-rows: 75px 1fr 250px;
+  grid-template-rows: 75px auto 230px;
   height: 100vh;
   width: 300px;
   padding: 0px 10px;
   top: 0;
   right: 0;
   background: white;
+  transform: translateX(100%);
   transition: all 0.3s;
   z-index: 2;
 }
@@ -238,26 +238,12 @@
   margin: 0 auto;
 }
 
-.show-modal {
+.l-show-modal {
   transform: translateX(0px);
 }
-.show-modal > div {
+.l-show-modal > div {
   opacity: 1;
   transition: all 0.2s 0.2s;
-}
-
-.showing-modal {
-  overflow: hidden;
-}
-.showing-modal::before {
-  content: "x";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0.3);
-  z-index: 1;
 }
 
 /*# sourceMappingURL=shop-mobile.css.map */

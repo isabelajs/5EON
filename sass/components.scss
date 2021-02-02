@@ -32,9 +32,7 @@
 
 //////////////////////////////////////////// COMPONENTS AND MODIFYQUES //////////////////////////////////////////// 
 
-
 //////////// Button ///////////
-
 .c-button{
     @include text-regular-16;
     display: inline-block;
@@ -110,7 +108,6 @@
 }
 
 //////////// CheckBox ///////////
-
 .c-checkbox-option{
 
     @include text-regular-14;
@@ -252,6 +249,27 @@
 
 }
 
+//////////// show-modal -> se aplica al body////////////
+.showing-modal{
+
+    overflow: hidden;
+    
+    &::before{
+        content: 'x';
+        position: absolute;
+        top:0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba($color: #000000, $alpha: 0.3);
+        z-index: 1;
+    }
+
+}
+
+
+
+
 
 
 ////////////////////////////////////////////        BASICS              //////////////////////////////////////////// 
@@ -264,7 +282,8 @@
     height: 1px;
     background:$blue-second ;
 }
-//////////// separation line ///////////
+
+//////////// circle - color ///////////
 .c-color{
     width: 38px;
     height: 38px;
@@ -285,12 +304,13 @@
     }
 
     &:hover{
+        cursor: pointer;
         box-sizing: initial;
         transform: scale(1.2);
     }
 }
 
-
+////////// display - flex ////////////
 .c-container{
     display: flex;
 
@@ -320,7 +340,7 @@
     text-align: left;
 }
 
-
+// revisar no se si se esta utilizando  
 .c-icon{
     cursor: pointer;
     font-size: 1.6rem;

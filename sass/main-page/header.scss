@@ -1,14 +1,20 @@
 @import '../variables.scss';
 
+
 .header{
+
+    //others -> static 
+    // position: static;
+
+    position: fixed;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    position: relative;
-    height: 54px;
     background-color: $blue-first ;
-    padding: 0px 25px 0 20px;
+    padding: 7px 25px 7px 20px;
+    width: 100%;
+    z-index: 2;
+    transition: all 0.5s;
 
     &__logo{
         background: url("../assets/logo.png") center/cover no-repeat;
@@ -23,32 +29,106 @@
         padding: 0px 50px;
         width: 100%;
         height: 0;
+        overflow: hidden;
         background:$blue-second;
         transition: all 0.4s;
-        overflow: hidden;
         z-index: 1;
         
         .menu-container{
+            margin-right: auto;
             margin: 20px 0px;
+
+            li{
+                @include h3;
+                padding: 10px 0;
+                text-align: center;
+                text-shadow: 1px 1px 0.5px rgb(66, 65, 65);
+        
+                >a{
+                    color: white;
+                }
+            }
         }
 
     }
 
 }
 
-.visibility{
+@media(min-width:768px){
+    .header{ 
+        background-color: transparent;
+        padding: 20px 40px 20px 50px ;
+        transition: all 0.5s;
+        // padding: 7px 25px 7px 40px; //modificar segun como se vea
+        // transition: all 0s;
+
+        &__logo{
+            min-width:150px;
+            height: 60px;
+        }
+
+        .c-icon{
+            display: none;
+        }
+
+        &__menu{
+            background-color: transparent;
+            position: static;
+            inset:  auto auto auto auto;
+            padding: 0;
+            overflow: visible;
+            height: auto;
+            width: auto;
+
+            .menu-container{
+                margin: 0;
+                >li{
+                    @include text-bold-16;
+                    display: inline-block;
+                    padding: 2px 15px;
+
+                &:last-child{
+                    padding-right: 0px;
+                }
+                }
+
+
+            }
+        }
+    }
+
+}
+
+@media(min-width:1024px){
+    .header{
+        &__logo{
+            min-width:160px;
+        }
+        &__menu{
+            .menu-container{
+                >li{
+                    font-size: 2rem;
+                }
+            }
+        }
+    }
+}
+
+//quien putas se hace visible
+.menu--visibility{
     height: 208px;
     transition: all 0.4s;
 }
 
-.menu-container{
-    li{
-        @include h3;
-        padding: 10px 0;
+// son clases que solo aplican >750px y scroll > 750px
+.header--transparent{
+    background-color: transparent;
+    padding: 20px 40px 20px 50px ;
+    transition: all 0.5s;
+}
 
-        >a{
-            color: white;
-        }
-    }
- 
+.header--draw{
+    padding: 7px 25px 7px 20px;
+    background-color: $blue-second;
+    transition: all 0.5s;
 }

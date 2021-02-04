@@ -3,7 +3,7 @@
 
 
 .l-summary-products{
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+    box-shadow: $box-shadow;
     margin-bottom: 24px;
 }
 .menu-desplegable{
@@ -12,9 +12,7 @@
     &__header{
         width: 100%;
         background: $gray-second;
-        background: $gray-second;
-        border-bottom: 1px solid #e6e6e6;
-        border-top: 1px solid #e6e6e6;
+        box-shadow: $box-shadow;
 
         .menu-header{
             height: 58px;
@@ -67,11 +65,14 @@
     margin: 0 auto;
     display: grid;
     grid-template-rows: 1fr auto;
+    height: 0;
+    visibility: hidden;
+
 
     .main__productos{
         max-height: 330px;
         width: 100%;
-        border-bottom: 1px double black ;
+        border-bottom: 1px solid $gray-main ;
         overflow: scroll;
     
         .producto{
@@ -83,7 +84,7 @@
             &__img{
                 height: 64px;
                 border-radius: 5px;
-                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+                box-shadow: $box-shadow ;
                 overflow: hidden;
                 img{
                     width: 100%;
@@ -123,7 +124,7 @@
             display: flex;
             justify-content: space-between;
             padding: 24px 0;
-            border-bottom: 1px solid rgba(107, 102, 102, 0.829);;
+            border-bottom: 1px solid $gray-main;
             .botton-descuento{
                 outline: none;
                 border-radius: 5px;
@@ -169,7 +170,7 @@
             .total{
                padding-top: 24px;
                padding-bottom: 24px;
-               border-top: 1px double black ;
+               border-top: 1px solid $gray-main ;
             }
         }
     }
@@ -203,13 +204,45 @@
 }
 
 @media(min-width:1024px){
+    .app{
+        background: $gray-third;
+    }
+    .section__page{
+        display: flex;
+        flex-direction: row-reverse;
+        max-width: 1024px;
+        margin:0 auto;
+        background: white;
+        box-shadow: $box-shadow;
+    }
+
+    .l-summary-products{
+        width: 430px ;
+        padding-top: 25px;
+        margin-bottom: 0px;
+        
+    }
     .menu-desplegable{
         display: none;
     }
 
     .menu-productos{
         width: 350px;
-        // margin-top: 25px;
+        height: auto;
+        visibility: visible;
     }
 }
+
+
+.menu-productos--visibility{
+    height: auto;
+    visibility:visible;
+    
+   
+}
+
+.icon--translate{
+    transform: rotate(180deg);
+}
+
 

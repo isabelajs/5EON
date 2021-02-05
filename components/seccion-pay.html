@@ -12,6 +12,7 @@
 </head>
 <body>
     <section class="section__page">
+        
         <div class="l-summary-products">
             <section class="menu-desplegable" >
         
@@ -37,7 +38,7 @@
         
             <section  class="menu-productos">
         
-                <div class="main__productos c-scroll">
+                <div id="visorProducts" class="main__productos c-scroll">
         
                     <div class="producto">
                         <div class="producto__img"><img src="../assets/prod.jpg" alt=""></div>
@@ -146,11 +147,7 @@
         
         
             </section>
-        
-            <!-- <section class="footer-seccion-page">
-                <p class="footer-seccion-page__text">Todos los derechos reservados</p>
-            </section>
-         -->
+
         </div>
     
         <div class="l-payment">
@@ -164,15 +161,15 @@
                     <div class="l-form-section__inputs">
                     
                         <label class="c-form-input" for="pepe">
-                            Nombre<input type="text" name="username" id="pepe">
+                            Nombre<input type="text" name="username" id="name">
                         </label>
         
                         <label class="c-form-input" for="pepe">
-                            N° indentificacion<input type="text" name="username" id="pepe">
+                            N° indentificacion<input type="text" name="username" id="idCard">
                         </label>
                             
                         <label class="c-form-input" for="pepe">
-                            Correo electronico<input type="text" name="username" id="pepe">
+                            Correo electronico<input type="text" name="username" id="email">
                         </label>
                     </div>
                     
@@ -205,15 +202,15 @@
                     <div class="l-form-section__inputs">
                     
                         <label class="c-form-input" for="pepe">
-                            Direccion<input type="text" name="username" id="pepe">
+                            Direccion<input type="text" name="username" id="adress">
                         </label>
         
                         <label class="c-form-input" for="pepe">
-                            Ciudad<input type="text" name="username" id="pepe">
+                            Ciudad<input type="text" name="username" id="city">
                         </label>
                             
                         <label class="c-form-input" for="pepe">
-                            Departamento<input type="text" name="username" id="pepe">
+                            Departamento<input type="text" name="username" id="departament">
                         </label>
                     </div>
                     
@@ -227,12 +224,12 @@
                     <div class="l-form-section__inputs">
                     
                         <label class="c-form-input" for="pepe">
-                            Nombre<input type="text" name="username" id="pepe">
+                            Nombre<input type="text" name="username" id="nameCard">
                         </label>
         
                         <label class="c-form-input c-form-input--icon" for="pepe">
                             Numero de tarjeta
-                            <i class="fas fa-credit-card"></i> <input type="text" name="username" id="pepe">
+                            <i class="fas fa-credit-card"></i> <input type="text" name="username" id="numberCard">
                         </label> 
         
                     </div>
@@ -244,15 +241,15 @@
         
                             <!-- si necesito mas de un input por label -->
                             <div class="l-form-input__items">
-                                <input type="text" name="username" id="pepe" placeholder="MM">
-                                <input type="text" name="username" id="pepe" placeholder="YY">
+                                <input type="text" name="username" id="month" placeholder="MM">
+                                <input type="text" name="username" id="year" placeholder="YY">
                             </div>
         
                         </label>
                         
                         <label class="c-form-input" for="pepe">
                             <p class="c-form-input__title">CVV</p>
-                            <input type="text" name="username" id="pepe" placeholder="000">
+                            <input type="text" name="username" id="numberSecury" placeholder="000">
                         </label>
                         
                     </div>
@@ -276,6 +273,11 @@
         </div>
 
     </section>
+            
+    <section class="footer-seccion-page">
+            <p class="footer-seccion-page__text">Todos los derechos reservados</p>
+    </section>
+        
     <script src="../javascript/seccionPage.js"></script>
 </body>
 </html>

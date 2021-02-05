@@ -11,6 +11,7 @@
     min-width: 290px;
     @include flex-column;
     align-items: center;
+    margin-top: 20px;
 
     .l-payment__accept{
         @include flex-column;

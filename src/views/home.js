@@ -1,6 +1,11 @@
-<div class="l-landing">
+
+
+export default () => {
+
+
+    const view =`<div class="l-landing">
     <section id="intro" class ="home">
-        <h1 class="home__title">No más plastico</h1>
+        <h1 id="test" class="home__title">No más plastico</h1>
         <p class="home__text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui sequi excepturi ea dolore eius explicabo, voluptatem voluptates magnam minima quaerat veritatis cum esse odio modi fugit illo, quia accusantium. Eum.</p>
     </section>
 
@@ -172,4 +177,20 @@
         </div>
     </section>
 
-</div>
+    </div>`
+
+
+    const div = document.createElement('div')
+
+
+    div.innerHTML = view;
+
+
+    div.querySelector('#test').addEventListener('click',
+    
+    ()=>{
+        window.location.hash = '#/header'
+    })
+
+    return div
+}

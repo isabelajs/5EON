@@ -56,11 +56,11 @@
 
 @media(min-width:768px){
     .header{ 
+        //no iria para los otros
         background-color: transparent;
         padding: 20px 40px 20px 50px ;
         transition: all 0.5s;
-        // padding: 7px 25px 7px 40px; //modificar segun como se vea
-        // transition: all 0s;
+       
 
         &__logo{
             min-width:150px;
@@ -114,13 +114,13 @@
     }
 }
 
-//quien putas se hace visible
+
 .menu--visibility{
     height: 208px;
     transition: all 0.4s;
 }
 
-// son clases que solo aplican >750px y scroll > 750px
+// son clases que solo aplican >750px y scroll > 750px langing page
 .header--transparent{
     background-color: transparent;
     padding: 20px 40px 20px 50px ;

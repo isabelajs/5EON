@@ -8,12 +8,12 @@
 }
 .menu-desplegable{
     
-
+    
     &__header{
         width: 100%;
         background: $gray-second;
         box-shadow: $box-shadow;
-
+        
         .menu-header{
             height: 58px;
             width: 90%;
@@ -23,38 +23,38 @@
             margin: 0 auto;
             
             
-
+            
             &__container{
                 display: flex;
                 align-items: center;
-
+                
                 .carrito{
                     font-size: 18px;
                     padding-right: 18px;
                 }
-
+                
                 .text{
                     display: flex;
                     align-items: center;
-
+                    
                     &__text{
                         @include text-regular-14;
                         letter-spacing: -0.05em;
                     }
-
+                    
                     &__arrow{
                         font-size: 15px;
                         margin-left: 5px;
                     }
                 }
             }
-
+            
             &__total{
                 @include text-light-16;
                 margin-left: 30px;
             }
         }
-           
+        
         
     }
 }
@@ -63,24 +63,29 @@
     min-width: 290px;
     width: 90%;
     margin: 0 auto;
-    display: grid;
-    grid-template-rows: 1fr auto;
-    height: 0;
-    visibility: hidden;
-
-
+    max-height: 0;
+    transition: all 0.4s;
+    overflow: hidden;
+    
+    
+    >div{
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+    
     .main__productos{
+        margin-top: 10px;
         max-height: 330px;
         width: 100%;
         border-bottom: 1px solid $gray-main ;
         overflow: scroll;
-    
+        
         .producto{
             display: grid;
             grid-template-columns: 64px 1fr 65px;
             margin: 15px 0;
             column-gap: 15px;
-
+            
             &__img{
                 height: 64px;
                 border-radius: 5px;
@@ -92,7 +97,7 @@
                     object-fit: cover;
                 }
             }
-
+            
             &__description{
                 display: flex;
                 flex-direction: column;
@@ -111,10 +116,10 @@
                 justify-self: center;
                 align-self: center;
             }
-
+            
         }
     }
-
+    
     &__container{
         width: 100%;
         display: flex;
@@ -134,9 +139,9 @@
                 border: 1px solid $gray-second;
             }
         }
-
+        
         .container__description{
-
+            
             >div{
                 display: flex;
                 justify-content: space-between;
@@ -151,26 +156,26 @@
                     }
                 }
             }
-
+            
             width: 100%;
             display: flex;
             flex-direction: column;
-
-
-
+            
+            
+            
             .subtotal{
                 margin-top: 24px;
                 margin-bottom: 20px;
             }
-
+            
             .envio{
                 margin-bottom: 24px;
             }
             
             .total{
-               padding-top: 24px;
-               padding-bottom: 24px;
-               border-top: 1px solid $gray-main ;
+                padding-top: 24px;
+                padding-bottom: 24px;
+                border-top: 1px solid $gray-main ;
             }
         }
     }
@@ -180,13 +185,13 @@
 .footer-seccion-page{
     width: 100%;
     background: $gray-second;
-
+    
     &__text{
         @include text-light-12;
         text-align: center;
         padding: 20px 0;
     }
-
+    
 }
 
 
@@ -215,11 +220,12 @@
         background: white;
         box-shadow: $box-shadow;
     }
-
+    
     .l-summary-products{
         width: 430px ;
         padding-top: 25px;
         margin-bottom: 0px;
+        box-shadow: 0px 0px 5px -4px rgba(0, 0, 0, 0.25), -5px 0px 5px -4px rgba(0, 0, 0, 0.25),;
         
     }
     .menu-desplegable{
@@ -228,21 +234,30 @@
 
     .menu-productos{
         width: 350px;
-        height: auto;
+        max-height: none;
         visibility: visible;
+        >div{
+            opacity: 1;
+        }
+        
     }
 }
 
 
 .menu-productos--visibility{
-    height: auto;
-    visibility:visible;
-    
+
+    >div{ 
+        opacity: 1;
+        transition: opacity 0.3s 0.2s;
+    }
+
+    max-height:800px;
+    transition: all 0.4s;
    
 }
+    
+
 
 .icon--translate{
     transform: rotate(180deg);
 }
-
-

@@ -1,7 +1,6 @@
 export default () => {
 
-    const view = `<header id="header" class="header">
-                    <div class="header__logo"></div>
+    const view = `  <div class="header__logo"></div>
                     <div class="c-icon c-icon--big" id="icon"><i  class="fas fa-bars" ></i></div>        
                     <nav class="header__menu">
                         <ul class="menu-container">
@@ -10,15 +9,15 @@ export default () => {
                             <li ><a href="#proceso">Proceso</a></li>
                             <li ><a href="#productos">Productos</a></li>
                         </ul>
-                    </nav>
-                </header>`
+                    </nav>`
 
-    const div = document.createElement('div')
+    const header = document.createElement('header');
+    header.setAttribute("id","header");
+    header.classList.add("header")
+    header.innerHTML = view;
 
+   
 
-    div.innerHTML = view;
+    return header
 
-    console.log(div)
-    return div
 }
-

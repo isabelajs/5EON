@@ -67,4 +67,19 @@ function modifyHeader(){
 }
 
 
+let linksMenu = document.querySelectorAll("li")
+linksMenu.forEach(link => {
+    link.addEventListener("click",(event) =>{
+        event.preventDefault();
+        moveScroll(link.id)
+    })
+});
 
+
+
+function moveScroll(name){
+    console.log(this)
+    let seccion = document.getElementsByClassName(name)[0] 
+    let posicionSeccion = seccion.offsetTop;
+    window.scrollTo (0,posicionSeccion-80)
+}

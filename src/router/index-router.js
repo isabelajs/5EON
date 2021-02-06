@@ -1,25 +1,27 @@
 import home from '../views/home.js'
 import header from '../views/header.js'
+import footer from '../views/footer.js'
 
 const app = document.querySelector('body')
 
 
 const router = (route) =>{
-    app.innerHTML = ''
-    switch(route){
-        case '':
-            app.appendChild(home())
-        case '#/':
-            app.appendChild(home())
-            return console.log("pepe")
-        case '#/header':
-            return app.appendChild(header())
+    app.innerHTML = '';
+
+
+    if ( route == ""){
+
+        app.appendChild(header())
+        app.appendChild(home())
+        app.appendChild(footer())
     
-        default:
-            console.log("404!!")
-            
+    } else if (route == "#/"){
+
+    } else if (route == '#/'){
 
     }
+            
 }
+ 
 
 export {router}

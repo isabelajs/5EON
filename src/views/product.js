@@ -1,5 +1,13 @@
-<div id="shoop" class="l-shop">
+export default (id) =>{
 
+    const shopPage = document.createElement('div')
+    shopPage.setAttribute('id','shoop')
+    shopPage.classList.add('l-shop')
+    const test = ""
+
+    const producto = {nombre:"set portavasos chavita", id:'1'}
+    
+    const view = `
     <div id="shooping-cart" class="l-shooping-cart">
 
         <div class="c-shooping__header">
@@ -16,8 +24,8 @@
                 </div>
     
                 <div class="l-product-cart__information">
-                    <div class="c-txt-16">producto${}</div>
-                    <div class="c-txt-l-14">units and color${}</div>
+                    <div class="c-txt-16">producto ${test}</div>
+                    <div class="c-txt-l-14">units and color${test}</div>
     
                     <div class="c-increment">
                         <div class="c-increment__button c-button c-button--flat"><i class="fas fa-plus"></i></div>
@@ -25,7 +33,7 @@
                         <div class="c-increment__button c-button c-button--flat"><i class="fas fa-minus"></i></div>
                     </div>
     
-                    <div class="c-txt-l-16">${ 15000}</div>
+                    <div class="c-txt-l-16">${15000}</div>
                 </div>
     
             </div>
@@ -37,8 +45,8 @@
                 </div>
     
                 <div class="l-product-cart__information">
-                    <div class="c-txt-16">producto${}</div>
-                    <div class="c-txt-l-14">units and color${}</div>
+                    <div class="c-txt-16">producto${test}</div>
+                    <div class="c-txt-l-14">units and color${test}</div>
     
                     <div class="c-increment">
                         <div class="c-increment__button c-button c-button--flat"><i class="fas fa-plus"></i></div>
@@ -46,7 +54,7 @@
                         <div class="c-increment__button c-button c-button--flat"><i class="fas fa-minus"></i></div>
                     </div>
     
-                    <div class="c-txt-l-16"> 15000${}</div>
+                    <div class="c-txt-l-16"> 15000${test}</div>
                 </div>
     
             </div>
@@ -58,8 +66,8 @@
                 </div>
     
                 <div class="l-product-cart__information">
-                    <div class="c-txt-16">producto${}</div>
-                    <div class="c-txt-l-14">units and color${}</div>
+                    <div class="c-txt-16">producto${test}</div>
+                    <div class="c-txt-l-14">units and color${test}</div>
     
                     <div class="c-increment">
                         <div class="c-increment__button c-button c-button--flat"><i class="fas fa-plus"></i></div>
@@ -67,7 +75,7 @@
                         <div class="c-increment__button c-button c-button--flat"><i class="fas fa-minus"></i></div>
                     </div>
     
-                    <div class="c-txt-l-16"> 15000${}</div>
+                    <div class="c-txt-l-16"> 15000${test}</div>
                 </div>
     
             </div>
@@ -79,8 +87,8 @@
                 </div>
     
                 <div class="l-product-cart__information">
-                    <div class="c-txt-16">producto${}</div>
-                    <div class="c-txt-l-14">units and color${}</div>
+                    <div class="c-txt-16">producto${test}</div>
+                    <div class="c-txt-l-14">units and color${test}</div>
     
                     <div class="c-increment">
                         <div class="c-increment__button c-button c-button--flat"><i class="fas fa-plus"></i></div>
@@ -88,7 +96,7 @@
                         <div class="c-increment__button c-button c-button--flat"><i class="fas fa-minus"></i></div>
                     </div>
     
-                    <div class="c-txt-l-16"> 15000${}</div>
+                    <div class="c-txt-l-16"> 15000${test}</div>
                 </div>
     
             </div>
@@ -99,8 +107,8 @@
                 </div>
     
                 <div class="l-product-cart__information">
-                    <div class="c-txt-16">producto${}</div>
-                    <div class="c-txt-l-14">units and color${}</div>
+                    <div class="c-txt-16">producto${test}</div>
+                    <div class="c-txt-l-14">units and color${test}</div>
     
                     <div class="c-increment">
                         <div class="c-increment__button c-button c-button--flat"><i class="fas fa-plus"></i></div>
@@ -108,7 +116,7 @@
                         <div class="c-increment__button c-button c-button--flat"><i class="fas fa-minus"></i></div>
                     </div>
     
-                    <div class="c-txt-l-16"> 15000${}</div>
+                    <div class="c-txt-l-16"> 15000${test}</div>
                 </div>
     
             </div>
@@ -154,11 +162,11 @@
 
         <div class="l-product__header">
             
-            <h2 class="c-product__title">Set portavasos colorfull${}</h2>
-            <div class="c-product__id">codigo: 0001${}</div>
+            <h2 class="c-product__title">${producto.nombre}</h2>
+            <div class="c-product__id">codigo: 000${producto.id}</div>
 
             <div class="c-product__feedback">
-                <div class="c-feedback__txt">feedback${}<span class="c-txt-l-14">(3)</span> </div>
+                <div class="c-feedback__txt">feedback${test}<span class="c-txt-l-14">(3)</span> </div>
                 <div class="c-feedback__qualification-img"></div>
             </div>
         </div>
@@ -166,10 +174,10 @@
         <div class="l-product__representation">
             <div class="c-product__img">
                 <div>
-                    <img src="../assets/producto_1.png" alt="producto xxx${}" width="520" height="520">
+                    <img src="../assets/producto_1.png" alt="producto xxx${test}" width="520" height="520">
                     <div class="c-product__price">
-                        <h3>13k${}</h3>
-                        <p>15k${}</p>
+                        <h3>13k${test}</h3>
+                        <p>15k${test}</p>
                     </div>
                 </div>
 
@@ -192,7 +200,7 @@
             </div>
 
             <div class="l-product__colors">
-                <div class="c-txt-16">color:blue${}</div>
+                <div class="c-txt-16">color:blue${test}</div>
 
                 <div class="l-product__colors-items">
                     <div class="c-color c-color--blue"></div>
@@ -231,8 +239,13 @@
 
     <p class="c-condition">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas pariatur beatae pedit quasi. Alias, nam repudiandae! Harum.</p>
 
-    <div class="c-get-back c-button c-button--green">Volver</div>
+    <div class="c-get-back c-button c-button--green">Volver</div>`
 
-</div>
+    shopPage.innerHTML = view
+
+    return shopPage
+
+}
 
 
+//matchrout = 

@@ -3,10 +3,13 @@ import footer from '../views/footer.js'
 
 export default () => {
 
+    
     //inyectar header
     window.document.body.prepend(header())
 
     window.document.body.appendChild(footer())
+
+
 
     const view =`<section id="intro" class ="home">
                 <h1 id="test" class="home__title">No más plastico</h1>

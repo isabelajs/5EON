@@ -8,8 +8,6 @@ const matchUrl = (hashToFind) => {
 
     ['#','product',"1"]
 
-    
-
     //tengo la lista separada por seria #, product, 1
     const urlArray = hashToFind.split('/').slice(1)
 
@@ -35,9 +33,9 @@ const removeBody = () =>{
     while (window.document.body.lastElementChild){
         window.document.body.lastElementChild.remove()
     }
-
+            
 }
-
+ 
 
 const createAppRoute = () =>{
 
@@ -66,7 +64,7 @@ const router = (route) =>{
             app.appendChild(match.route.template()) 
         }
         else{
-            
+
             app.appendChild(match.route.template())
         }
     

@@ -696,7 +696,6 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 40px;
 }
 .proceso__title {
   font-family: "Montserrat", sans-serif;
@@ -805,6 +804,7 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 40px;
 }
 .productos__title {
   font-family: "Montserrat", sans-serif;

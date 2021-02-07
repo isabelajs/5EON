@@ -1,13 +1,13 @@
 export default () => {
 
     const view = `<div class="header__logo"></div>
-                    <div class="c-icon c-icon--big" id="icon"><i  class="fas fa-bars" ></i></div>        
-                    <nav class="header__menu">
+                    <div class="c-icon c-icon--big"><i id="menuIcon" class="fas fa-bars" ></i></div>        
+                    <nav id="menuHeader" class="header__menu">
                         <ul class="menu-container">
-                            <li ><a href="#/intro">Home</a></li>
-                            <li ><a href="#/aboutUs">About Us</a></li>
-                            <li ><a href="#/proceso">Proceso</a></li>
-                            <li ><a href="#/productos">Productos</a></li>
+                            <li id="home"><a href="">Home</a></li>
+                            <li id="intro" ><a href="">Intro</a></li>
+                            <li id="proceso"><a href="">Proceso</a></li>
+                            <li id="productos"><a href="">Productos</a></li>
                         </ul>
                     </nav>`
 
@@ -16,9 +16,24 @@ export default () => {
     header.classList.add('header')
     header.innerHTML = view;
 
-    let icon = header.querySelector('#icon')
+    let icon = header.querySelector('#menuIcon')
 
     icon.addEventListener('click',desplegable)
+
+    let linksMenu = header.querySelectorAll("li")
+    linksMenu.forEach(link => {
+
+        console.log('link')
+        link.addEventListener("click",(event) =>{
+            event.preventDefault();
+            moveScroll(link.id)
+            //siempre contrae
+            contraer()
+
+         
+        })
+    });
+
 
     window.onscroll = modifyHeader
     window.onresize = modifyHeader
@@ -26,6 +41,20 @@ export default () => {
     return header
 }
 
+function contraer(){
+
+    let menu = document.querySelector('#menuHeader')
+
+    if(menu.classList.contains('menu--visibility')){
+        menu.classList.remove("menu--visibility")
+
+        let menuIcon = document.querySelector('#menuIcon')
+         menuIcon.classList.add("fa-bars")
+         menuIcon.classList.remove("fa-times")
+    }
+
+
+}
 
 function modifyHeader(){
 
@@ -37,6 +66,8 @@ function modifyHeader(){
         header.classList.remove("header--draw","header--transparent");
 
     }else if (width >= 768){
+
+        contraer()
 
     const y = window.scrollY;
 
@@ -53,10 +84,21 @@ function modifyHeader(){
 }
 
 function desplegable(){
-    let menu = this.nextSibling.nextSibling
-        menu.classList.toggle("menu--visibility")
-    let icono = this.children[0]
-        icono.classList.toggle("fa-bars")
-        icono.classList.toggle("fa-times")
 
+    //para acceder menu
+    let menu = document.querySelector('#menuHeader')
+        menu.classList.toggle("menu--visibility")
+
+    //cambiar su imagen
+    let menuIcon = document.querySelector('#menuIcon')
+       menuIcon.classList.toggle("fa-bars")
+       menuIcon.classList.toggle("fa-times")
+
+}
+
+
+function moveScroll(name){
+    let seccion = document.getElementsByClassName(name)[0] 
+    let posicionSeccion = seccion.offsetTop;
+    window.scrollTo (0,posicionSeccion-60)
 }

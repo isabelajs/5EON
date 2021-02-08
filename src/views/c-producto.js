@@ -2,6 +2,7 @@ export default() =>{
 
     const cProducto =document.createElement("div")
     cProducto.classList.add('c-product')
+    
     const test = " "
     const producto = {nombre:"set portavasos chavita", id:'1'}
 

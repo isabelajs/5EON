@@ -13,7 +13,6 @@ export default (id) =>{
     shopPage.classList.add('l-shop')
 
     
-    // const productItem = seon.findProductById(id)
     const test = ""
     const producto = {nombre:"set portavasos chavita", id:'1'}
     
@@ -27,7 +26,7 @@ export default (id) =>{
     shopPage.innerHTML = view
 
     //agrega los componentes 
-    shopPage.prepend(cProducto())
+    shopPage.prepend(cProducto(id))
     shopPage.appendChild(shoopingCart())
 
     //asignación de eventos a los botones
@@ -36,14 +35,17 @@ export default (id) =>{
     //funcionalidad botones del header
     const headerCartButton =  header.querySelector('#headerCartButton')
     const headerHomeButton = header.querySelector('#headerHomeButton')
-
+    let backButton = shopPage.querySelector(".c-get-back")
 
     //funcionalida de los botones
     shoopingCartClose.addEventListener('click', modal )
     shoopButton.addEventListener("click",modal)
-
+    
     headerCartButton.addEventListener('click',modal)
     headerHomeButton.addEventListener('click',()=> window.location.hash = '')
+    
+    //hay que modificar mejor la función
+    // backButton.addEventListener('click',()=> window.location.hash = '')
 
     window.document.body.prepend(header)
 

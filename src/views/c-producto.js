@@ -1,19 +1,22 @@
-export default() =>{
+import {seon} from '../../dataBase/data.js'
+
+export default(id) =>{
 
     const cProducto =document.createElement("div")
     cProducto.classList.add('c-product')
     
+    const productItem = seon.findProductById(id)
     const test = " "
     const producto = {nombre:"set portavasos chavita", id:'1'}
 
     const view = `
     <div class="l-product__header">
         
-        <h2 class="c-product__title">${producto.nombre}</h2>
-        <div class="c-product__id">codigo: 000${producto.id}</div>
+        <h2 class="c-product__title">${productItem.name}</h2>
+        <div class="c-product__id">codigo: 000${productItem.id}</div>
 
         <div class="c-product__feedback">
-            <div class="c-feedback__txt">feedback${test}<span class="c-txt-l-14">(3)</span> </div>
+            <div class="c-feedback__txt">feedback${productItem.feedback}<span class="c-txt-l-14">(3)</span> </div>
             <div class="c-feedback__qualification-img"></div>
         </div>
     </div>
@@ -21,10 +24,10 @@ export default() =>{
     <div class="l-product__representation">
         <div class="c-product__img">
             <div>
-                <img src="../assets/producto_1.png" alt="producto xxx${test}" width="520" height="520">
+                <img src="${productItem.urlImg}" alt="producto xxx${productItem.name}" width="520" height="520">
                 <div class="c-product__price">
-                    <h3>13k${test}</h3>
-                    <p>15k${test}</p>
+                    <h3>$${productItem.value}</h3>
+                    <p>$${productItem.beforeValue}</p>
                 </div>
             </div>
 

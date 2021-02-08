@@ -1,4 +1,12 @@
+import {seon} from '../../dataBase/data.js'
+import header from '../views/header.js'
+
 export default (id) =>{
+
+    //inyectar header
+    window.document.body.prepend(header())
+
+    const productItem = seon.findProductById(id)
 
     const shopPage = document.createElement('div')
     shopPage.setAttribute('id','shoop')
@@ -162,11 +170,11 @@ export default (id) =>{
 
         <div class="l-product__header">
             
-            <h2 class="c-product__title">${producto.nombre}</h2>
-            <div class="c-product__id">codigo: 000${producto.id}</div>
+            <h2 class="c-product__title">${productItem.name}</h2>
+            <div class="c-product__id">codigo: 000${productItem.id}</div>
 
             <div class="c-product__feedback">
-                <div class="c-feedback__txt">feedback${test}<span class="c-txt-l-14">(3)</span> </div>
+                <div class="c-feedback__txt">feedback<span class="c-txt-l-14">(${productItem.feedback})</span> </div>
                 <div class="c-feedback__qualification-img"></div>
             </div>
         </div>
@@ -243,9 +251,33 @@ export default (id) =>{
 
     shopPage.innerHTML = view
 
+
+    let shoopButton = shopPage.querySelector('#product__button')
+
+    let shoopingCartClose = shopPage.querySelector('#shooping-cart__close');
+
+    shoopingCartClose.addEventListener('click', modal )
+    shoopButton.addEventListener("click",modal)
+
+
+
     return shopPage
 
 }
 
 
-//matchrout = 
+function incrementCart(){
+
+}
+
+
+function modal(){  
+
+    const cart = document.getElementById('shooping-cart')
+
+    cart.classList.toggle('l-show-modal')
+
+    document.body.classList.toggle('showing-modal')
+
+}
+

@@ -1,10 +1,10 @@
 
-// let shoopButton = document.getElementById('product__button')
+let shoopButton = document.getElementById('product__button')
 
-// let shoopingCartClose = document.getElementById('shooping-cart__close');
+let shoopingCartClose = document.getElementById('shooping-cart__close');
 
-// shoopingCartClose.addEventListener('click', modal )
-// shoopButton.addEventListener("click",modal)
+shoopingCartClose.addEventListener('click', modal )
+shoopButton.addEventListener("click",modal)
 
 
 function modal(){  

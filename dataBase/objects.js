@@ -1,31 +1,41 @@
 //constructor de objetos "product"
 class Product{
 
-    constructor (id,nombre,valor,unidadesDisponibles=0){
+    constructor (id,nombre,valor,valorAnterior,unidadesDisponibles=0,url,descripcion,unidades,colores,reseña,informacion){
+
         this.id = id
         this.name = nombre
         this.value = valor
+        this.beforeValue = valorAnterior
         this.stock= unidadesDisponibles
+        this.urlImg = url
+        this.descriptions = descripcion
+        this.units = unidades
+        this.colors = colores
+        this.feedback = reseña
+        this.info = informacion
     }
-
+ 
 }
+
 
 //constructor de objetos "tienda"
 class Tienda{
 
-    constructor(productos=[],){
-        this.products = productos;
+    constructor(productos=[]){
+        this.products = productos; // [lista...]
         this.lastId = 1;
     }
 
     //añadir producto
-    addProduct(nombre,valor,stock=0){
+    addProduct(nombre,valor,valorAnterior,stock=0){
         try{
+
             if(arguments.length < 2){
                 throw new Error('product needs name and value')
             }
 
-            let product = new Product(this.lastId,nombre,valor,stock)
+            let product = new Product(this.lastId,nombre,valor,valorAnterior,stock)
             this.products.push(product)
             this.lastId++
 
@@ -39,10 +49,9 @@ class Tienda{
     deleteProduct(id){
         let product = this.findProductById(id)
 
-        this.products = this.products.filter(product=>{
-            return product !== id
-        })
+        this.products = this.products.filter(elemento=> elemento.id !== id)
     }
+
 
     /**
      * retorna el nuevo stock del producto
@@ -73,7 +82,6 @@ class Tienda{
      * @param id -producto @param quantity cuanto ingresara del producto
      */
     supplyProduct(id,quantity){
-        
         try{
             let productToInsert = this.findProductById(id)
             productToInsert.stock += quantity    
@@ -107,14 +115,5 @@ class Tienda{
 }
 
 
-let seon = new Tienda()
 
-seon.addProduct("recipiezas-blancas",1500,10)
-seon.addProduct("recipiezas-rojas",1500,99)
-
-var pepe = seon.sellProduct(3,5)
-
-seon.listInventario()
-
-
-//esconder los digitos ..... 
+export{Tienda}

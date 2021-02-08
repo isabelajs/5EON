@@ -21,6 +21,7 @@
 .productos__contenedor .productos-carrusel .producto {
   position: relative;
   min-width: 200px;
+  max-width: 200px;
   height: 260px;
   margin: 0 10px;
   border-radius: 10px;

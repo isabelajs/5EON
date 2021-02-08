@@ -61,7 +61,7 @@ const router = (route) =>{
 
         if(match.route.path == 'product'){
 
-            app.appendChild(match.route.template()) 
+            app.appendChild(match.route.template(match.search)) 
         }
         else{
 

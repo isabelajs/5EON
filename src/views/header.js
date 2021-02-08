@@ -1,4 +1,4 @@
-export default () => {
+export default (type) => {
 
     const view = `<div class="header__logo"></div>
                     <div class="c-icon c-icon--big"><i id="menuIcon" class="fas fa-bars" ></i></div>        
@@ -13,8 +13,9 @@ export default () => {
 
     const header = document.createElement('header')
     header.setAttribute('id','header')
-    header.classList.add('header')
+    header.classList.add('header','header--home')
     header.innerHTML = view;
+
 
     let icon = header.querySelector('#menuIcon')
 
@@ -23,18 +24,16 @@ export default () => {
     let linksMenu = header.querySelectorAll("li")
     linksMenu.forEach(link => {
 
-        console.log('link')
         link.addEventListener("click",(event) =>{
             event.preventDefault();
             moveScroll(link.id)
             //siempre contrae
             contraer()
-
          
         })
     });
 
-
+    
     window.onscroll = modifyHeader
     window.onresize = modifyHeader
 
@@ -63,21 +62,19 @@ function modifyHeader(){
 
     if (width < 768){
 
-        header.classList.remove("header--draw","header--transparent");
+        header.classList.remove("header--draw");
 
     }else if (width >= 768){
 
         contraer()
 
-    const y = window.scrollY;
+        const y = window.scrollY;
 
-    if (y < 490){
-        header.classList.remove("header--draw");
-        header.classList.add("header--transparent");
-    } else {
-        header.classList.add("header--draw")
-        header.classList.remove("header--transparent")
-    }
+        if (y < 400){
+            header.classList.remove("header--draw");
+        } else {
+            header.classList.add("header--draw")
+        }
 
     }
 
@@ -95,7 +92,6 @@ function desplegable(){
        menuIcon.classList.toggle("fa-times")
 
 }
-
 
 function moveScroll(name){
     let seccion = document.getElementsByClassName(name)[0] 

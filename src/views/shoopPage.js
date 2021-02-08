@@ -1,20 +1,18 @@
 import {seon} from '../../dataBase/data.js'
-import header from '../views/header.js'
+import headerShop from './headerShop.js'
 
 export default (id) =>{
 
-    //inyectar header
-    window.document.body.prepend(header())
-
-    const productItem = seon.findProductById(id)
-
+    const header = headerShop()
     const shopPage = document.createElement('div')
     shopPage.setAttribute('id','shoop')
     shopPage.classList.add('l-shop')
+
+    const productItem = seon.findProductById(id)
+    const producto = {nombre:"set portavasos chavita", id:'1'}
     const test = ""
 
-    const producto = {nombre:"set portavasos chavita", id:'1'}
-    
+
     const view = `
     <div id="shooping-cart" class="l-shooping-cart">
 
@@ -252,14 +250,18 @@ export default (id) =>{
     shopPage.innerHTML = view
 
 
-    let shoopButton = shopPage.querySelector('#product__button')
-
-    let shoopingCartClose = shopPage.querySelector('#shooping-cart__close');
+    const shoopButton = shopPage.querySelector('#product__button')
+    const shoopingCartClose = shopPage.querySelector('#shooping-cart__close');
+    const headerCartButton =  header.querySelector('#headerCartButton')
+    const headerHomeButton = header.querySelector('#headerHomeButton')
 
     shoopingCartClose.addEventListener('click', modal )
     shoopButton.addEventListener("click",modal)
+    headerCartButton.addEventListener('click',modal)
 
+    headerHomeButton.addEventListener('click',()=> window.location.hash = '')
 
+    window.document.body.prepend(header)
 
     return shopPage
 

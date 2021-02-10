@@ -1,4 +1,7 @@
 import {seon} from '../../../dataBase/data.js'
+import productDescription from './c-producto/descriptions.js'
+import productUnits from "./c-producto/units.js"
+import productColors from "./c-producto/colors.js"
 
 export default(id) =>{
 
@@ -10,8 +13,6 @@ export default(id) =>{
 
     //si el producto no esta creado completamente... 'el producto no esta disponible -'
     console.log(productItem);
-
-
 
     
     const test = ""
@@ -69,86 +70,23 @@ export default(id) =>{
 
 
 
-    //componente general, información del producto
+    //capto el componente general, información del producto
     let contentInfo = cProducto.querySelector(".l-product__information")
-
-
-    //crea y agrega el componente descipción del producto
-    const descriptionProduct = document.createElement('div')
-    descriptionProduct.classList.add('l-product__descriptions')
-    contentInfo.prepend(descriptionProduct)
+    //agrega el componente descriptionProduct
+    contentInfo.prepend(productDescription(id))
+    //capto el componente descriptions 
+    let productDescripcion = cProducto.querySelector('.l-product__descriptions') 
+    //agrega el componente unidades
+    productDescripcion.insertAdjacentElement('afterend',productUnits(id)) 
+    //captura el componente unidades
+    let productUnit = cProducto.querySelector('.l-product__units') 
+    //agrega el componente colores
+    productUnit.insertAdjacentElement('afterend',productColors(id))  
+  
     
 
 
 
-    //obtengo las descripciones y su tamaño
-    const descriptions = productItem.descriptions
-    const descriptionsLenght = descriptions.length
-
-    for (let i = 0; i < descriptionsLenght; i ++ ){
-        if (i<descriptionsLenght-1){
-        descriptionProduct.innerHTML +=  `<div class="c-description-item c-description-item--right">${descriptions[i]}</div>`
-        } else{
-            descriptionProduct.innerHTML += `<div class="c-description-item">${descriptions[i]}</div>`
-        }
-    }
-    
-
-    
-    let descripcion = cProducto.querySelector('.l-product__descriptions') 
-    
-    let cantidadUnidades = productItem.units.length
-
-
-    //crea el componente unidades de producto
-    let unidades = document.createElement("div")
-    unidades.classList.add("l-product__units")
-
-
-    //evalua si se vende en un solo set o si tiene diferentes cantidades, segun agrega el componente unidades
-    if (cantidadUnidades>1){
-        for(let i = 0; i<cantidadUnidades; i++){
-            let buttonUnit = document.createElement('div')
-            buttonUnit.className = 'c-button c-button--small c-button--flat'
-                        
-            buttonUnit.textContent = `${productItem.units[i]} Piezas.`
-            unidades.appendChild(buttonUnit)  
-        }
-    } else {
-        let buttonUnit = document.createElement('div')
-        buttonUnit.className = 'c-button c-button--small c-button--flat'                 
-        buttonUnit.textContent = `${productItem.units[0]}`
-        unidades.appendChild(buttonUnit)
-    }
-        console.log(descripcion);
-        
-        // let descripcion = cProducto.querySelector('.l-product__descriptions') 
-        descripcion.insertAdjacentElement('afterend',unidades)       
-    
-
-    //captura el número de colores disponibles
-    var colores = productItem.colors
-    
-    let productColors = document.createElement('div')
-    productColors.classList.add("l-product__colors")
-
-    const cuerpo = `<div class="c-txt-16">Color:</div>
-                    <div class="l-product__colors-items"></div>`
-    productColors.innerHTML = cuerpo
-    //agrega cada color con su funcionalidad
-    colores.forEach(color => {
-        let unitColor = document.createElement("div");
-        unitColor.className = 'c-color';
-        unitColor.setAttribute('id',color.nombre)
-        unitColor.style.background = color.codigo;
-     
-        productColors.querySelector(".l-product__colors-items").appendChild(unitColor)
-
-        unitColor.addEventListener("click", ()=> productColors.querySelector('.c-txt-16').textContent = `Color: ${color.nombre}`)
-    });
-
-    let productUnits = cProducto.querySelector('.l-product__units') 
-        productUnits.insertAdjacentElement('afterend',productColors)  
     
     //asigna funcionalidad a los botones de sumar o disminuir cantidad
     let moreQuantity = cProducto.querySelector('#plus')

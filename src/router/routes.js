@@ -1,6 +1,6 @@
 import home from '../views/home.js'
 import notFound from '../views/notFound.js'
-import shoopPage from '../views/shoopPage.js'
+import shopPage from '../views/shopPage.js'
 
 const routes = [
     {
@@ -9,7 +9,7 @@ const routes = [
     },
     {
         path: 'product',
-        template: shoopPage,
+        template: shopPage,
     },
     {
         path: '404',

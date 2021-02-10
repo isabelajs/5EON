@@ -42,7 +42,7 @@
         }
 
         .c-feedback__qualification-img{
-            background: url(../assets/qualification.png) center no-repeat;
+            background: url("../../assets/qualification.png") center no-repeat;
             width: 109px;
             height: 17px;
             margin-left: 20px;
@@ -124,6 +124,9 @@
             justify-content: center;
             width: 100%;
             max-width: 450px;
+            & div{
+                padding: 10px;
+            }
         }
 
         .l-product__units{

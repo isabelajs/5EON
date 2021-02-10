@@ -951,7 +951,7 @@ p {
   font-weight: 400;
 }
 .c-product__feedback .c-feedback__qualification-img {
-  background: url(../assets/qualification.png) center no-repeat;
+  background: url("../../assets/qualification.png") center no-repeat;
   width: 109px;
   height: 17px;
   margin-left: 20px;
@@ -1015,6 +1015,9 @@ p {
   justify-content: center;
   width: 100%;
   max-width: 450px;
+}
+.c-product .l-product__information .l-product__descriptions div {
+  padding: 10px;
 }
 .c-product .l-product__information .l-product__units {
   display: flex;

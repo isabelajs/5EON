@@ -112,16 +112,7 @@ export default () => {
             <div class="productos__contenedor c-scroll">
 
                 <div class="productos-carrusel">
-                    <div class="producto" >
-                        <div class="producto__img">
-                            <img src="../assets/prod.jpg" alt="">
-                        </div>
-
-                        <div class="producto__details" >
-                            <div class="cont-details cont-details--precio">$13000</div>
-                            <div class="cont-details cont-details--name">Recipiezas</div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
 

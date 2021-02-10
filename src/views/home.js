@@ -1,7 +1,7 @@
-import header from '../views/header.js'
-import footer from '../views/footer.js'
+import header from './c-home/header.js'
+import footer from './c-home/footer.js'
 import {seon} from '../../dataBase/data.js'
-import productHome from '../views/productHome.js'
+import productHome from './c-home/productHome.js'
 
 export default () => {
 

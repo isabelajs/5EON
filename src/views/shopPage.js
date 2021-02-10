@@ -1,7 +1,7 @@
-import cProducto from "./c-producto.js";
-import shoopingCart from './shooping-cart.js'
+import cProducto from "./c-shopPage/c-producto.js";
+import shoopingCart from './c-shopPage/shooping-cart.js'
 import {seon} from '../../dataBase/data.js'
-import headerShop from './headerShop.js'
+import headerShop from './c-shopPage/headerShop.js'
 
 export default (id) =>{
     //asigno el header del shop 

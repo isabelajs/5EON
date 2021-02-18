@@ -11,21 +11,44 @@ export default (id)=> {
     const cuerpo = `<div class="c-txt-16">Color:</div>
                     <div class="l-product__colors-items"></div>`
     productColors.innerHTML = cuerpo
+    
 
-    //captura el número de colores disponibles
-    var colores = productItem.colors
-    //agrega cada color con su funcionalidad
-    colores.forEach(color => {
+    var colores = productItem.colorsTypes
+    let colorSelected = null
+
+    Object.entries(colores).forEach((element,index) => {
+        let color = element[0]
         let unitColor = document.createElement("div");
         unitColor.className = 'c-color';
-        unitColor.setAttribute('id',color.nombre)
-        unitColor.style.background = color.codigo;
-    
+        unitColor.setAttribute('id',color)
+        unitColor.style.background = element[1].hex;
         productColors.querySelector(".l-product__colors-items").appendChild(unitColor)
+        
 
-        unitColor.addEventListener("click", ()=> productColors.querySelector('.c-txt-16').textContent = `Color: ${color.nombre}`)
-    });
+        if (index==0){
+            unitColor.classList.add("c-color--selected")
+            productColors.querySelector('.c-txt-16').textContent = `Color: ${color}`
+            seon.producToSell.colorType = color
+            colorSelected =unitColor
+        }
 
+        unitColor.addEventListener("click",()=>{
+            colorSelected.classList.remove("c-color--selected")
+            colorSelected = unitColor
+            colorSelected.classList.add("c-color--selected")
+            productColors.querySelector('.c-txt-16').textContent = `Color: ${color}`
+            seon.producToSell.colorType = color
+        })
+    });    
+    
+    
     return productColors
 
 }
+
+
+// var x = {nombre:"juan",edad:20}
+
+// Object.entries(x).forEach( (element,a) => {
+//     console.log(element[0],a)
+// });

@@ -1,4 +1,5 @@
 import {seon} from '../../../../dataBase/data.js'
+import {modifyTotal} from '../c-producto.js'
 
 export default (id)=> {
 
@@ -8,25 +9,54 @@ export default (id)=> {
      let productUnits = document.createElement("div")
      productUnits.classList.add("l-product__units")
 
-     //obtiene el número de elementos 
-     let cantidadUnidades = productItem.units.length
+    let units = productItem.unitsTypes
+    let buttonSelected = null
 
-     //evalua si se vende en un solo set o si tiene diferentes cantidades, segun agrega el componente unidades
-    if (cantidadUnidades>1){
-        for(let i = 0; i<cantidadUnidades; i++){
-            let cUnit = document.createElement('div')
-            cUnit.className = 'c-button c-button--small c-button--flat'
-                        
-            cUnit.textContent = `${productItem.units[i]} Piezas.`
-            productUnits.appendChild(cUnit)  
-        }
-    } else {
+    units.forEach((unit,index) => {
+
         let cUnit = document.createElement('div')
-        cUnit.className = 'c-button c-button--small c-button--flat'                 
-        cUnit.textContent = `${productItem.units[0]}`
+        cUnit.className = 'c-button c-button--small c-button--flat'
+        cUnit.setAttribute('data-type','unit')
+        cUnit.setAttribute('data-unitType',unit)
+     
+        if(index == 0){
+            cUnit.classList.add("c-button--selected")
+            seon.producToSell.unitType = unit.toString()
+            buttonSelected = cUnit
+           
+
+        }
+
+        unit>1
+        ? cUnit.textContent = `${unit} Piezas.`
+        : cUnit.textContent = `${unit} Pieza`
+
+
+        cUnit.addEventListener('click', ()=>{
+            buttonSelected.classList.remove('c-button--selected')
+            buttonSelected = cUnit
+            buttonSelected.classList.add('c-button--selected')
+            
+            seon.producToSell.unitType = buttonSelected.dataset.unittype
+
+            modifyTotal()
+        })
+
         productUnits.appendChild(cUnit)
-    }
-        
+
+    });
+
+
     return productUnits 
  
 }
+
+
+
+
+
+
+
+
+
+

@@ -5,12 +5,12 @@ import productHome from './c-home/productHome.js'
 
 export default () => {
 
+
     //inyectar header
     window.document.body.prepend(header())
 
     window.document.body.appendChild(footer())
 
-    
     const view =`<section id="intro" class ="home">
             <h1 id="test" class="home__title">No más plastico</h1>
             <p class="home__text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui sequi excepturi ea dolore eius explicabo, voluptatem voluptates magnam minima quaerat veritatis cum esse odio modi fugit illo, quia accusantium. Eum.</p>
@@ -129,7 +129,6 @@ export default () => {
                 <div class="container-img "><img src="../assets/photos.jpg" alt=""></div>
             </div>
         </section>`
-
 
     const landingPage = document.createElement('div')
     landingPage.classList.add('l-landing')

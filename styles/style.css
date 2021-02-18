@@ -122,14 +122,16 @@ p {
 }
 .c-button--flat {
   background: white;
-  border: 1px solid #D6D6D6;
+  border: 1px solid #C0C0C0;
 }
 .c-button--flat:hover {
+  border: 1px solid #171731;
+}
+.c-button--selected {
   background: #171731;
   color: white;
-  border-color: white;
 }
-.c-button--flat:hover i {
+.c-button--selected i {
   color: white;
 }
 
@@ -297,6 +299,10 @@ p {
 }
 .c-color--red {
   background-color: palevioletred;
+}
+.c-color--selected {
+  box-sizing: initial;
+  transform: scale(1.2);
 }
 .c-color:hover {
   cursor: pointer;
@@ -1277,14 +1283,16 @@ p {
 }
 .c-button--flat {
   background: white;
-  border: 1px solid #D6D6D6;
+  border: 1px solid #C0C0C0;
 }
 .c-button--flat:hover {
+  border: 1px solid #171731;
+}
+.c-button--selected {
   background: #171731;
   color: white;
-  border-color: white;
 }
-.c-button--flat:hover i {
+.c-button--selected i {
   color: white;
 }
 
@@ -1452,6 +1460,10 @@ p {
 }
 .c-color--red {
   background-color: palevioletred;
+}
+.c-color--selected {
+  box-sizing: initial;
+  transform: scale(1.2);
 }
 .c-color:hover {
   cursor: pointer;

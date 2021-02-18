@@ -3,7 +3,10 @@ import productDescription from './c-producto/descriptions.js'
 import productUnits from "./c-producto/units.js"
 import productColors from "./c-producto/colors.js"
 
-export default(id) =>{
+
+const componentProduct = (id) =>{
+
+    seon.producToSell.id = id
 
     const cProducto = document.createElement("div")
     cProducto.classList.add('c-product')
@@ -12,12 +15,7 @@ export default(id) =>{
 
 
     //si el producto no esta creado completamente... 'el producto no esta disponible -'
-    console.log(productItem);
 
-    
-    const test = ""
-    const producto = {nombre:"set portavasos chavita", id:'1'}
-    
     const view = `
     <div class="l-product__header">
         
@@ -35,7 +33,7 @@ export default(id) =>{
             <div>
                 <img src="${productItem.urlImg}" alt="producto xxx${productItem.name}" width="520" height="520">
                 <div class="c-product__price">
-                    <h3>$${productItem.value}</h3>
+                    <h3>$${productItem.values[0].price}</h3>
                     <p>$${productItem.beforeValue}</p>
                 </div>
             </div>
@@ -58,7 +56,7 @@ export default(id) =>{
 
             <div class="l-product__value-total">
                 <div class="c-txt-16">Total</div>
-                <div id="totalValue" class="c-button c-button--flat">$ ${productItem.value}</div>
+                <div id="totalValue" class="c-button c-button--flat">$ ${productItem.values[0].price}</div>
             </div>
         </div>
 
@@ -67,7 +65,6 @@ export default(id) =>{
     </div>`
 
     cProducto.innerHTML = view
-
 
 
     //capto el componente general, información del producto
@@ -82,53 +79,61 @@ export default(id) =>{
     let productUnit = cProducto.querySelector('.l-product__units') 
     //agrega el componente colores
     productUnit.insertAdjacentElement('afterend',productColors(id))  
-  
-    
-
-
-
     
     //asigna funcionalidad a los botones de sumar o disminuir cantidad
     let moreQuantity = cProducto.querySelector('#plus')
     let lessQuantity = cProducto.querySelector('#minus')
     let quantityText = cProducto.querySelector('.c-increment__text')
 
-    let totalValueComponent = cProducto.querySelector("#totalValue")
-    
-    moreQuantity.addEventListener('click', ()=>{
+
+    //asigno el primer valor para units como 1
+    seon.producToSell.units = parseInt(quantityText.textContent)
+    seon.producToSell.price = productItem.values[0].price
+
+
+    console.log(seon.producToSell)
+    moreQuantity.addEventListener("click", ()=>{
         let quantityNumber = parseInt(quantityText.textContent)
+        quantityText.textContent = quantityNumber +1
+        seon.producToSell.units = quantityNumber + 1
 
-        if(quantityNumber < productItem.stock){
-            quantityText.textContent = quantityNumber + 1 
-            let newTotal = (quantityNumber + 1) * productItem.value
-            totalValueComponent.textContent = `$ ${newTotal}`
-        }
+        modifyTotal()
 
-    } );
+    })
 
-    lessQuantity.addEventListener('click', ()=>{ 
-
+    lessQuantity.addEventListener("click", ()=>{
         let quantityNumber = parseInt(quantityText.textContent)
-        if(quantityNumber > 1){
-            
-            quantityText.textContent = quantityNumber - 1
-            let newTotal = (quantityNumber - 1) * productItem.value
-            totalValueComponent.textContent = `$ ${newTotal}`
-            
+        if(quantityText.textContent > 1){
+            quantityText.textContent = quantityNumber -1;
+            seon.producToSell.units = quantityNumber - 1
         }
-
-
-      }
-     );
-    
-   
-
-    
-
+        
+        modifyTotal()
+    })
+  
     return cProducto
+}
+
+function modifyTotal(){
+
+    let productItem = seon.findProductById(seon.producToSell.id)
+
+    let unitSelected = seon.producToSell.unitType
+    let colorSelected = seon.producToSell.colorType
+
+
+    let stockAvaliable = productItem.stocks[colorSelected]
+    let priceSelected = productItem.values.find(unit => unit.unitType == unitSelected).price
+
+    let totalValueText = document.querySelector('#totalValue')
+
+    totalValueText.textContent = `$ ${priceSelected * seon.producToSell.units}`
+    seon.producToSell.price = priceSelected
+
+    console.log(seon.producToSell)
+
 }
 
 
 
-
-
+export {componentProduct,modifyTotal}

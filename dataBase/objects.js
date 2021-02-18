@@ -1,21 +1,42 @@
 //constructor de objetos "product"
 class Product{
 
-    constructor (id,nombre,valor,valorAnterior,unidadesDisponibles=0,url,descripcion,unidades,colores,numReseñas,informacion){
+    constructor (id,nombre,valorAnterior,url,descripcion,numReseñas,informacion){
 
         this.id = id
         this.name = nombre
-        this.value = valor
         this.beforeValue = valorAnterior
-        this.stock= unidadesDisponibles
         this.urlImg = url
         this.descriptions = descripcion
-        this.units = unidades
-        this.colors = colores
         this.feedback = numReseñas
         this.info = informacion
-        this.atributtes = []
 
+
+        this.values = []
+        this.unitsTypes = []
+
+        this.stocks = {}
+        this.colorsTypes = {}        
+
+    }
+
+
+    addUnitType(num,price){
+
+        this.unitsTypes.push(num)
+
+        this.values.push({unitType:num,price:price})
+
+    }
+
+    addColorType(color,hex,stock){
+
+        if(!this.stocks.hasOwnProperty(color)){
+        
+            this.stocks[color] = {quantity:stock}
+
+            this.colorsTypes[color] = {hex:hex}
+        }
     }
  
 }
@@ -26,17 +47,37 @@ class Tienda{
     constructor(productos=[]){
         this.products = productos; // [lista...]
         this.lastId = 1;
+        this.cart = [];
+        this.producToSell = {id:null,
+            unitType:null,
+            colorType:null,
+            units:null,
+            price:null
+        }
+
+    }
+
+    addUnitType(id,num,price){
+        let modifyProduct = this.findProductById(id)
+
+        modifyProduct.addUnitType(num,price)
+    }
+
+    addColorType(id,color,hex,stock){
+        let modifyProduct = this.findProductById(id)
+
+        modifyProduct.addColorType(color,hex,stock)
     }
 
     //añadir producto
-    addProduct(nombre,valor,valorAnterior,stock=0,url,descripcion,unidades,colores,reseña,informacion){
+    addProduct(nombre,valorAnterior,url,descripcion,reseña,informacion){
         try{
 
             if(arguments.length < 2){
                 throw new Error('product needs name and value')
             }
 
-            let product = new Product(this.lastId,nombre,valor,valorAnterior,stock,url,descripcion,unidades,colores,reseña,informacion)
+            let product = new Product(this.lastId,nombre,valorAnterior,url,descripcion,reseña,informacion)
             this.products.push(product)
             this.lastId++
 
@@ -58,20 +99,26 @@ class Tienda{
      * retorna el nuevo stock del producto
      * @param id -producto @param quantity cuanto se vendera del stock
      */
-    sellProduct(id,quantity){
+    sellProduct(id,color, quantity){
         try{
             let productToSell = this.findProductById(id)
 
-            if(productToSell.stock - quantity >= 0 ){
+            if(!productToSell.stocks.hasOwnProperty(color)){
+                throw new Error(`sellProduct --> Msg: el producto ${productToSell.name} no contiene el color ${color}`)
+            }
 
-                productToSell.stock -= quantity
 
-                return productToSell.stock
+            if(productToSell.stocks[color].quantity - quantity >= 0 ){
+
+                productToSell.stocks[color].quantity -= quantity
+
+                return productToSell.stocks[color].quantity
 
             }else{
                 throw new Error(`${productToSell.name} sin stock para esta venta`)
             }
 
+            
         }catch(err){
             console.log(err)
             return -1
@@ -82,12 +129,20 @@ class Tienda{
      * retorna el nuevo stock del producto
      * @param id -producto @param quantity cuanto ingresara del producto
      */
-    supplyProduct(id,quantity){
+    supplyProduct(id,color,quantity){
         try{
             let productToInsert = this.findProductById(id)
+
+            if(!productToInsert.stocks.hasOwnProperty(color)){
+                throw new Error(`supplyProduct --> Msg: el producto ${productToInsert.name} no contiene el color ${color}`)
+            }
+
+            productToInsert.stocks[color].quantity += quantity
+
             productToInsert.stock += quantity    
            
             return productToInsert.stock
+
         }catch(err){
             console.log(err)
             return -1
@@ -114,6 +169,10 @@ class Tienda{
 
     listInventario(){
         this.products.forEach(product => console.log(product))
+    }
+
+    addProductToCart(){
+        this.cart.push(1)
     }
 
 }

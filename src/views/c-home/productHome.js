@@ -10,7 +10,7 @@ export default (product)=>{
                     </div>
 
                 <div class="producto__details" >
-                    <div class="cont-details cont-details--precio">$${product.value}</div>
+                    <div class="cont-details cont-details--precio">$${product.values[0].price}</div>
                     <div class="cont-details cont-details--name">${product.name}</div>
                 </div>`
 

@@ -58,18 +58,27 @@
 
     &--flat{
         background: white;
-        border: 1px solid $gray-second;
+        border: 1px solid $gray-main;
 
         &:hover{
-            background: $blue-second;
-            color: white;
-            border-color: white;
+            // background: $blue-second;
+            border: 1px solid $blue-second;
+            // border-color: white;
+            // color: white;
 
-            i{
-                color: white
-            }
+            // i{
+            //     // color: white;
+            // }
 
         }
+    }
+
+    &--selected{
+            background: $blue-second;
+            color: white;
+            i{
+                color: white;
+            }
     }
 
 }
@@ -303,11 +312,17 @@
         background-color: palevioletred;
     }
 
+    &--selected{
+        box-sizing: initial;
+        transform: scale(1.2);
+    }
+    
     &:hover{
         cursor: pointer;
         box-sizing: initial;
         transform: scale(1.2);
     }
+
 }
 
 ////////// display - flex ////////////

@@ -1,4 +1,4 @@
-export default () => {
+const componentHeader = () => {
 
     const view =    `<div class="header__logo"></div>   
                     <nav id="menuHeader" class="header__menu">
@@ -21,3 +21,5 @@ export default () => {
 
     return header
 }
+
+export {componentHeader}

@@ -1,6 +1,8 @@
-import {seon} from '../../../dataBase/data.js'
+import {seon} from '../../../../dataBase/data.js'
+import {componentProduct as cProductCart} from './product.js'
 
-export default()=> {
+//component cart
+const componentCart = ()=> {
 
     const shoppingCart = document.createElement("div")
     shoppingCart.setAttribute('id','shooping-cart')
@@ -55,6 +57,76 @@ export default()=> {
 }
 
 
+//create a new product base in seon.productToSell (product in window)
+function addProductToCart(){
+
+    let productItem = seon.findProductById(seon.producToSell.id)
+    let quantitySell = seon.producToSell.units
+    let colorStock = seon.producToSell.colorType
+    let stock = productItem.stocks[colorStock].quantity
+
+    let productMatchInCart = seon.cart.find(element=> element.unitType == seon.producToSell.unitType && element.colorType == colorStock && element.id == seon.producToSell.id)
+
+    //si el producto existe en el carrito
+    if(productMatchInCart){
+
+        let quantityFinal = productMatchInCart.units + quantitySell
+
+        if (quantityFinal>stock){
+
+            alert("El producto no contiene el suficiente inventario, intenta con otro color")
+            return false
+            
+        }else{
+            productMatchInCart.units += quantitySell
+            productMatchInCart.total = productMatchInCart.units * productMatchInCart.price
+            return true
+        }
+    }
+    else{ 
+        if(quantitySell > stock){
+            alert("El producto no contiene el suficiente inventario, intenta con otro color")
+            return false
+        }
+        else{
+            let newProduct = {...seon.producToSell}
+            seon.cart.push(newProduct)
+            return true
+        }
+    }
+
+}
+
+//render (show and hidden component cart (modal))
+function renderCart(){  
+
+    const cart = document.getElementById('shooping-cart')
+
+    cart.classList.toggle('l-show-modal')
+    document.body.classList.toggle('showing-modal')
+
+    //only if is visible, draw products
+    if(cart.classList.contains('l-show-modal')){
+        drawProductsCart()
+    }
+
+    console.log(seon.cart)
+
+}
+
+//remove and update products in list of seon.cart
+function drawProductsCart(){
+    const cart = document.querySelector('.l-shooping__products')
+
+    Array.from(cart.children).forEach(element=>{
+        cart.removeChild(element)
+    })
+
+    seon.cart.forEach(product=>{
+        cart.appendChild(cProductCart(product))
+    })
+
+}
 
 
-
+export {componentCart,addProductToCart,renderCart}

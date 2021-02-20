@@ -11,7 +11,6 @@ class Product{
         this.feedback = numReseñas
         this.info = informacion
 
-
         this.values = []
         this.unitsTypes = []
 
@@ -52,7 +51,8 @@ class Tienda{
             unitType:null,
             colorType:null,
             units:null,
-            price:null
+            price:null,
+            total:null,
         }
 
     }
@@ -176,76 +176,6 @@ class Tienda{
     }
 
 }
-
-
-class Product2{
-    
-    constructor (id,nombre,urls,descripcion,numReseñas,informacion){
-        this.id = id
-        this.name = nombre
-        this.Imgs = urls
-        this.descriptions = descripcion
-        this.info = informacion
-        this.feedback = numReseñas
-        this.atributtes = []
-
-    }
-
-}
-
-
-class atribute{
-    constructor (name){
-        this.name = name
-        this.variations = []
-    }
-}
-
-
-class variation{
-    constructor(name,stock,price){
-        this.name = name
-        this.stock = stock
-        this.price = price
-    }
-}
-
-
-// var recipiezas = new Product2(1,'recipiezas','urls','que lindo producto',5,'es un lindo producto')
-
-// let colores = new atribute('colores')
-// colores.variations.push(new variation('blue',0,1500))
-
-
-// recipiezas.atributtes.push(colores)
-
-
-// console.log(recipiezas.atributtes[0].variations);
-
-
-
-
-// hexagonos = (id,nombre,description,info,feedback,url)
-
-
-// product.addType('color')
-// product.addType('units')
-
-// this.types = [
-//     {name:'color',subtypes:[
-//         {name:'blue',stock:10, hex:'#1123a'},
-//         {name:'red',stock:0, hex:'#11278a3'}
-//     ]},
-
-//     {name:'units',subtypes:[{name:4,value:1000},{name:6,value:1500}]},
-// ]
-
-// product.addSubType('color',{name:'blue',stock:10, hex:'#1123a'})
-// product.addSubType('color',{name:'red',stock:0, hex:'#11278a3'})
-
-
-// product.addSubtype('units',{name:4,value:1000})
-// product.addSubtype('units',{name:6,value:1500})
 
 
 export{Tienda}

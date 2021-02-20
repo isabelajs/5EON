@@ -1,5 +1,6 @@
 import {Tienda} from './objects.js'
 
+
 let seon = new Tienda()
 
 let descriptionGeneral = ['250 <br/> Gramos','10cm <br/>  Lado', '+3  <br/>  colores']
@@ -20,7 +21,6 @@ seon.addColorType(1,'pink','palevioletred',10)
 seon.supplyProduct(1,'blue',8)
 seon.supplyProduct(1,'pink',12)
 seon.supplyProduct(1,'yellow',6)
-
 
 
 seon.addProduct("Portavasos",1000,
@@ -48,9 +48,6 @@ seon.addColorType(3,'yellow','#ffba08',10)
 seon.addColorType(3,'pink','palevioletred',10)
 seon.addColorType(3,"black", "#000000", 8)
 seon.addColorType(3,"red", "#d90429", 10)
-
-
-
 
 export {seon}
 

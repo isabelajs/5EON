@@ -1,5 +1,5 @@
-import header from './c-home/header.js'
-import footer from './c-home/footer.js'
+// import header from './c-home/header.js'
+// import footer from './c-home/footer.js'
 
 
 export default () =>{

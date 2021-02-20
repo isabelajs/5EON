@@ -1,7 +1,7 @@
-import header from './c-home/header.js'
-import footer from './c-home/footer.js'
+import header from './home/header.js'
+import footer from './home/footer.js'
 import {seon} from '../../dataBase/data.js'
-import productHome from './c-home/productHome.js'
+import productHome from './home/productHome.js'
 
 export default () => {
 

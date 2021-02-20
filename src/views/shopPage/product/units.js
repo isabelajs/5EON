@@ -1,5 +1,5 @@
 import {seon} from '../../../../dataBase/data.js'
-import {modifyTotal} from '../c-producto.js'
+import {modifyTotal} from '../product/controllerProduct.js'
 
 export default (id)=> {
 
@@ -12,6 +12,7 @@ export default (id)=> {
     let units = productItem.unitsTypes
     let buttonSelected = null
 
+    //create htmlEelements for every typeUnits
     units.forEach((unit,index) => {
 
         let cUnit = document.createElement('div')

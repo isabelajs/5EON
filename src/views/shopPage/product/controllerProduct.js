@@ -1,20 +1,25 @@
-import {seon} from '../../../dataBase/data.js'
-import productDescription from './c-producto/descriptions.js'
-import productUnits from "./c-producto/units.js"
-import productColors from "./c-producto/colors.js"
+import {seon} from '../../../../dataBase/data.js'
+import productDescription from './descriptions.js'
+import productUnits from "./units.js"
+import productColors from "./colors.js"
 
 
 const componentProduct = (id) =>{
 
-    seon.producToSell.id = id
 
     const cProducto = document.createElement("div")
     cProducto.classList.add('c-product')
     
+    //fetch data of product to sell
     const productItem = seon.findProductById(id)
 
-
-    //si el producto no esta creado completamente... 'el producto no esta disponible -'
+    //assing first values for product to sell
+    seon.producToSell.id = id
+    seon.producToSell.units = 1
+    seon.producToSell.price = productItem.values[0].price //primer precio del primer unitType
+    seon.producToSell.unitType = productItem.unitsTypes[0].toString()
+    seon.producToSell.colorType = Object.keys(productItem.colorsTypes)[0]
+    seon.producToSell.total = seon.producToSell.units * seon.producToSell.price
 
     const view = `
     <div class="l-product__header">
@@ -67,73 +72,58 @@ const componentProduct = (id) =>{
     cProducto.innerHTML = view
 
 
-    //capto el componente general, información del producto
-    let contentInfo = cProducto.querySelector(".l-product__information")
     //agrega el componente descriptionProduct
-    contentInfo.prepend(productDescription(id))
-    //capto el componente descriptions 
-    let productDescripcion = cProducto.querySelector('.l-product__descriptions') 
+    let contentInfo = cProducto.querySelector(".l-product__information")
+    contentInfo.prepend(productDescription(id))      
+
     //agrega el componente unidades
-    productDescripcion.insertAdjacentElement('afterend',productUnits(id)) 
-    //captura el componente unidades
-    let productUnit = cProducto.querySelector('.l-product__units') 
+    let productDescripcion = cProducto.querySelector('.l-product__descriptions') 
+    productDescripcion.insertAdjacentElement('afterend',productUnits(id))  
+
     //agrega el componente colores
+    let productUnit = cProducto.querySelector('.l-product__units') 
     productUnit.insertAdjacentElement('afterend',productColors(id))  
     
+
     //asigna funcionalidad a los botones de sumar o disminuir cantidad
     let moreQuantity = cProducto.querySelector('#plus')
     let lessQuantity = cProducto.querySelector('#minus')
     let quantityText = cProducto.querySelector('.c-increment__text')
 
-
-    //asigno el primer valor para units como 1
-    seon.producToSell.units = parseInt(quantityText.textContent)
-    seon.producToSell.price = productItem.values[0].price
-
-
-    console.log(seon.producToSell)
     moreQuantity.addEventListener("click", ()=>{
-        let quantityNumber = parseInt(quantityText.textContent)
-        quantityText.textContent = quantityNumber +1
-        seon.producToSell.units = quantityNumber + 1
 
+        seon.producToSell.units += 1
+        quantityText.textContent = seon.producToSell.units
         modifyTotal()
 
     })
 
     lessQuantity.addEventListener("click", ()=>{
-        let quantityNumber = parseInt(quantityText.textContent)
-        if(quantityText.textContent > 1){
-            quantityText.textContent = quantityNumber -1;
-            seon.producToSell.units = quantityNumber - 1
+
+        if(seon.producToSell.units > 1){
+            seon.producToSell.units -= 1
+            quantityText.textContent = seon.producToSell.units
+            modifyTotal()
         }
-        
-        modifyTotal()
+
     })
   
     return cProducto
 }
 
+//calculate the new total with plusQuantity, lessQuantity and change of typeUnits in product not in cart
 function modifyTotal(){
 
     let productItem = seon.findProductById(seon.producToSell.id)
-
     let unitSelected = seon.producToSell.unitType
-    let colorSelected = seon.producToSell.colorType
-
-
-    let stockAvaliable = productItem.stocks[colorSelected]
     let priceSelected = productItem.values.find(unit => unit.unitType == unitSelected).price
+    
+    seon.producToSell.price = priceSelected
+    seon.producToSell.total = seon.producToSell.units * seon.producToSell.price
 
     let totalValueText = document.querySelector('#totalValue')
-
-    totalValueText.textContent = `$ ${priceSelected * seon.producToSell.units}`
-    seon.producToSell.price = priceSelected
-
-    console.log(seon.producToSell)
+    totalValueText.textContent = `$ ${seon.producToSell.total}`
 
 }
-
-
 
 export {componentProduct,modifyTotal}

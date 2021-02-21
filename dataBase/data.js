@@ -7,7 +7,7 @@ let descriptionGeneral = ['250 <br/> Gramos','10cm <br/>  Lado', '+3  <br/>  col
 
 
 seon.addProduct("Recipiezas",1000, 
-'../assets/producto_1.png', 
+'../../assets/producto_1.png', 
 descriptionGeneral, 
 5, 
 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas pariatur beatae pedit quasi. Alias, nam repudiandae! Harum. Mi novio no vera esto porque no me ama' )

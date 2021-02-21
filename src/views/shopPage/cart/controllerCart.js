@@ -52,50 +52,14 @@ const componentCart = ()=> {
                         </div>`
 
     shoppingCart.innerHTML = view
+
+    //cierre del modal
+    let cartClose = shoppingCart.querySelector('#shooping-cart__close');
+    cartClose.addEventListener('click',renderCart)
     
     return shoppingCart
 }
 
-
-//create a new product base in seon.productToSell (product in window)
-function addProductToCart(){
-
-    let productItem = seon.findProductById(seon.producToSell.id)
-    let quantitySell = seon.producToSell.units
-    let colorStock = seon.producToSell.colorType
-    let stock = productItem.stocks[colorStock].quantity
-
-    let productMatchInCart = seon.cart.find(element=> element.unitType == seon.producToSell.unitType && element.colorType == colorStock && element.id == seon.producToSell.id)
-
-    //si el producto existe en el carrito
-    if(productMatchInCart){
-
-        let quantityFinal = productMatchInCart.units + quantitySell
-
-        if (quantityFinal>stock){
-
-            alert("El producto no contiene el suficiente inventario, intenta con otro color")
-            return false
-            
-        }else{
-            productMatchInCart.units += quantitySell
-            productMatchInCart.total = productMatchInCart.units * productMatchInCart.price
-            return true
-        }
-    }
-    else{ 
-        if(quantitySell > stock){
-            alert("El producto no contiene el suficiente inventario, intenta con otro color")
-            return false
-        }
-        else{
-            let newProduct = {...seon.producToSell}
-            seon.cart.push(newProduct)
-            return true
-        }
-    }
-
-}
 
 //render (show and hidden component cart (modal))
 function renderCart(){  
@@ -129,4 +93,4 @@ function drawProductsCart(){
 }
 
 
-export {componentCart,addProductToCart,renderCart}
+export {componentCart,renderCart}

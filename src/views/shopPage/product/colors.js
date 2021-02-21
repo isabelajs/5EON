@@ -45,10 +45,3 @@ export default (id)=> {
     return productColors
 
 }
-
-
-// var x = {nombre:"juan",edad:20}
-
-// Object.entries(x).forEach( (element,a) => {
-//     console.log(element[0],a)
-// });

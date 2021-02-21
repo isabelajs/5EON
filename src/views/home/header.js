@@ -8,6 +8,7 @@ export default (type) => {
                             <li id="intro" ><a href="">Intro</a></li>
                             <li id="proceso"><a href="">Proceso</a></li>
                             <li id="productos"><a href="">Productos</a></li>
+                            <li id="cart"><a href=""><i class="fas fa-shopping-cart"></i></a></li>
                         </ul>
                     </nav>`
 

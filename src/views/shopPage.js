@@ -1,12 +1,15 @@
-import {seon} from '../../dataBase/data.js'
-import {componentHeader as cHeader} from './shopPage/header.js'
+import {seon} from '../../dataBase/data.js'   
+
+//Componentes para crear la pagina de compra
+import {componentHeader as cHeader} from './shopPage/header.js'     
 import {componentProduct as cProduct} from './shopPage/product/controllerProduct.js'
-import {componentCart as cCart, addProductToCart, renderCart} from './shopPage/cart/controllerCart.js'
+import {componentCart as cCart} from './shopPage/cart/controllerCart.js'
 
 
 export default (id) =>{
-    //asigno el header del shop 
+    // -> header especifico pagina de compra
     const header = cHeader()
+    window.document.body.prepend(header)
 
     //creo el elemento shopPage
     const shopPage = document.createElement('div')
@@ -24,35 +27,14 @@ export default (id) =>{
     shopPage.innerHTML = view
 
     //agrega los componentes 
-    shopPage.prepend(cProduct(id))
-    shopPage.appendChild(cCart())
+    shopPage.prepend(cProduct(id))   // -> vista del producto
+    shopPage.appendChild(cCart())    // -> vista del carrito
 
-    //asignación de eventos a los botones
-    let shoopButton = shopPage.querySelector('#product__button')
-    let shoopingCartClose = shopPage.querySelector('#shooping-cart__close');
-    //funcionalidad botones del header
-    const headerCartButton =  header.querySelector('#headerCartButton')
-    const headerHomeButton = header.querySelector('#headerHomeButton')
-    let backButton = shopPage.querySelector(".c-get-back")
-
-    // //funcionalida de los botones
-    shoopingCartClose.addEventListener('click',renderCart)
-    headerCartButton.addEventListener('click',renderCart)
-    headerHomeButton.addEventListener('click', ()=> window.location.hash = '' )
-    backButton.addEventListener('click',()=> window.location.hash = '')
-
-    //Agregar al carrito
-    shoopButton.addEventListener("click",()=>{
-
-        addProductToCart() ? renderCart() : ''
-        
-    })
-  
-
-    window.document.body.prepend(header)
+    // -> boton de retorno home
+    let backButton = shopPage.querySelector(".c-get-back")                  
+    backButton.addEventListener('click',()=> window.location.hash = '')   
 
     return shopPage
-
 }
 
 

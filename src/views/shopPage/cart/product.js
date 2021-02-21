@@ -42,19 +42,23 @@ const componentProduct = (product)=>{
     plus.addEventListener('click',plusValue)
     less.addEventListener("click",lessValue)
 
-
     //plus Quantity of product in seon.cart           
     function plusValue(){
-        
-        product.units += 1
-        product.total = product.price * product.units
-        numberText.textContent = product.units
-        valueTotalText.textContent = `$ ${product.total}`   
+
+        if(productItem.stocks[product.colorType].quantity < product.units+1){
+            alert("El producto no contiene el suficiente inventario, intenta con otro color")
+        }else{
+            product.units += 1
+            product.total = product.price * product.units
+
+            numberText.textContent = product.units
+            valueTotalText.textContent = `$ ${product.total}`
+        }
+ 
     }
 
     //rest quantity of product in seon.cart
     function lessValue(){
-
         if(product.units>0){
             product.units -=1
             

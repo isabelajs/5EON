@@ -1,19 +1,21 @@
-import {seon} from '../../../../dataBase/data.js'
-import productDescription from './descriptions.js'
+import {seon} from '../../../../dataBase/data.js'       //database
+
+import {renderCart} from '../cart/controllerCart.js'  //interaccion con el carrito
+
+import productDescription from './descriptions.js' //componentes para crear la vista de producto
 import productUnits from "./units.js"
 import productColors from "./colors.js"
 
-
 const componentProduct = (id) =>{
 
-
+    // -> component cProduct
     const cProducto = document.createElement("div")
     cProducto.classList.add('c-product')
     
     //fetch data of product to sell
     const productItem = seon.findProductById(id)
 
-    //assing first values for product to sell
+    //assing first values for product to sell --> instance of window
     seon.producToSell.id = id
     seon.producToSell.units = 1
     seon.producToSell.price = productItem.values[0].price //primer precio del primer unitType
@@ -71,7 +73,6 @@ const componentProduct = (id) =>{
 
     cProducto.innerHTML = view
 
-
     //agrega el componente descriptionProduct
     let contentInfo = cProducto.querySelector(".l-product__information")
     contentInfo.prepend(productDescription(id))      
@@ -83,19 +84,21 @@ const componentProduct = (id) =>{
     //agrega el componente colores
     let productUnit = cProducto.querySelector('.l-product__units') 
     productUnit.insertAdjacentElement('afterend',productColors(id))  
-    
 
+    
+    //boton de añadir producto al carrito
+    let shoopButton = cProducto.querySelector('#product__button')
+    shoopButton.addEventListener("click",()=>{addProductToCart() ? renderCart() : ''})
+      
     //asigna funcionalidad a los botones de sumar o disminuir cantidad
     let moreQuantity = cProducto.querySelector('#plus')
     let lessQuantity = cProducto.querySelector('#minus')
     let quantityText = cProducto.querySelector('.c-increment__text')
 
     moreQuantity.addEventListener("click", ()=>{
-
         seon.producToSell.units += 1
         quantityText.textContent = seon.producToSell.units
         modifyTotal()
-
     })
 
     lessQuantity.addEventListener("click", ()=>{
@@ -105,13 +108,13 @@ const componentProduct = (id) =>{
             quantityText.textContent = seon.producToSell.units
             modifyTotal()
         }
-
     })
   
     return cProducto
 }
 
-//calculate the new total with plusQuantity, lessQuantity and change of typeUnits in product not in cart
+// calculate the new total with plusQuantity, lessQuantity 
+// used by unitType
 function modifyTotal(){
 
     let productItem = seon.findProductById(seon.producToSell.id)
@@ -123,6 +126,46 @@ function modifyTotal(){
 
     let totalValueText = document.querySelector('#totalValue')
     totalValueText.textContent = `$ ${seon.producToSell.total}`
+
+}
+
+//create a new product base in seon.productToSell (product in window)
+function addProductToCart(){
+
+    let productItem = seon.findProductById(seon.producToSell.id)
+    let quantitySell = seon.producToSell.units
+    let colorStock = seon.producToSell.colorType
+    let stock = productItem.stocks[colorStock].quantity
+
+    let productMatchInCart = seon.cart.find(element=> element.unitType == seon.producToSell.unitType && element.colorType == colorStock && element.id == seon.producToSell.id)
+
+    //si el producto existe en el carrito
+    if(productMatchInCart){
+
+        let quantityFinal = productMatchInCart.units + quantitySell
+
+        if (quantityFinal>stock){
+
+            alert("El producto no contiene el suficiente inventario, intenta con otro color")
+            return false
+            
+        }else{
+            productMatchInCart.units += quantitySell
+            productMatchInCart.total = productMatchInCart.units * productMatchInCart.price
+            return true
+        }
+    }
+    else{ 
+        if(quantitySell > stock){
+            alert("El producto no contiene el suficiente inventario, intenta con otro color")
+            return false
+        }
+        else{
+            let newProduct = {...seon.producToSell}
+            seon.cart.push(newProduct)
+            return true
+        }
+    }
 
 }
 

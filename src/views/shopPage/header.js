@@ -1,3 +1,5 @@
+import {renderCart} from './cart/controllerCart.js'
+
 const componentHeader = () => {
 
     const view =    `<div class="header__logo"></div>   
@@ -18,6 +20,21 @@ const componentHeader = () => {
     header.setAttribute('id','header')
     header.classList.add('header','header--shop')
     header.innerHTML = view;
+
+
+    //funcionalidad botones del header
+    const headerLogo = header.querySelector('.header__logo')
+    const headerHomeButton = header.querySelector('#headerHomeButton')
+    const headerCartButton =  header.querySelector('#headerCartButton')
+
+
+    headerLogo.style.cursor = 'pointer'
+
+    //abrir modal del carrito y volver a home
+    headerCartButton.addEventListener('click',renderCart)
+    headerHomeButton.addEventListener('click', ()=> window.location.hash = '' )
+    headerLogo.addEventListener('click', ()=> window.location.hash = '' )
+
 
     return header
 }

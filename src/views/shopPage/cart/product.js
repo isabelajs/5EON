@@ -1,13 +1,11 @@
 import {seon} from '../../../../dataBase/data.js'
-import { totalValueCart } from './controllerCart.js'
 
 //Componente "product" --> en el carrito {id,colorType,unitType,units,price,total}
 const componentProduct = (product)=>{
 
     // necesiario para renderizar 
     const productItem = seon.findProductById(product.id)
-    const productName = productItem.name
-
+    
     //componente producto Cart
     const productCart = document.createElement("div");
     productCart.setAttribute('data-id',product.id)
@@ -21,7 +19,7 @@ const componentProduct = (product)=>{
         </div>
 
         <div class="l-product-cart__information">
-            <div class="c-txt-16">${productName}</div>
+            <div class="c-txt-16">${product.name}</div>
             <div class="c-txt-l-14">set ${product.unitType} - ${product.colorType}</div>
 
             <div class="c-increment">
@@ -54,7 +52,7 @@ const componentProduct = (product)=>{
 
             numberText.textContent = product.units
             valueTotalText.textContent = `$ ${product.total}`
-            totalValueCart()
+            document.querySelector('#totalValueCart').textContent = `$ ${seon.totalValueCart()}`
         }
  
     }
@@ -65,17 +63,16 @@ const componentProduct = (product)=>{
             product.units -=1
             
             if(product.units == 0 ){
-                seon.cart.splice(seon.cart.indexOf(product),1)
+                seon.removeProductToCart(product)
                 productCart.remove()
             }
             
             product.total = product.price * product.units
             numberText.textContent = product.units
             valueTotalText.textContent = `$ ${product.total}`  
+            document.querySelector('#totalValueCart').textContent = `$ ${seon.totalValueCart()}`
         }
 
-        totalValueCart()
-        
     }
 
 

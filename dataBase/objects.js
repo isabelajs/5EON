@@ -48,12 +48,15 @@ class Tienda{
         this.lastId = 1;
         this.cart = [];
         this.producToSell = {id:null,
+            name:null,
             unitType:null,
             colorType:null,
             units:null,
             price:null,
             total:null,
-        }
+        };
+
+        this.costShipping = 0
 
     }
 
@@ -167,12 +170,22 @@ class Tienda{
         }
     }
 
-    listInventario(){
-        this.products.forEach(product => console.log(product))
+    addProductToCart(product){
+        this.cart.push(product)
     }
 
-    addProductToCart(){
-        this.cart.push(1)
+    removeProductToCart(product){
+        this.cart.splice(this.cart.indexOf(product),1)
+    }
+
+    totalValueCart(){
+        let totalValue = 0;
+
+        this.cart.forEach(element=>{
+            totalValue += element.total
+        })
+    
+        return totalValue
     }
 
 }

@@ -1,6 +1,7 @@
 import home from '../views/home.js'
 import notFound from '../views/notFound.js'
 import shopPage from '../views/shopPage.js'
+import paymentPage from '../views/payment.js'
 
 const routes = [
     {
@@ -10,6 +11,9 @@ const routes = [
     {
         path: 'product',
         template: shopPage,
+    },{
+        path: 'payment',
+        template: paymentPage,
     },
     {
         path: '404',

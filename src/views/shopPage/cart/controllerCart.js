@@ -42,11 +42,11 @@ const componentCart = ()=> {
                             </div>
 
                             <div class="c-shooping__acept-condition c-checkbox-option">
-                                <input type="checkbox" id="shopping-condition">
-                                <label for="shopping-condition"> Acepto los terminos y condiciones</label>
+                                <input type="checkbox" id="buttonConditions">
+                                <label for="buttonConditions"> Acepto los terminos y condiciones</label>
                             </div>
 
-                            <div class="c-button c-button--green">Finalizar pedido</div>
+                            <div id='finalizeOrder' class="c-button c-button--green">Finalizar pedido</div>
 
 
                         </div>`
@@ -56,6 +56,17 @@ const componentCart = ()=> {
     //cierre del modal
     let cartClose = shoppingCart.querySelector('#shooping-cart__close');
     cartClose.addEventListener('click',renderCart)
+
+    let finalizeOrder = shoppingCart.querySelector('#finalizeOrder')
+    let statusConditions = shoppingCart.querySelector('#buttonConditions')
+
+    finalizeOrder.addEventListener('click',()=>{
+        if(statusConditions.checked){
+            renderCart()
+            window.location.hash = '#/payment'
+        }
+    })
+
     
     return shoppingCart
 }
@@ -69,13 +80,12 @@ function renderCart(){
     cart.classList.toggle('l-show-modal')
     document.body.classList.toggle('showing-modal')
 
-    
     const totalText = cart.querySelector('#totalValue')
 
     //only if is visible, draw products
     if(cart.classList.contains('l-show-modal')){
         drawProductsCart()
-        totalValueCart()
+        document.querySelector('#totalValueCart').textContent = `$ ${seon.totalValueCart()}`
     }
 
 }
@@ -94,16 +104,5 @@ function drawProductsCart(){
 
 }
 
-//calc and render total of shooping cart --> use by cart and product view
-function totalValueCart(){
-    let totalValue = 0;
 
-    seon.cart.forEach(element=>{
-        totalValue += element.total
-    })
-
-    document.querySelector('#totalValueCart').textContent = `$ ${totalValue}`
-
-}
-
-export {componentCart,renderCart,totalValueCart}
+export {componentCart,renderCart}

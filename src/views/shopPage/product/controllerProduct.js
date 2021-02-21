@@ -17,6 +17,7 @@ const componentProduct = (id) =>{
 
     //assing first values for product to sell --> instance of window
     seon.producToSell.id = id
+    seon.producToSell.name = productItem.name
     seon.producToSell.units = 1
     seon.producToSell.price = productItem.values[0].price //primer precio del primer unitType
     seon.producToSell.unitType = productItem.unitsTypes[0].toString()
@@ -24,52 +25,52 @@ const componentProduct = (id) =>{
     seon.producToSell.total = seon.producToSell.units * seon.producToSell.price
 
     const view = `
-    <div class="l-product__header">
-        
-        <h2 class="c-product__title">${productItem.name}</h2>
-        <div class="c-product__id">codigo: 000${productItem.id}</div>
+            <div class="l-product__header">
+                
+                <h2 class="c-product__title">${productItem.name}</h2>
+                <div class="c-product__id">codigo: 000${productItem.id}</div>
 
-        <div class="c-product__feedback">
-            <div class="c-feedback__txt">feedback<span class="c-txt-l-14">(${productItem.feedback})</span> </div>
-            <div class="c-feedback__qualification-img"></div>
-        </div>
-    </div>
-
-    <div class="l-product__representation">
-        <div class="c-product__img">
-            <div>
-                <img src="${productItem.urlImg}" alt="producto xxx${productItem.name}" width="520" height="520">
-                <div class="c-product__price">
-                    <h3>$${productItem.values[0].price}</h3>
-                    <p>$${productItem.beforeValue}</p>
+                <div class="c-product__feedback">
+                    <div class="c-feedback__txt">feedback<span class="c-txt-l-14">(${productItem.feedback})</span> </div>
+                    <div class="c-feedback__qualification-img"></div>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <div class="l-product__information">
-
-        <div class="l-product__quantity-total">
-
-            <div class="l-product__quantity-increment">
-                <div class="c-txt-16">Unidades</div>
-                <div class="c-increment">
-                    <div id = "plus" class="c-increment__button c-button c-button--flat"><i class="fas fa-plus"></i></div>
-                    <div class="c-increment__text">1</div>
-                    <div id = "minus" class="c-increment__button c-button c-button--flat"><i class="fas fa-minus"></i></div>
+            <div class="l-product__representation">
+                <div class="c-product__img">
+                    <div>
+                        <img src="${productItem.urlImg}" alt="producto xxx${productItem.name}" width="520" height="520">
+                        <div class="c-product__price">
+                            <h3>$${productItem.values[0].price}</h3>
+                            <p>$${productItem.beforeValue}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
 
-            <div class="l-product__value-total">
-                <div class="c-txt-16">Total</div>
-                <div id="totalValue" class="c-button c-button--flat">$ ${productItem.values[0].price}</div>
-            </div>
-        </div>
+            <div class="l-product__information">
 
-        <div id="product__button" class="c-button c-button--green">Agregar al carrito</div>
+                <div class="l-product__quantity-total">
 
-    </div>`
+                    <div class="l-product__quantity-increment">
+                        <div class="c-txt-16">Unidades</div>
+                        <div class="c-increment">
+                            <div id = "plus" class="c-increment__button c-button c-button--flat"><i class="fas fa-plus"></i></div>
+                            <div class="c-increment__text">1</div>
+                            <div id = "minus" class="c-increment__button c-button c-button--flat"><i class="fas fa-minus"></i></div>
+                        </div>
+                    </div>
+                    
+
+                    <div class="l-product__value-total">
+                        <div class="c-txt-16">Total</div>
+                        <div id="totalValue" class="c-button c-button--flat">$ ${productItem.values[0].price}</div>
+                    </div>
+                </div>
+
+                <div id="product__button" class="c-button c-button--green">Agregar al carrito</div>
+
+        </div>`
 
     cProducto.innerHTML = view
 
@@ -162,7 +163,7 @@ function addProductToCart(){
         }
         else{
             let newProduct = {...seon.producToSell}
-            seon.cart.push(newProduct)
+            seon.addProductToCart(newProduct)
             return true
         }
     }

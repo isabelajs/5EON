@@ -5,7 +5,6 @@ import productHome from './home/productHome.js'
 
 export default () => {
 
-
     //inyectar header
     window.document.body.prepend(header())
 
@@ -150,9 +149,4 @@ export default () => {
     )
 
     return landingPage
-}
-
-
-const routeProduct = (id) => {
-
 }

@@ -33,7 +33,7 @@ const componentCart = ()=> {
                                     <p>Total</p> 
                                 </div>
                                 <div class="c-one-third c-txt-right">
-                                    <p id="total"></p> 
+                                    <p id='totalValueCart'> </p> 
                                 </div>
                             </div>
 
@@ -69,12 +69,14 @@ function renderCart(){
     cart.classList.toggle('l-show-modal')
     document.body.classList.toggle('showing-modal')
 
+    
+    const totalText = cart.querySelector('#totalValue')
+
     //only if is visible, draw products
     if(cart.classList.contains('l-show-modal')){
         drawProductsCart()
+        totalValueCart()
     }
-
-    console.log(seon.cart)
 
 }
 
@@ -92,5 +94,16 @@ function drawProductsCart(){
 
 }
 
+//calc and render total of shooping cart --> use by cart and product view
+function totalValueCart(){
+    let totalValue = 0;
 
-export {componentCart,renderCart}
+    seon.cart.forEach(element=>{
+        totalValue += element.total
+    })
+
+    document.querySelector('#totalValueCart').textContent = `$ ${totalValue}`
+
+}
+
+export {componentCart,renderCart,totalValueCart}

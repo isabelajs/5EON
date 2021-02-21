@@ -1,4 +1,5 @@
 import {seon} from '../../../../dataBase/data.js'
+import { totalValueCart } from './controllerCart.js'
 
 //Componente "product" --> en el carrito {id,colorType,unitType,units,price,total}
 const componentProduct = (product)=>{
@@ -53,6 +54,7 @@ const componentProduct = (product)=>{
 
             numberText.textContent = product.units
             valueTotalText.textContent = `$ ${product.total}`
+            totalValueCart()
         }
  
     }
@@ -71,6 +73,8 @@ const componentProduct = (product)=>{
             numberText.textContent = product.units
             valueTotalText.textContent = `$ ${product.total}`  
         }
+
+        totalValueCart()
         
     }
 

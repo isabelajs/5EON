@@ -6,6 +6,8 @@ const cFormPayment = () =>{
 
     window.document.body.appendChild(cFooterPayment())
 
+    //on error colocar un label debajo indicado el error
+
     const cFormPayment = document.createElement('div')
     cFormPayment.classList.add('l-payment')
     cFormPayment.innerHTML = `<form name="payment-form" action="" class="c-form">
@@ -17,15 +19,15 @@ const cFormPayment = () =>{
                                             <div class="l-form-section__inputs">
                                             
                                                 <label class="c-form-input" for="userName">
-                                                    Nombre<input type="text" id="userName">
+                                                    Nombre<input type="text" id="userName" required>
                                                 </label>
                                 
                                                 <label class="c-form-input" for="userId">
-                                                    N° indentificacion<input type="text" id="userId">
+                                                    N° indentificacion<input type="text" id="userId" pattern="[0-9]+" required>
                                                 </label>
                                                     
                                                 <label class="c-form-input" for="userEmail">
-                                                    Correo electronico<input type="text" id="userEmail">
+                                                    Correo electronico<input type="email" id="userEmail" required>
                                                 </label>
                                             </div>
                                             
@@ -58,15 +60,15 @@ const cFormPayment = () =>{
                                             <div class="l-form-section__inputs">
                                 
                                                 <label class="c-form-input" for="userState">
-                                                    Departamento<input type="text"  id="userState">
+                                                    Departamento<input type="text" id="userState" required>
                                                 </label>
 
-                                                <label class="c-form-input" for="userCity">
-                                                    Ciudad<input type="text"  id="userCity">
+                                                <label class="c-form-input" for="userCity" >
+                                                    Ciudad<input type="text"  id="userCity" required>
                                                 </label>
 
                                                 <label class="c-form-input" for="userAddress">
-                                                    Direccion<input type="text"  id="userAddress">
+                                                    Direccion<input type="text"  id="userAddress" required>
                                                 </label>
                                                     
 
@@ -81,13 +83,14 @@ const cFormPayment = () =>{
                                 
                                             <div class="l-form-section__inputs">
                                             
-                                                <label class="c-form-input" for="cardUserName>
-                                                    Nombre<input type="text" id="cardUserName">
+                                                <label class="c-form-input" for="cardUserName">
+                                                    Nombre<input type="text" id="cardUserName" required>
                                                 </label>
                                 
                                                 <label class="c-form-input c-form-input--icon" for="cardNumber">
                                                     Numero de tarjeta
-                                                    <i class="fas fa-credit-card"></i> <input type="text"  id="numberCard">
+                                                    <i class="fas fa-credit-card"></i> 
+                                                    <input type="text"  id="numberCard" required>
                                                 </label> 
                                 
                                             </div>
@@ -99,38 +102,40 @@ const cFormPayment = () =>{
                                 
                                                     <!-- si necesito mas de un input por label-->
                                                     <div class="l-form-input__items">
-                                                        <input type="text" id="cardExpireMonth" placeholder="MM">
-                                                        <input type="text" id="cardExpireYear" placeholder="YY">
+                                                        <input type="text" id="cardExpireMonth" placeholder="MM" pattern="^[0-9]{2}$" required>
+                                                        <input type="text" id="cardExpireYear" placeholder="YY" pattern="^[0-9]{2}$" required>
                                                     </div>
                                 
                                                 </label>
                                                 
                                                 <label class="c-form-input" for="cardVerificationCode">
                                                     <p class="c-form-input__title">CVV</p>
-                                                    <input type="text" id="cardVerificationCode" placeholder="000">
+                                                    <input type="text" id="cardVerificationCode" placeholder="000" pattern="^[0-9]{3}$" required>
                                                 </label>
                                                 
                                             </div>
                                         </div>
-                                
+
+                                        <div class="l-payment__accept">
+                                    
+                                            <div class="c-checkbox-option">
+                                                <input type="checkbox" id="shopping-condition">
+                                                <label for="shopping-condition"> Guardar mi informacion para próximos pagos</label>
+                                            </div>
+
+                                            <input type="submit" class="c-payment__finalize c-button c-button--green" value="Finalizar compra">
+                                            
+                                        </div>
+
                                     </form>
                                 
-                                    <div class="l-payment__accept">
-                                
-                                        <div class="c-checkbox-option">
-                                            <input type="checkbox" id="shopping-condition">
-                                            <label for="shopping-condition"> Guardar mi informacion para próximos pagos</label>
-                                        </div>
-                                
-                                        <div class="c-payment__finalize c-button c-button--green">Finalizar compra</div>
-                                        
-                                    </div>
-                                
-                                    <div class="c-payment__get-back c-button c-button--flat">Volver</div>` 
+                                    <div id="buttonHome" class="c-payment__get-back c-button c-button--flat">Volver</div>` 
 
 
     const shippingHome = cFormPayment.querySelector('#shippingHome')
     const shippingStore = cFormPayment.querySelector('#shippingStore')
+    
+    cFormPayment.querySelector("#buttonHome").onclick = ()=>{ window.location.hash = ''}
     
     //change of shipping cost
     shippingHome.onclick = ()=> {

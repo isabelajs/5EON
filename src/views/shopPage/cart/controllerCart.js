@@ -104,5 +104,4 @@ function drawProductsCart(){
 
 }
 
-
 export {componentCart,renderCart}

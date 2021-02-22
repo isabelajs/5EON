@@ -38,7 +38,7 @@
 
         .c-form-section__title{
             @include text-bold-16;
-            margin-bottom: 10px;
+            margin-bottom: 13px;
         }
 
         .l-form-section__inputs{
@@ -81,7 +81,7 @@
         .c-form-input{
             @include text-semi-bold-16;
             @include flex-column;
-            margin-bottom: 5px;
+            margin-bottom: 7px;
             width: 100%;
 
             &__title{
@@ -89,15 +89,17 @@
             }
 
             //los input ya contienen un width por defecto, ademas ocuparan siempre el 100% de su padre
-            input[type=text]{
+            input[type=text],input[type=email]{
+                @include text-regular-14;
                 width: 100%;
-                @include text-regular-16;
-                border-radius: $border-radius-generic/4;
+                border-top-left-radius: $border-radius-generic/4;
+                border-top-right-radius: $border-radius-generic/4;
                 padding: 7px 0px 0px 0px;
                 outline: none;
                 border: none;   
                 border-bottom: 1px solid $blue-second;
-    
+                padding-bottom: 2px;
+                padding-left: 2px;
     
                 &:active, &:focus{
                     background-color: $gray-second;

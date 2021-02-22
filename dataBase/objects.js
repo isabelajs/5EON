@@ -57,6 +57,7 @@ class Tienda{
         };
 
         this.costShipping = 0
+        this.discount = 0
 
     }
 
@@ -186,6 +187,17 @@ class Tienda{
         })
     
         return totalValue
+    }
+
+    totalToPay(){
+
+        const totalCart = this.totalValueCart()
+
+        if(totalCart == 0){
+            return 0 
+        }else{
+            return totalCart + this.costShipping - this.discount
+        }
     }
 
 }

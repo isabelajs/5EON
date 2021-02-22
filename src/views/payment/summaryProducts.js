@@ -8,7 +8,7 @@ const cSummaryProducts = () =>{
     //first select is Envio - cost is 7000
     seon.costShipping = 7000
     const productsValue = seon.totalValueCart()
-    const totalValue = productsValue == 0  ? 0 : productsValue + seon.costShipping
+    const totalValue = seon.totalToPay()
 
     cSummaryProducts.innerHTML = `<section class="menu-desplegable" >
 
@@ -46,19 +46,27 @@ const cSummaryProducts = () =>{
                                         </div>
 
                                         <div class="container__description">
-                                            <div class="subtotal ">
-                                                <div class="text">Sub Total</div>
-                                                <div class="value">$ ${totalValue}</div>
+
+                                            <div class="envio">
+                                                <div class="text">Envios</div>
+                                                <div id="costShipping" class="value">$ ${seon.costShipping}</div>
                                             </div>
 
-                                            <div class="envio ">
-                                                <div class="text">Envios</div>
-                                                <div class="value">$ ${seon.costShipping}</div>
+                                            <div class="envio">
+                                                <div class="text">Descuento</div>
+                                                <div id="discount" class="value">$ ${seon.discount}</div>
+                                            </div>      
+
+                                            <div class="subtotal ">
+                                                <div class="text">Sub Total</div>
+                                                <div id="subTotal" class="value">$ ${productsValue}</div>
                                             </div>
 
                                             <div class="total">
-                                                <div class="text">Total</div>
-                                                <div class="value">cop <span>$ ${totalValue}</span></div>
+                                                <div class="text"> Total   </div>
+                                                <div class="value">
+                                                    cop $ <span id='totalPayment'> ${totalValue}</span>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -67,29 +75,28 @@ const cSummaryProducts = () =>{
 
     const lProducts = cSummaryProducts.querySelector('#visorProducts')
 
-    const buttonDisplaySummaryProducts = cSummaryProducts.querySelector('#buttonSummary')
+    const buttonSummaryState = cSummaryProducts.querySelector('#buttonSummary')
     const lSummaryProducts = cSummaryProducts.querySelector('.menu-productos')
-    const summaryState = cSummaryProducts.querySelector('#summaryState')
+    const textSummaryState = cSummaryProducts.querySelector('#summaryState')
     const headerSummary = cSummaryProducts.querySelector('.menu-header')
 
     headerSummary.style.cursor = 'pointer'
     headerSummary.addEventListener('click',showSummary)
 
-    console.log(lSummaryProducts)
-
+    //render products in summary
     seon.cart.forEach(product =>{
         console.log(product)
         lProducts.appendChild(cProductPayment(product))
     })        
     
-    
+    //show modal of summary
     function showSummary(element){
 
-        buttonDisplaySummaryProducts.classList.toggle("icon--translate");
+        buttonSummaryState.classList.toggle("icon--translate");
 
-        buttonDisplaySummaryProducts.classList.contains('icon--translate')
-        ? summaryState.textContent = "Ocultar resumen del pedido"
-        : summaryState.textContent = "Mostrar resumen del pedido"
+        buttonSummaryState.classList.contains('icon--translate')
+        ? textSummaryState.textContent = "Ocultar resumen del pedido"
+        : textSummaryState.textContent = "Mostrar resumen del pedido"
 
         lSummaryProducts.classList.toggle("menu-productos--visibility")
 

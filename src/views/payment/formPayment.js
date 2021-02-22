@@ -1,7 +1,10 @@
 import {seon} from '../../../dataBase/data.js'
+import {cFooterPayment} from '../payment/footer.js'
 
 
 const cFormPayment = () =>{
+
+    window.document.body.appendChild(cFooterPayment())
 
     const cFormPayment = document.createElement('div')
     cFormPayment.classList.add('l-payment')
@@ -124,6 +127,25 @@ const cFormPayment = () =>{
                                     </div>
                                 
                                     <div class="c-payment__get-back c-button c-button--flat">Volver</div>` 
+
+
+    const shippingHome = cFormPayment.querySelector('#shippingHome')
+    const shippingStore = cFormPayment.querySelector('#shippingStore')
+    
+    //change of shipping cost
+    shippingHome.onclick = ()=> {
+        seon.costShipping = 7000
+        document.querySelector('#costShipping').textContent = `$ ${seon.costShipping}` 
+        document.querySelector('#totalPayment').textContent = seon.totalToPay() 
+    }
+
+    shippingStore.onclick = () =>{
+        seon.costShipping = 0
+        document.querySelector('#costShipping').textContent = `$ ${seon.costShipping}` 
+        document.querySelector('#totalPayment').textContent = seon.totalToPay() 
+    }
+
+
 
     return cFormPayment
 }

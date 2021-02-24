@@ -259,6 +259,92 @@
 
 }
 
+
+.c-modalInfo{
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba($color: #000000, $alpha: 0.3);
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+
+    .l-modalInfo__container{
+        @include flex-column;
+        border-radius: $border-radius-generic/2;
+        box-shadow: 0px 3px 5px rgba($color: $gray-second, $alpha: 0.4);
+        background: white;
+        width: 300px;
+        align-items: center;
+        overflow: hidden;
+
+
+        .l-modalInfo__header{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5% 5%;
+
+            i{
+                font-size: 2rem;
+                cursor: pointer;
+            }
+        }
+
+        .l-modalInfo__content{
+            @include flex-column;
+            align-items: center;
+            padding: 10px 10px;
+            img{
+                width: 50px;
+                height: 50px;
+                background: blueviolet;
+            }
+
+            .c-modalInfo__title{
+                margin-top: 10px;
+
+            }
+
+            .c-modalInfo__message{
+                text-align: center;
+                margin: 15px 15px;
+            }
+
+        }
+
+        .c-modalInfo__buttonOk{
+        }
+        
+    }
+
+    &--warning{
+        .l-modalInfo__header{
+            background: rgb(243, 142, 64);
+        }
+    }
+
+    &--good{
+        .l-modalInfo__header{
+            background: $green-main;
+        } 
+    }
+
+    &--error{
+        .l-modalInfo__header{
+            background: palevioletred;
+        }
+    }
+
+
+}
+
 //////////// show-modal -> se aplica al body////////////
 .showing-modal{
 
@@ -276,8 +362,6 @@
     }
 
 }
-
-
 
 
 

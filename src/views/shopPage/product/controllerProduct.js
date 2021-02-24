@@ -6,6 +6,8 @@ import productDescription from './descriptions.js' //componentes para crear la v
 import productUnits from "./units.js"
 import productColors from "./colors.js"
 
+import {cModalInfo} from '../../info.js'
+
 const componentProduct = (id) =>{
 
     // -> component cProduct
@@ -146,24 +148,31 @@ function addProductToCart(){
         let quantityFinal = productMatchInCart.units + quantitySell
 
         if (quantityFinal>stock){
-
-            alert("El producto no contiene el suficiente inventario, intenta con otro color")
+            document.body.appendChild(cModalInfo('El producto no contiene el suficiente inventario, intenta con otro color','warning'))
             return false
             
         }else{
             productMatchInCart.units += quantitySell
             productMatchInCart.total = productMatchInCart.units * productMatchInCart.price
+            window.localStorage.setItem('cart',JSON.stringify(seon.cart))
             return true
         }
     }
     else{ 
         if(quantitySell > stock){
-            alert("El producto no contiene el suficiente inventario, intenta con otro color")
+            // console.log('melo')
+            document.body.appendChild(cModalInfo('El producto no contiene el suficiente inventario, intenta con otro color','error'))
+            
+            // alert("")
             return false
         }
         else{
             let newProduct = {...seon.producToSell}
             seon.addProductToCart(newProduct)
+
+            //actualizar el carrito en el localstorage
+            window.localStorage.setItem('cart',JSON.stringify(seon.cart))
+            console.log(window.localStorage.getItem('cart'))
             return true
         }
     }

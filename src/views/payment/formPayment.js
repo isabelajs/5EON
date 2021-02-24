@@ -178,7 +178,6 @@ const cFormPayment = () =>{
             alert('compra mela')
         }
 
-
     })
 
     cFormPayment.querySelector("#buttonHome").onclick = ()=>{ window.location.hash = ''}
@@ -200,7 +199,6 @@ const cFormPayment = () =>{
 }
 
 export {cFormPayment}
-
 
 
 //input string -> '5123951989745802' return {valor:70: validation:true}

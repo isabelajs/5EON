@@ -49,4 +49,5 @@ seon.addColorType(3,'pink','palevioletred',10)
 seon.addColorType(3,"black", "#000000", 8)
 seon.addColorType(3,"red", "#d90429", 10)
 
+
 export {seon}

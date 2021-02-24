@@ -46,7 +46,7 @@ class Tienda{
     constructor(productos=[]){
         this.products = productos; // [lista...]
         this.lastId = 1;
-        this.cart = [];
+        
         this.producToSell = {id:null,
             name:null,
             unitType:null,
@@ -58,6 +58,9 @@ class Tienda{
 
         this.costShipping = 0
         this.discount = 0
+        window.localStorage.getItem('cart')
+        ? this.cart = JSON.parse(window.localStorage.getItem('cart'))
+        : this.cart = []
 
     }
 

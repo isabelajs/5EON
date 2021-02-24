@@ -1,6 +1,7 @@
 import {seon} from '../../../../dataBase/data.js'
+import {cModalInfo} from '../../info.js'
 
-//Componente "product" --> en el carrito {id,colorType,unitType,units,price,total}
+//Componente "product" --> in seon.cart {id,colorType,unitType,units,price,total}
 const componentProduct = (product)=>{
 
     // necesiario para renderizar 
@@ -45,7 +46,7 @@ const componentProduct = (product)=>{
     function plusValue(){
 
         if(productItem.stocks[product.colorType].quantity < product.units+1){
-            alert("El producto no contiene el suficiente inventario, intenta con otro color")
+            document.body.appendChild(cModalInfo('El producto no contiene el suficiente inventario, intenta con otro color','warning'))
         }else{
             product.units += 1
             product.total = product.price * product.units
@@ -53,6 +54,9 @@ const componentProduct = (product)=>{
             numberText.textContent = product.units
             valueTotalText.textContent = `$ ${product.total}`
             document.querySelector('#totalValueCart').textContent = `$ ${seon.totalValueCart()}`
+
+            window.localStorage.setItem('cart',JSON.stringify(seon.cart))
+            console.log(window.localStorage.getItem('cart'))
         }
  
     }
@@ -71,6 +75,9 @@ const componentProduct = (product)=>{
             numberText.textContent = product.units
             valueTotalText.textContent = `$ ${product.total}`  
             document.querySelector('#totalValueCart').textContent = `$ ${seon.totalValueCart()}`
+
+            window.localStorage.setItem('cart',JSON.stringify(seon.cart))
+            console.log(window.localStorage.getItem('cart'))
         }
 
     }

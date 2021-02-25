@@ -1953,7 +1953,7 @@ p {
   padding-left: 2px;
 }
 .c-form .l-form-section .c-form-input input[type=text]:active, .c-form .l-form-section .c-form-input input[type=text]:focus, .c-form .l-form-section .c-form-input input[type=email]:active, .c-form .l-form-section .c-form-input input[type=email]:focus {
-  background-color: #D6D6D6;
+  background-color: #dbf0ff;
 }
 .c-form .l-form-section .c-form-input--icon {
   position: relative;
@@ -1971,6 +1971,17 @@ p {
 }
 .c-form .l-form-section .l-form-input__items input[type=text] {
   margin-right: 20px;
+}
+.c-form .l-form-section .c-form-inputError {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  text-align: center;
+  padding: 5px 5px;
+  margin-top: 2px;
+  background-color: palevioletred;
+  color: white;
+  border-radius: 2.5px;
 }
 
 @media (min-width: 768px) {

@@ -102,7 +102,7 @@
                 padding-left: 2px;
     
                 &:active, &:focus{
-                    background-color: $gray-second;
+                    background-color: #dbf0ff;
                 }
             }
 
@@ -133,6 +133,15 @@
 
         }
 
+        .c-form-inputError{
+            @include text-regular-14;
+            text-align: center;
+            padding: 5px 5px;
+            margin-top: 2px;
+            background-color: palevioletred;
+            color: white;
+            border-radius: $border-radius-generic/4;
+        }
     }
     
 }

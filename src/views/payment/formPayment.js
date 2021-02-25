@@ -1,5 +1,6 @@
 import {seon} from '../../../dataBase/data.js'
 import {cFooterPayment} from '../payment/footer.js'
+import {cModalInfo} from '../info.js'
 
 
 const cFormPayment = () =>{
@@ -23,7 +24,7 @@ const cFormPayment = () =>{
                                                 </label>
                                 
                                                 <label class="c-form-input" for="userId">
-                                                    N° indentificacion<input type="text" id="userId" pattern="[0-9]*" >
+                                                    N° indentificacion<input type="text" id="userId"  inputmode='numeric' >
                                                 </label>
                                                     
                                                 <label class="c-form-input" for="userEmail">
@@ -102,15 +103,15 @@ const cFormPayment = () =>{
                                 
                                                     <!-- si necesito mas de un input por label-->
                                                     <div class="l-form-input__items">
-                                                        <input type="text" id="cardExpireMonth" placeholder="MM" pattern="^[0-9]{2}$" >
-                                                        <input type="text" id="cardExpireYear" placeholder="YY" pattern="^[0-9]{2}$" >
+                                                        <input type="text" id="cardExpireMonth" placeholder="MM" >
+                                                        <input type="text" id="cardExpireYear" placeholder="YY" >
                                                     </div>
                                 
                                                 </label>
                                                 
                                                 <label class="c-form-input" for="cardVerificationCode">
                                                     <p class="c-form-input__title">CVV</p>
-                                                    <input type="text" id="cardVerificationCode" placeholder="000" pattern="^[0-9]{3}$" >
+                                                    <input type="text" id="cardVerificationCode" placeholder="000" >
                                                 </label>
                                                 
                                             </div>
@@ -134,50 +135,79 @@ const cFormPayment = () =>{
 
     const shippingHome = cFormPayment.querySelector('#shippingHome')
     const shippingStore = cFormPayment.querySelector('#shippingStore')
-    const cardNumberText = cFormPayment.querySelector('#cardNumber')
-    let cardNumber = ''
-    
-    //if i want to simulate password without last four numbers
-
-    //bug con el keydown no toma la ultima letra de la accion
-    // cardNumberText.addEventListener('keyup',(evt)=>{
-
-    //     if(evt.key == 'Escape' || evt.key== 'Enter' || evt.key == 'Tab' || evt.key == 'Backspace'){
-    //         return
-    //     }
-
-    //     cardNumber += evt.key 
 
 
-    //     cardNumber.length <= 12 ? cardNumberText.value = '*'.repeat(cardNumber.length) : ''
-
-    // })
-
-    // //only delete character of cardnumber when key is down
-    // cardNumberText.addEventListener('keydown',(evt)=>{
-        
-    //     if(evt.key == 'Backspace'){
-    //         cardNumber = cardNumber.slice(0,-1)
-    //     }
-    
-    // })
-
+  
     //terminar pago
     cFormPayment.querySelector('#paymentForm').addEventListener("submit",(evt)=>{
         evt.preventDefault();
         
-        //validacion de la tarjeta
-        const validation = cardValidation(cardNumberText.value)
+        Array.from(cFormPayment.querySelectorAll('.c-form-inputError')).forEach(element=> element.remove())
+
+        const userName = cFormPayment.querySelector('#userName')
+        const userId = cFormPayment.querySelector('#userId')
+        const userEmail = cFormPayment.querySelector('#userEmail')
+        
+        const userState = cFormPayment.querySelector('#userState')
+        const userCity = cFormPayment.querySelector('#userCity')
+        const userAddress = cFormPayment.querySelector('#userAddress')
 
 
-        if (validation.err){
-            alert('digite todo care verga')
+        //validate first section form
+        if(userName.value.length <= 5 && !isOnlyString(userName.value)){
+            userName.insertAdjacentHTML('afterend','<div class="c-form-inputError"> Nombre incorrecto [a-zA-Z] {5-45} </div>')
         }
-        else{
-            // limpiar el carrito y mostrar un modal diciendo compra finalizada
-            alert('compra mela')
+        if(!isNumber(userId.value) || userId.length < 5){
+            userId.insertAdjacentHTML('afterend','<div class="c-form-inputError"> Numero de identificacion incorrecto [0-9] {5-45} </div>')
+        }
+        if(!isEmail(userEmail.value)){
+            userEmail.insertAdjacentHTML('afterend','<div class="c-form-inputError"> Direccion de correcto incorrecta example@gmail.com </div>')
         }
 
+        //validate second section form
+        if(userState.value.length <= 5 || !isOnlyString(userState.value)){
+            userState.insertAdjacentHTML('afterend','<div class="c-form-inputError"> Nombre de Departamento incorrecto [a-zA-Z] {5-45}  </div>')
+        }
+        if(userCity.value.length <= 5 || !isOnlyString(userCity.value)){
+            userCity.insertAdjacentHTML('afterend','<div class="c-form-inputError"> Nombre de Ciudad incorrecto [a-zA-Z] {5-45}  </div>')
+        }
+        if(userAddress.value.length <= 10){
+            userAddress.insertAdjacentHTML('afterend','<div class="c-form-inputError"> Direccion de residencia incorrecta [a-zA-Z0-9] </div>')
+        }
+
+        
+
+        const cardUserName = cFormPayment.querySelector('#cardUserName')
+        const cardNumber = cFormPayment.querySelector('#cardNumber')
+        const validationNumberCard = cardValidation(cardNumber.value)
+        const cardExpireMonth = cFormPayment.querySelector('#cardExpireMonth')
+        const cardExpireYear = cFormPayment.querySelector('#cardExpireYear')
+        const cardVerificationCode = cFormPayment.querySelector('#cardVerificationCode')
+
+
+        //validation payment card
+        if(cardUserName.value.length <= 5 && !isOnlyString(cardUserName.value)){
+            cardUserName.insertAdjacentHTML('afterend','<div class="c-form-inputError"> Nombre incorrecto [a-zA-Z] {5-45} </div>')
+            return
+        }
+        if(validationNumberCard.err){
+            document.body.appendChild(cModalInfo(validationNumberCard.err,'error'))
+            return
+        }
+        if(!isNumber(cardExpireMonth.value) || cardExpireMonth.value.length<2 || !isNumber(cardExpireYear.value) || cardExpireYear.value.length<2){
+            document.body.appendChild(cModalInfo('Fecha de expiracion incorrecta!','error'))
+            return
+        }
+        if(!isNumber(cardVerificationCode.value) || cardVerificationCode.value){
+            document.body.appendChild(cModalInfo('Codigo de verificacion Incorrecto!'),'error')
+            return
+        }
+
+
+
+
+
+    
     })
 
     cFormPayment.querySelector("#buttonHome").onclick = ()=>{ window.location.hash = ''}
@@ -232,3 +262,74 @@ function cardValidation(numeros) {
        return {valor:suma, validation:false, err:'Numero de tarjeta incorrecto'}
    }
 }
+
+
+
+function isNumber(string,min=1,max=45){
+    // let reg = new RegExp(`^[0-9]{}$`);
+    let reg = new RegExp(`^[0-9]+$`);
+
+    return reg.test(string)
+}
+
+
+function isEmail(string){
+
+    // if(!string.includes('@') || string.indexOf('@') < 5 || string.includes(' ') || (string.length - string.indexOf('@') < 8) ){
+    //     return false
+    // }
+
+    // return true
+
+    var mailformat = /\S+@\S+\.\S+/;
+
+    if(string.match(mailformat)){
+        return true
+    }
+    else{
+        return false
+    }
+
+}
+
+function isOnlyString(string){
+    let reg = /^[A-Za-z]+$/;  //parece ser que un string con / aca iria / es un regex
+    
+    return reg.test(string)
+}
+
+
+isOnlyString('')
+// let cardNumber = ''
+
+  //if i want to simulate password without last four numbers
+
+    //bug con el keydown no toma la ultima letra de la accion
+    // cardNumberText.addEventListener('keyup',(evt)=>{
+
+    //     if(evt.key == 'Escape' || evt.key== 'Enter' || evt.key == 'Tab' || evt.key == 'Backspace'){
+    //         return
+    //     }
+
+    //     cardNumber += evt.key 
+
+
+    //     cardNumber.length <= 12 ? cardNumberText.value = '*'.repeat(cardNumber.length) : ''
+
+    // })
+
+    // //only delete character of cardnumber when key is down
+    // cardNumberText.addEventListener('keydown',(evt)=>{
+        
+    //     if(evt.key == 'Backspace'){
+    //         cardNumber = cardNumber.slice(0,-1)
+    //     }
+    
+    // })
+
+
+
+
+
+    var numbers = '[0-9]'
+    console.log('asd123'.match(numbers))

@@ -85,7 +85,6 @@ const cSummaryProducts = () =>{
 
     //render products in summary
     seon.cart.forEach(product =>{
-        console.log(product)
         lProducts.appendChild(cProductPayment(product))
     })        
     

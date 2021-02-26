@@ -8,6 +8,7 @@ const cModalInfo = (message,type,callback) =>{
 
     document.onkeydown = preventKeys
     
+    //TODO añadir las imagenes para los errores,colores y textos
     const imgUrl = type == 'error' ? '' : ''
 
     let title; 

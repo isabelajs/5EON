@@ -85,7 +85,7 @@ function renderCart(callback){
     }
 
     //use when close the render cart and we need to change the page
-    if(callback){
+    if(typeof callback == "function"){
         callback()
     }
 

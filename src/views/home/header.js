@@ -1,4 +1,6 @@
-export default (type) => {
+import {renderCart} from '../shopPage/cart/controllerCart.js'
+
+export default (app) => {
 
     const view = `<div class="header__logo"></div>
                     <div class="c-icon c-icon--big"><i id="menuIcon" class="fas fa-bars" ></i></div>        
@@ -17,26 +19,38 @@ export default (type) => {
     header.classList.add('header','header--home')
     header.innerHTML = view;
 
+    const icon = header.querySelector('#menuIcon')
+    const menu = header.querySelector('#menuHeader')
 
-    let icon = header.querySelector('#menuIcon')
 
     icon.addEventListener('click',desplegable)
 
     let linksMenu = header.querySelectorAll("li")
+
     linksMenu.forEach(link => {
 
         link.addEventListener("click",(event) =>{
             event.preventDefault();
-            moveScroll(link.id)
-            //siempre contrae
-            contraer()
-         
+
+            //time to finish the contraction if menu is visibilty
+            if(menu.classList.contains('menu--visibility')){
+                contraer()
+                setTimeout(()=>{
+                    link.id !== 'cart' ? moveScroll(link.id) : renderCart()
+                },300)
+            }else{
+                link.id !== 'cart' ? moveScroll(link.id) : renderCart()
+            }
+
         })
     });
 
-    
+
     window.onscroll = modifyHeader
     window.onresize = modifyHeader
+
+
+
 
     return header
 }
@@ -53,9 +67,9 @@ function contraer(){
          menuIcon.classList.remove("fa-times")
     }
 
-
 }
 
+//change the header when resize window, the header is draw or can be transparent -> by defect is transparent
 function modifyHeader(){
 
     const width = document.documentElement.clientWidth

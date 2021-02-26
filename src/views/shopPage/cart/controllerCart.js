@@ -8,7 +8,6 @@ const componentCart = ()=> {
     shoppingCart.setAttribute('id','shooping-cart')
     shoppingCart.classList.add("l-shooping-cart")
 
-
     const view = `      <div class="c-shooping__header">
                             <h3 class="c-shooping__title">Carrito de compra</h3>
                             <div id="shooping-cart__close" class="c-shooping__close c-button c-button--flat c-button--small"><i class="fas fa-times"></i></div>
@@ -55,25 +54,22 @@ const componentCart = ()=> {
 
     //cierre del modal
     let cartClose = shoppingCart.querySelector('#shooping-cart__close');
-    cartClose.addEventListener('click',renderCart)
-
     let finalizeOrder = shoppingCart.querySelector('#finalizeOrder')
     let statusConditions = shoppingCart.querySelector('#buttonConditions')
 
+    //close cart and change the page to payment when order finished
     finalizeOrder.addEventListener('click',()=>{
-        if(statusConditions.checked){
-            renderCart()
-            window.location.hash = '#/payment'
-        }
+        if(statusConditions.checked) renderCart(()=> window.location.hash = '#/payment')  
     })
 
-    
+    //close cart by manual close
+    cartClose.addEventListener('click',renderCart)
+
     return shoppingCart
 }
 
-
 //render (show and hidden component cart (modal))
-function renderCart(){  
+function renderCart(callback){  
 
     const cart = document.getElementById('shooping-cart')
 
@@ -82,15 +78,20 @@ function renderCart(){
 
     const totalText = cart.querySelector('#totalValue')
 
-    //only if is visible, draw products
+    //only if the cart change to visible, render all the products
     if(cart.classList.contains('l-show-modal')){
         drawProductsCart()
         document.querySelector('#totalValueCart').textContent = `$ ${seon.totalValueCart()}`
     }
 
+    //use when close the render cart and we need to change the page
+    if(callback){
+        callback()
+    }
+
 }
 
-//remove and update products in list of seon.cart
+//remove and update products cart from seon.cart
 function drawProductsCart(){
     const cart = document.querySelector('.l-shooping__products')
 

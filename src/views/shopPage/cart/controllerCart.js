@@ -24,7 +24,7 @@ const componentCart = ()=> {
                                     <p>descuento</p> 
                                 </div>
                                 <div class="c-one-third c-txt-right">
-                                    <p>${0}</p> 
+                                    <p>$ ${0}</p> 
                                 </div>
                             </div>
 
@@ -37,7 +37,7 @@ const componentCart = ()=> {
                                 </div>
                             </div>
 
-                            <div class="c-shooping__text-condition c-txt-l-16">
+                            <div class="c-shooping__text-condition c-txt-l-14">
                                 Los códigos de descuento, los costes de envío y los impuestos se añaden durante el pago.
                             </div>
 

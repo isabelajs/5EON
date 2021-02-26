@@ -1,15 +1,15 @@
 
-
 //{message:'xxxxx',type:'error,good'}
-const cModalInfo = (message,type) =>{
-
-
+const cModalInfo = (message,type,callback) =>{
 
     const cModal = document.createElement('div')
     cModal.classList.add('c-modalInfo')
     cModal.classList.add(`c-modalInfo--${type}`)
+
+    document.onkeydown = preventKeys
     
     const imgUrl = type == 'error' ? '' : ''
+
     let title; 
 
     switch(type){
@@ -58,12 +58,26 @@ const cModalInfo = (message,type) =>{
     //hide the elements in the window
     document.body.style.overflow = 'hidden'
 
-    
-    function closeModal(){
-        document.body.style.overflow = ''
-        cModal.remove()
-        console.log('cerrado')
 
+    //prevent all of keys except esc and enter
+    function preventKeys(e){
+
+        e.preventDefault()
+        if(e.key == 'Escape' || e.key == 'Enter'){
+            closeModal()
+        }
+
+    }
+
+    function closeModal(){
+        document.onkeydown = ''
+        document.body.style = ''
+        cModal.remove()
+
+        if(callback){
+            callback()
+        }
+        
     }
 
 
@@ -71,9 +85,6 @@ const cModalInfo = (message,type) =>{
 
 }
 
-
-
-// document.body.appendChild(cModalInfo('todo salio a la perfeccion puede seguir chupando pija','error'))
 
 export {cModalInfo}
 

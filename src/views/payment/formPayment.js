@@ -137,12 +137,10 @@ const cFormPayment = () =>{
 
     const cardNumber = cFormPayment.querySelector('#cardNumber')
 
-
     cardNumber.addEventListener('keyup',()=>{
         cFormPayment.querySelector('#iconCard').className = typeOfCard(cardNumber.value)
     })
 
-  
     //terminar pago
     cFormPayment.querySelector('#paymentForm').addEventListener("submit",(evt)=>{
         evt.preventDefault();
@@ -150,13 +148,23 @@ const cFormPayment = () =>{
         //remove all errors
         Array.from(cFormPayment.querySelectorAll('.c-form-inputError')).forEach(element=> element.remove())
 
-
         if(validateUserSection()){
+            if(validationCardSection()){
+                if(document.getElementById('shopping-condition').checked){
+                    document.body.appendChild(cModalInfo(`Compra finalizada se ha enviado un correo con la informacion del ticket #${Math.floor(Math.random()*1000)}`,'good',()=>{
+                        window.location.hash = ''
 
-            if(validationCardSection() && document.getElementById('shopping-condition').checked){
-                document.body.appendChild(cModalInfo('Compra finalizada se ha enviado un correo con la informacion del ticket #123101','good'))
+                        seon.cart = []
+                        window.localStorage.setItem('store','')
+
+                    }))
+                }
+                else{
+                    document.body.appendChild(cModalInfo('Acepte los terminos y condiciones para finalizar la compra','error'))
+                }
             }
         }
+
     })
 
     cFormPayment.querySelector("#buttonHome").onclick = ()=>{ window.location.hash = ''}
@@ -199,15 +207,15 @@ const cFormPayment = () =>{
         }
 
         //validate second section form
-        if(userState.value.length <= 5 || !isOnlyString(userState.value)){
+        if(userState.value.length <= 4 || !isOnlyString(userState.value)){
             userState.insertAdjacentHTML('afterend','<div class="c-form-inputError"> Nombre de Departamento incorrecto [a-zA-Z] {5-45}  </div>')
             validation = false
         }
-        if(userCity.value.length <= 5 || !isOnlyString(userCity.value)){
+        if(userCity.value.length <= 4 || !isOnlyString(userCity.value)){
             userCity.insertAdjacentHTML('afterend','<div class="c-form-inputError"> Nombre de Ciudad incorrecto [a-zA-Z] {5-45}  </div>')
             validation = false
         }
-        if(userAddress.value.length <= 8){
+        if(userAddress.value.length <= 6){
             userAddress.insertAdjacentHTML('afterend','<div class="c-form-inputError"> Direccion de residencia incorrecta [a-zA-Z0-9], direccion especifica</div>')
             validation = false
         }
@@ -251,7 +259,6 @@ const cFormPayment = () =>{
 
     }
 
-
     return cFormPayment
 
 }
@@ -290,8 +297,6 @@ function cardValidation(numeros) {
     }
 
 }
-
-
 
 //02-22 - today >= 00-10 years = true
 function validationDateExpire(month,year){
@@ -342,7 +347,6 @@ function typeOfCard(numero){
     }
     
 }
-
 
 //type basics Number, Email, onlystring
 function isNumber(string,min=1,max=45){

@@ -419,7 +419,7 @@
 }
 .menu-productos .main__productos .producto {
   display: grid;
-  grid-template-columns: 64px 1fr 65px;
+  grid-template-columns: 64px 1fr 85px;
   margin: 15px 0;
   column-gap: 15px;
 }

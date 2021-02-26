@@ -207,11 +207,11 @@ const cFormPayment = () =>{
         }
 
         //validate second section form
-        if(userState.value.length <= 4 || !isOnlyString(userState.value)){
+        if(userState.value.length <= 3 || !isOnlyString(userState.value)){
             userState.insertAdjacentHTML('afterend','<div class="c-form-inputError"> Nombre de Departamento incorrecto [a-zA-Z] {5-45}  </div>')
             validation = false
         }
-        if(userCity.value.length <= 4 || !isOnlyString(userCity.value)){
+        if(userCity.value.length <= 3 || !isOnlyString(userCity.value)){
             userCity.insertAdjacentHTML('afterend','<div class="c-form-inputError"> Nombre de Ciudad incorrecto [a-zA-Z] {5-45}  </div>')
             validation = false
         }

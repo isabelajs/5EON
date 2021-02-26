@@ -49,6 +49,36 @@ seon.addColorType(3,'pink','palevioletred',10)
 seon.addColorType(3,"black", "#000000", 8)
 seon.addColorType(3,"red", "#d90429", 10)
 
-//TODO agregar mas productos
+
+
+seon.addProduct("others",500,
+ './assets/forros.jpg',
+ descriptionGeneral,
+ 4,
+ 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas pariatur beatae pedit quasi. Alias, nam repudiandae! Harum. Mi novio no vera esto porque no me ama' )
+
+seon.addUnitType(4,1,12000)
+seon.addColorType(4,'green','#06D6A0',10)
+seon.addColorType(4,'yellow','#ffba08',10)
+seon.addColorType(4,'pink','palevioletred',10)
+seon.addColorType(4,"black", "#000000", 8)
+seon.addColorType(4,"red", "#d90429", 10)
+
+
+seon.addProduct("others-2",500,
+ './assets/forros.jpg',
+ descriptionGeneral,
+ 4,
+ 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas pariatur beatae pedit quasi. Alias, nam repudiandae! Harum. Mi novio no vera esto porque no me ama' )
+
+seon.addUnitType(5,1,12000)
+seon.addColorType(5,'green','#06D6A0',10)
+seon.addColorType(5,'yellow','#ffba08',10)
+seon.addColorType(5,'pink','palevioletred',10)
+seon.addColorType(5,"black", "#000000", 8)
+seon.addColorType(5,"red", "#d90429", 10)
+
+
+//FIXME sistema de añadir stock por id o nombre
 
 export {seon}

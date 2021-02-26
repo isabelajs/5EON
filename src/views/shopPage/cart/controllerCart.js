@@ -1,7 +1,9 @@
 import {seon} from '../../../../dataBase/data.js'
 import {componentProduct as cProductCart} from './product.js'
+import {cModalInfo} from '../../info.js'
 
 //component cart
+
 const componentCart = ()=> {
 
     const shoppingCart = document.createElement("div")
@@ -59,7 +61,18 @@ const componentCart = ()=> {
 
     //close cart and change the page to payment when order finished
     finalizeOrder.addEventListener('click',()=>{
-        if(statusConditions.checked) renderCart(()=> window.location.hash = '#/payment')  
+        if(seon.cart.length == 0 ){
+            document.body.appendChild(cModalInfo('Debe ingresar algun producto en el carrito para continuar','warning'))
+            return
+        }
+
+        if(!statusConditions.checked){
+            document.body.appendChild(cModalInfo('Acepte los terminos y condiciones antes de continuar','error'))
+
+        }else{
+            renderCart(()=> window.location.hash = '#/payment')  
+        }
+
     })
 
     //close cart by manual close

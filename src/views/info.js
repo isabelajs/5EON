@@ -8,20 +8,17 @@ const cModalInfo = (message,type,callback) =>{
 
     document.onkeydown = preventKeys
     
-    //TODO añadir las imagenes para los errores,colores y textos
-    const imgUrl = type == 'error' ? '' : ''
-
     let title; 
 
     switch(type){
         case 'good':
-            title = 'Good Job'
+            title = 'Good!'
             break
         case 'warning':
-            title = 'Warning'
+            title = 'Warning!'
             break
         case 'error':
-            title = 'Error'
+            title = 'Error!'
             break
     }
 
@@ -33,12 +30,10 @@ const cModalInfo = (message,type,callback) =>{
                         </div>
 
                         <div class="l-modalInfo__content"> 
-                                                    
-                            <img src="./" alt="">
-                            <h3 class="c-modalInfo__title">${title}</h3>
+
                             <p class="c-modalInfo__message">${message}</p>
 
-                            <div id="acceptModal" class="c-modalInfo__buttonOk c-button c-button--green c-button--small">OK</div>
+                            <div id="acceptModal" class="c-modalInfo__buttonOk c-button c-button--small">OK</div>
 
                         </div>
 

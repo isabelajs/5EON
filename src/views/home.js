@@ -14,9 +14,6 @@ export default () => {
     document.body.prepend(cHeader)
     document.body.appendChild(cFooter)
 
-    //TODO añadir imagenes de proceso_container
-
-
     //BUG so slow when charge the cart maybe is for the render....
 
     const landingPage = document.createElement('div')
@@ -148,18 +145,39 @@ export default () => {
 
 
     const carrousel = landingPage.querySelector('.productos-carrusel')
+    const carrouselContenedor = landingPage.querySelector('.productos__contenedor')
+    let mousePress = false
+    let posX = 0
 
     seon.products.forEach(element=>{
-        carrousel.appendChild(productHome(element))
+        const product = productHome(element)
+        product.onclick = () => {window.location.hash = `#/product/${product.dataset.id}`}
+        carrousel.appendChild(product)
     })
 
 
-    //go to page of products example #/producto/1
-    landingPage.querySelectorAll('.producto').forEach(
-        product => {
-            product.onclick = () => {window.location.hash = `#/product/${product.dataset.id}`}
+    //activate for move when press the mouse on carrousel
+    carrousel.addEventListener('mousedown',(e)=>{
+        mousePress = true
+        posX = e.clientX
+    })
+
+    //deactivate when mouse up in all the page
+    landingPage.addEventListener('mouseup',()=>{
+        mousePress = false
+    })
+
+
+    //move the carrousel only if mouse if moving
+    carrousel.addEventListener('mousemove',(e)=>{
+        if(mousePress){
+            carrouselContenedor.scrollLeft += posX - e.clientX
+            posX = e.clientX
         }
-    )
+    })
+
+
+
 
     return landingPage
 }

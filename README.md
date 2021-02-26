@@ -64,15 +64,15 @@ El proyecto se abordo creando una SPA (Single page application) sin uso de ningu
     </tr>
     <tr>
         <td><img src="./assets/prototype/landingPage-home.PNG" width=500 ></td>
-        <td><img src="./assets/prototipos/landingPage-Intro.PNG" width=500 ></td>
+        <td><img src="./assets/prototype/landingPage-Intro.PNG" width=500 ></td>
     </tr>
     <tr>
         <td>Landing Page / Proceso</td>
         <td>Landing Page / Productos</td>
     </tr>
     <tr>
-        <td><img src="./assets/prototipos/landingPage-proceso.PNG" width=500 ></td>
-        <td><img src="./assets/prototipos/landingPage-productos.PNG" width=500 ></td>
+        <td><img src="./assets/prototype/landingPage-proceso.PNG" width=500 ></td>
+        <td><img src="./assets/prototype/landingPage-productos.PNG" width=500 ></td>
     </tr>
  </table>
 

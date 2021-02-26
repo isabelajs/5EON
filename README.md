@@ -1,4 +1,4 @@
-# app trivia
+# SEON APP
 _proyecto desarrollado siguiendo como guia lineamientos presentados en el proyecto [trivia-laboratoria](https://github.com/Laboratoria/bootcamp/tree/main/projects/01-card-validation)_ 
 
 ## índice

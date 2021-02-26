@@ -61,22 +61,41 @@ const componentCart = ()=> {
 
     //close cart and change the page to payment when order finished
     finalizeOrder.addEventListener('click',()=>{
+
+        document.body.removeEventListener('keydown',modalController) //remove event for cart
+
         if(seon.cart.length == 0 ){
-            document.body.appendChild(cModalInfo('Debe ingresar algun producto en el carrito para continuar','warning'))
+            document.body.appendChild(cModalInfo('Debe ingresar algun producto en el carrito para continuar','warning',()=>{
+                document.body.addEventListener('keydown',modalController) //when close modal add event agains to cart
+            }))
             return
         }
 
         if(!statusConditions.checked){
-            document.body.appendChild(cModalInfo('Acepte los terminos y condiciones antes de continuar','error'))
+            document.body.appendChild(cModalInfo('Acepte los terminos y condiciones antes de continuar','error',()=>{
+                document.body.addEventListener('keydown',modalController)
+            }))
 
         }else{
-            renderCart(()=> window.location.hash = '#/payment')  
+            closeCart()
+            window.location.hash = '#/payment'
         }
 
     })
 
     //close cart by manual close
-    cartClose.addEventListener('click',renderCart)
+    cartClose.addEventListener('click',()=>{
+        closeCart()
+    })
+
+
+    //el evento escuchador debe estar cuando esta show
+
+    //cuando se esconde debe removerse
+
+    //cuando el modal de warning esta abierto debe removerse
+
+    //el modal esta abierto osea que el body ya esta escuchando algo
 
     return shoppingCart
 }
@@ -86,15 +105,16 @@ function renderCart(callback){
 
     const cart = document.getElementById('shooping-cart')
 
+    //modify state of modal
     cart.classList.toggle('l-show-modal')
     document.body.classList.toggle('showing-modal')
-
-    const totalText = cart.querySelector('#totalValue')
 
     //only if the cart change to visible, render all the products
     if(cart.classList.contains('l-show-modal')){
         drawProductsCart()
         document.querySelector('#totalValueCart').textContent = `$ ${seon.totalValueCart()}`
+
+        document.body.addEventListener('keydown',modalController)
     }
 
     //use when close the render cart and we need to change the page
@@ -118,4 +138,29 @@ function drawProductsCart(){
 
 }
 
-export {componentCart,renderCart}
+
+function modalController(e){
+
+    e.preventDefault()
+    if(e.key == 'Escape'){
+        closeCart()
+    }
+}
+
+//close the modal cart
+function closeCart(){
+
+    const statusConditions = document.querySelector('#buttonConditions')
+    const cart = document.querySelector('#shooping-cart')
+
+    //hide the cart
+    cart.classList.remove('l-show-modal')
+    document.body.classList.remove('showing-modal')
+    statusConditions.checked = false
+
+    //remove the event
+    document.body.removeEventListener('keydown',modalController)
+
+}
+
+export {componentCart,renderCart,modalController}

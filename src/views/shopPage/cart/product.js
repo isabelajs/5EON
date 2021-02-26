@@ -1,4 +1,5 @@
 import {seon} from '../../../../dataBase/data.js'
+import {modalController} from './controllerCart.js'
 import {cModalInfo} from '../../info.js'
 
 //Componente "product" --> in seon.cart {id,colorType,unitType,units,price,total}
@@ -46,7 +47,12 @@ const componentProduct = (product)=>{
     function plusValue(){
 
         if(productItem.stocks[product.colorType].quantity < product.units+1){
-            document.body.appendChild(cModalInfo('El producto no contiene el suficiente inventario, intenta con otro color','warning'))
+
+           //remove event for cart
+            document.body.removeEventListener('keydown',modalController) //remove event for carty
+            document.body.appendChild(cModalInfo('El producto no contiene el suficiente inventario, intenta con otro color','warning',()=>{
+                document.body.addEventListener('keydown',modalController) //when close modal add event agains to cart
+            }))
         }else{
             product.units += 1
             product.total = product.price * product.units

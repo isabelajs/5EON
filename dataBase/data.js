@@ -1,6 +1,5 @@
 import {Tienda} from './objects.js'
 
-
 let seon = new Tienda()
 
 let descriptionGeneral = ['250 <br/> Gramos','10cm <br/>  Lado', '+3  <br/>  colores']

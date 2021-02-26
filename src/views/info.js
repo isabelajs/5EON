@@ -6,7 +6,7 @@ const cModalInfo = (message,type,callback) =>{
     cModal.classList.add('c-modalInfo')
     cModal.classList.add(`c-modalInfo--${type}`)
 
-    document.onkeydown = preventKeys
+    document.body.addEventListener('keydown',preventKeys)
     
     let title; 
 
@@ -59,6 +59,7 @@ const cModalInfo = (message,type,callback) =>{
     function preventKeys(e){
 
         e.preventDefault()
+
         if(e.key == 'Escape' || e.key == 'Enter'){
             closeModal()
         }
@@ -66,16 +67,14 @@ const cModalInfo = (message,type,callback) =>{
     }
 
     function closeModal(){
-        document.onkeydown = ''
+        document.body.removeEventListener('click',preventKeys)
         document.body.style = ''
         cModal.remove()
 
         if(callback){
             callback()
         }
-        
     }
-
 
     return cModal
 

@@ -75,6 +75,8 @@
     display: none;
   }
   .header--home .header__menu {
+    display: flex;
+    align-items: center;
     background-color: transparent;
     position: static;
     inset: auto auto auto auto;

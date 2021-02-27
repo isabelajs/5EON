@@ -23,7 +23,7 @@ seon.supplyProduct(1,'yellow',6)
 
 
 seon.addProduct("Portavasos",1000,
- './assets/19.jpg',
+ './assets/19.png',
  descriptionGeneral,
  4,
  'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas pariatur beatae pedit quasi. Alias, nam repudiandae! Harum. Mi novio no vera esto porque no me ama' )
@@ -36,7 +36,7 @@ seon.addColorType(2,'pink','palevioletred',10)
 
 
 seon.addProduct("Forros ecologicos",1000,
- './assets/forros.jpg',
+ './assets/forros.png',
  descriptionGeneral,
  5,
  'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas pariatur beatae pedit quasi. Alias, nam repudiandae! Harum. Mi novio no vera esto porque no me ama' )
@@ -51,7 +51,7 @@ seon.addColorType(3,"red", "#d90429", 10)
 
 
 seon.addProduct("others",500,
- './assets/forros.jpg',
+ './assets/forros.png',
  descriptionGeneral,
  4,
  'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas pariatur beatae pedit quasi. Alias, nam repudiandae! Harum. Mi novio no vera esto porque no me ama' )
@@ -65,7 +65,7 @@ seon.addColorType(4,"red", "#d90429", 10)
 
 
 seon.addProduct("others-2",500,
- './assets/forros.jpg',
+ './assets/forros.png',
  descriptionGeneral,
  4,
  'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas pariatur beatae pedit quasi. Alias, nam repudiandae! Harum. Mi novio no vera esto porque no me ama' )

@@ -58,6 +58,10 @@ const router = (route) =>{
 
     //si hizo match en algo....
     if(match.route !== undefined ){
+        
+        //remove however class in body
+        document.body.className = ''
+
 
         if(match.route.path == 'product'){
 

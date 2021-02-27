@@ -131,10 +131,10 @@ export default () => {
                     <section class="photos">
                         <div class="photos__hashtag">#Nomasplastico</div>
                         <div class="photos__container">
-                            <div class="container-img img-left"><img src="./assets/photos.jpg" alt=""></div>
-                            <div class="container-img"><img src="./assets/photos.jpg" alt=""></div>
-                            <div class="container-img img-left"><img src="./assets/photos.jpg" alt=""></div>
-                            <div class="container-img "><img src="./assets/photos.jpg" alt=""></div>
+                            <div class="container-img img-left"><img src="./assets/photos-hashtag/imagen-1.png" alt=""></div>
+                            <div class="container-img"><img src="./assets/photos-hashtag/imagen-2.png" alt=""></div>
+                            <div class="container-img img-left"><img src="./assets/photos-hashtag/imagen-3.png" alt=""></div>
+                            <div class="container-img "><img src="./assets/photos-hashtag/imagen-4.png" alt=""></div>
                         </div>
                     </section>`
 

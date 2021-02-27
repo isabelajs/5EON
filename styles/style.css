@@ -940,11 +940,11 @@ p {
   transition: transform 0.5s;
 }
 .productos__contenedor .productos-carrusel .producto__img {
-  width: 100%;
+  display: flex;
+  justify-content: center;
   height: 100%;
 }
 .productos__contenedor .productos-carrusel .producto__img img {
-  width: 100%;
   height: 100%;
 }
 .productos__contenedor .productos-carrusel .producto__details {

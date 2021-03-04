@@ -2,6 +2,8 @@
 //{message:'xxxxx',type:'error,good'}
 const cModalInfo = (message,type,callback) =>{
 
+
+    console.log('jodido papa')
     const cModal = document.createElement('div')
     cModal.classList.add('c-modalInfo')
     cModal.classList.add(`c-modalInfo--${type}`)
@@ -67,7 +69,9 @@ const cModalInfo = (message,type,callback) =>{
     }
 
     function closeModal(){
-        document.body.removeEventListener('click',preventKeys)
+
+
+        document.body.removeEventListener('keydown',preventKeys)
         document.body.style = ''
         cModal.remove()
 

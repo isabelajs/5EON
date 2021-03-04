@@ -281,7 +281,7 @@ function cardValidation(numeros) {
 
         //count index + 1 because the index is [0,1,2,3,4] but we need to evaluate [1,2,3,4,5]
         if((index+1) % 2 == 0){
-            sum += Math.floor(number*2 / 10) + number * 2 % 10
+            sum += 1 + number * 2 % 10
         }else{
             sum += number
         }
@@ -396,3 +396,5 @@ function isOnlyString(string){
     //     }
     
     // })
+
+

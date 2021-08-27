@@ -12,9 +12,9 @@
   width: 90%;
 }
 .proceso__items {
-  display: flex;
-  flex-wrap: wrap;
   width: 80%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(242px, 395px));
   justify-content: center;
 }
 .proceso__items .items-right {
@@ -79,17 +79,6 @@
   .proceso__title {
     font-size: 3.5rem;
   }
-  .proceso__items {
-    width: 90%;
-  }
-  .proceso__items .items-right {
-    width: 50%;
-    align-items: flex-end;
-  }
-  .proceso__items .items-left {
-    width: 50%;
-    align-items: flex-start;
-  }
 
   .proceso__container .proceso-text .text-title {
     font-size: 2rem;
@@ -103,6 +92,7 @@
     width: 80%;
   }
   .proceso__items {
+    gap: 20px;
     width: 80%;
   }
 }

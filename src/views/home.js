@@ -20,14 +20,14 @@ export default () => {
     landingPage.classList.add('l-landing')
 
     const view =`<section id="intro" class ="home">
-                        <h1 id="test" class="home__title">No más plastico</h1>
-                        <p class="home__text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui sequi excepturi ea dolore eius explicabo, voluptatem voluptates magnam minima quaerat veritatis cum esse odio modi fugit illo, quia accusantium. Eum.</p>
+                        <h1 id="test" class="home__title">No más plástico</h1>
+                        <p class="home__text">Somos un equipo de profesionales que ve la oportunidad de alargar el tiempo de vida de utilización del plástico, transformandolo en hermosas piezas de decoración o elementos utiles en nuestra vida cotidiana.</p>
                     </section>
 
                     <section id="aboutUs" class="intro">
                         <div class="intro__text">
                             <h2 class="text__title">¿Quienes somos?</h2>
-                            <p class="text__text" >Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
+                            <p class="text__text" >Somos un equipo de profesionales enfocados en alargar el tiempo de vida de utilización del plástico, transformando el plastico recuperado en hermosas piezas de decoración o elementos utiles para nuestra vida cotidiana.</p>
                         </div>
                         <div class="intro__img"></div>
                     </section>
@@ -46,7 +46,7 @@ export default () => {
 
                                     <div class="proceso-text">
                                         <h2 class="text-title">1.Separación de residuos</h2>
-                                        <p class="text-text">Separan los diferentes materiales recuperables desde tu hogar</p>
+                                        <p class="text-text">La comunidad separan los diferentes materiales recuperables desde su hogar</p>
                                     </div>
 
                                 </div>
@@ -56,8 +56,8 @@ export default () => {
                                     <span class="proceso-img"></span>
 
                                     <div class="proceso-text">
-                                        <h2 class="text-title">1.Separación de residuos</h2>
-                                        <p class="text-text">Separan los diferentes materiales recuperables desde tu hogar</p>
+                                        <h2 class="text-title">2.Recolección</h2>
+                                        <p class="text-text">La asociación correspondiente a la zona, recolectara todos los elementos que puedan ser aprovechables</p>
                                     </div>
 
                                 </div>
@@ -67,8 +67,8 @@ export default () => {
                                     <span class="proceso-img"></span>
 
                                     <div class="proceso-text">
-                                        <h2 class="text-title">1.Separación de residuos</h2>
-                                        <p class="text-text">Separan los diferentes materiales recuperables desde tu hogar</p>
+                                        <h2 class="text-title">3.Clasificación y limpieza</h2>
+                                        <p class="text-text">Los materiales se separan según su composición y color para pasar al proceso de remoción de suciedad</p>
                                     </div>
 
                                 </div>
@@ -81,8 +81,8 @@ export default () => {
                                     <span class="proceso-img"></span>
 
                                     <div class="proceso-text">
-                                        <h2 class="text-title">2.Separación de residuos</h2>
-                                        <p class="text-text">Separan los diferentes materiales recuperables desde tu hogar</p>
+                                        <h2 class="text-title">4.Trituración</h2>
+                                        <p class="text-text">El plástico recuperado pasa por el proceso de trituración de acuerdo a su tipo y color</p>
                                     </div>
 
                                 </div>
@@ -92,8 +92,8 @@ export default () => {
                                     <span class="proceso-img"></span>
 
                                     <div class="proceso-text">
-                                        <h2 class="text-title">2.Separación de residuos</h2>
-                                        <p class="text-text">Separan los diferentes materiales recuperables desde tu hogar</p>
+                                        <h2 class="text-title">5.Termofijados</h2>
+                                        <p class="text-text">Se transforma el plástico triturado en diferentes productos por medio de una máquina de inyección</p>
                                     </div>
 
                                 </div>
@@ -103,8 +103,8 @@ export default () => {
                                     <span class="proceso-img"></span>
 
                                     <div class="proceso-text">
-                                        <h2 class="text-title">2.Separación de residuos</h2>
-                                        <p class="text-text">Separan los diferentes materiales recuperables desde tu hogar</p>
+                                        <h2 class="text-title">6.Producto</h2>
+                                        <p class="text-text">El producto pasa por el proceso de eliminación de imperfeciones y es enviado a su destino</p>
                                     </div>
 
                                 </div>

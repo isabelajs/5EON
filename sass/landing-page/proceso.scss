@@ -14,9 +14,9 @@
     }
 
     &__items{
-        display: flex;
-        flex-wrap: wrap;
         width: 80%;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(242px,395px));
         justify-content: center;
 
         .items-right{
@@ -93,19 +93,6 @@
         &__title{
             font-size:3.5rem ;
         }
-
-        &__items{
-            width: 90%;
-            .items-right{
-                width: 50%;
-                align-items: flex-end;
-            }
-            .items-left{
-                width: 50%;
-                align-items: flex-start;
-            }
-        }
-          
     }
 
     .proceso__container{
@@ -128,6 +115,7 @@
         }
 
         &__items{
+            gap: 20px;
             width: 80%;
         }
     }

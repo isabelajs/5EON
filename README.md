@@ -87,7 +87,7 @@ npm install -g sass
 
 # 5. Demo 
 
-* deploy del proyecto [DEPLOY](https://isabelajs.github.io/5EON/)
+* deploy del proyecto [DEPLOY](https://5eon.netlify.app/)
 
 
 * repositorio del proyecto [REPO](https://github.com/isabelajs/5EON)

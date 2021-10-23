@@ -1,33 +1,31 @@
-import header from './home/header.js'
-import footer from './home/footer.js'
-import {seon} from '../../dataBase/data.js'
-import productHome from './home/productHome.js'
-import {componentCart} from './shopPage/cart/controllerCart.js'
-
+import header from "./home/header.js";
+import footer from "./home/footer.js";
+import { seon } from "../../dataBase/data.js";
+import productHome from "./home/productHome.js";
+import { componentCart } from "./shopPage/cart/controllerCart.js";
 
 export default () => {
+  //inyectar header
+  const cHeader = header();
+  const cFooter = footer();
 
-    //inyectar header
-    const cHeader = header()
-    const cFooter = footer()
+  document.body.prepend(cHeader);
+  document.body.appendChild(cFooter);
 
-    document.body.prepend(cHeader)
-    document.body.appendChild(cFooter)
+  //BUG so slow when charge the cart maybe is for the render....
 
-    //BUG so slow when charge the cart maybe is for the render....
+  const landingPage = document.createElement("div");
+  landingPage.classList.add("l-landing");
 
-    const landingPage = document.createElement('div')
-    landingPage.classList.add('l-landing')
-
-    const view =`<section id="intro" class ="home">
+  const view = `<section id="intro" class ="home">
                         <h1 id="test" class="home__title">No más plástico</h1>
-                        <p class="home__text">Somos un equipo de profesionales que ve la oportunidad de alargar el tiempo de vida de utilización del plástico, transformandolo en hermosas piezas de decoración o elementos utiles en nuestra vida cotidiana.</p>
+                        <p class="home__text">Alargamos el tiempo de vida de utilización del plástico, transformandolo en hermosas piezas de decoración.</p>
                     </section>
 
                     <section id="aboutUs" class="intro">
                         <div class="intro__text">
                             <h2 class="text__title">¿Quienes somos?</h2>
-                            <p class="text__text" >Somos un equipo de profesionales enfocados en alargar el tiempo de vida de utilización del plástico, transformando el plastico recuperado en hermosas piezas de decoración o elementos utiles para nuestra vida cotidiana.</p>
+                            <p class="text__text" >Somos un equipo de profesionales enfocados en alargar el tiempo de vida de utilización del plástico, transformándolo en hermosas piezas de decoración o elementos útiles para nuestra vida cotidiana.</p>
                         </div>
                         <div class="intro__img"></div>
                     </section>
@@ -136,48 +134,44 @@ export default () => {
                             <div class="container-img img-left"><img src="./assets/photos-hashtag/imagen-3.png" alt=""></div>
                             <div class="container-img "><img src="./assets/photos-hashtag/imagen-4.png" alt=""></div>
                         </div>
-                    </section>`
+                    </section>`;
 
+  landingPage.innerHTML = view;
+  landingPage.appendChild(componentCart());
 
+  const carrousel = landingPage.querySelector(".productos-carrusel");
+  const carrouselContenedor = landingPage.querySelector(
+    ".productos__contenedor"
+  );
+  let mousePress = false;
+  let posX = 0;
 
-    landingPage.innerHTML = view;
-    landingPage.appendChild(componentCart())
+  seon.products.forEach((element) => {
+    const product = productHome(element);
+    product.onclick = () => {
+      window.location.hash = `#/product/${product.dataset.id}`;
+    };
+    carrousel.appendChild(product);
+  });
 
+  //activate for move when press the mouse on carrousel
+  carrousel.addEventListener("mousedown", (e) => {
+    mousePress = true;
+    posX = e.clientX;
+  });
 
-    const carrousel = landingPage.querySelector('.productos-carrusel')
-    const carrouselContenedor = landingPage.querySelector('.productos__contenedor')
-    let mousePress = false
-    let posX = 0
+  //deactivate when mouse up in all the page
+  landingPage.addEventListener("mouseup", () => {
+    mousePress = false;
+  });
 
-    seon.products.forEach(element=>{
-        const product = productHome(element)
-        product.onclick = () => {window.location.hash = `#/product/${product.dataset.id}`}
-        carrousel.appendChild(product)
-    })
+  //move the carrousel only if mouse if moving
+  carrousel.addEventListener("mousemove", (e) => {
+    if (mousePress) {
+      carrouselContenedor.scrollLeft += posX - e.clientX;
+      posX = e.clientX;
+    }
+  });
 
-
-    //activate for move when press the mouse on carrousel
-    carrousel.addEventListener('mousedown',(e)=>{
-        mousePress = true
-        posX = e.clientX
-    })
-
-    //deactivate when mouse up in all the page
-    landingPage.addEventListener('mouseup',()=>{
-        mousePress = false
-    })
-
-
-    //move the carrousel only if mouse if moving
-    carrousel.addEventListener('mousemove',(e)=>{
-        if(mousePress){
-            carrouselContenedor.scrollLeft += posX - e.clientX
-            posX = e.clientX
-        }
-    })
-
-
-
-
-    return landingPage
-}
+  return landingPage;
+};

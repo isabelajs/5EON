@@ -19,7 +19,7 @@ export default () => {
 
   const view = `<section id="intro" class ="home">
                         <h1 id="test" class="home__title">No más plástico</h1>
-                        <p class="home__text">Alargamos el tiempo de vida de utilización del plástico, transformandolo en hermosas piezas de decoración.</p>
+                        <p class="home__text">Alargamos el tiempo de vida de utilización del plástico, transformándolo en hermosas piezas de decoración.</p>
                     </section>
 
                     <section id="aboutUs" class="intro">
